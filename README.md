@@ -1,5 +1,5 @@
 # CSI1430-Tetris
-Final Project for Spring CSI1430, Tetris *plays type-c*
+Final Project for Spring CSI1430, Tetris *plays type-a*
 https://classnotes.ecs.baylor.edu/wiki/CSI_1430_Spring_2023_Group_Project
 
 ## What is this?
