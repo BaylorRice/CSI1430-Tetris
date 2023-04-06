@@ -8,7 +8,7 @@ This Git Repo contains the blood sweat and tears of people who don't really know
 ## What is Git?
 Git is a code storage "standard" that works on **branches**.
 You think think of it through this analogy:
-I want to work on a specific aspect of the code, so I copy the entire project into a new foler, work on the code, and remerge it back into the main folder.
+I want to work on a specific aspect of the code, so I copy the entire project into a new folder, work on the code, and remerge it back into the main folder.
 Imagine doing this, but with perfect version history, decriptions of the changes you made, and automatic merging. That's what Git is for. It's way better for code-collaboration than Google Drive or Box.
 
 ## How do I use GitHub?
