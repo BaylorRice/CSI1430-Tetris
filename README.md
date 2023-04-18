@@ -15,3 +15,7 @@ Imagine doing this, but with perfect version history, decriptions of the changes
 GitHub is setup very generally so that you can use your own workflow, but to keep it consistant,
 we will use GitHub's Workflow (https://docs.github.com/en/get-started/quickstart/github-flow) for this project.
 Any questions? Email me (Reese_ford1@baylor.edu), or message me on Teams. :)
+
+## How do I open the code
+Visual Studio: Open the Tetris.sln file in Source Code > Tetris
+Code::Blocks: Open the Tetris.vcxproj in Source Code > Tetris
