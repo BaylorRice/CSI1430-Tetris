@@ -56,3 +56,21 @@ void Tile::draw(SDL_Plotter& inPlot) {
     }
     prevLoc = getLoc();
 }
+
+void Tile::moveDown() {
+    point p = getLoc();
+    p.y++;
+    setLoc(p);
+}
+
+void Tile::moveRight() {
+    point p = getLoc();
+    p.x += getSize();
+    setLoc(p);
+}
+
+void Tile::moveLeft() {
+    point p = getLoc();
+    p.x -= getSize();
+    setLoc(p);
+}
