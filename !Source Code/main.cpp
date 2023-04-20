@@ -9,7 +9,8 @@
 
 #include <iostream>
 #include <cmath>
-#include "SDL Files/SDL_Plotter.h"
+#include "Constants.h"
+#include "SDL_Plotter.h"
 
 using namespace std;
 

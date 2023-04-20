@@ -136,6 +136,7 @@
     <ClCompile Include="..\..\!Source Code\SDL Files\SDL_Plotter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\!Source Code\header Files\Constants.h" />
     <ClInclude Include="..\..\!Source Code\SDL Files\SDL_Plotter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
