@@ -17,3 +17,15 @@ void Tile::setLoc(point inLoc) {
 void Tile::setColor(color inColor) {
     tile_color = inColor;
 }
+
+int Tile::getSize() const {
+    return size;
+}
+
+point Tile::getLoc() const {
+    return loc;
+}
+
+color Tile::getColor() const {
+    return tile_color;
+}
