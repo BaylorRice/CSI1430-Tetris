@@ -41,12 +41,12 @@ void Tile::draw(SDL_Plotter& inPlot) {
     int drawSize = getSize();
     point drawLoc = getLoc();
 
-    prevLoc = getLoc();
-
     // Erase
-    for (int r = 0; r < drawSize; r++) {
-        for (int c = 0; c < drawSize; c++) {
-            inPlot.plotPixel(prevLoc.x + c, prevLoc.y + r, BACKGROUND);
+    for (int i = 0; i < prevLoc.size(); i++) {
+        for (int r = 0; r < drawSize; r++) {
+            for (int c = 0; c < drawSize; c++) {
+                inPlot.plotPixel(prevLoc.at(i).x + c, prevLoc.at(i).y + r, BACKGROUND);
+            }
         }
     }
     
@@ -60,11 +60,12 @@ void Tile::draw(SDL_Plotter& inPlot) {
             inPlot.plotPixel(drawLoc.x + c, drawLoc.y + r, currentCol);
         }
     }
-    prevLoc = getLoc();
+    prevLoc.clear();
 }
 
 void Tile::moveDown() {
     point p = getLoc();
+    prevLoc.push_back(getLoc());
     if (p.y < NUM_ROW - getSize()) {
         p.y++;
     }
@@ -73,6 +74,7 @@ void Tile::moveDown() {
 
 void Tile::moveRight() {
     point p = getLoc();
+    prevLoc.push_back(getLoc());
     if (p.x < NUM_COL - getSize()) {
         p.x += getSize();
     }
@@ -81,6 +83,7 @@ void Tile::moveRight() {
 
 void Tile::moveLeft() {
     point p = getLoc();
+    prevLoc.push_back(getLoc());
     if (p.x > 0) {
         p.x -= getSize();
     }

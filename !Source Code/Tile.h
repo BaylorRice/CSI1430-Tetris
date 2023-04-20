@@ -8,7 +8,8 @@ class Tile {
     private:
     int size;
     color tile_color;
-    point loc, prevLoc;
+    point loc;
+    vector<point> prevLoc;
 
     public:
     Tile();
