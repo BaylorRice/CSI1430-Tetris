@@ -29,3 +29,30 @@ point Tile::getLoc() const {
 color Tile::getColor() const {
     return tile_color;
 }
+
+void Tile::draw(SDL_Plotter& inPlot) {
+    color currentCol;
+    int drawSize = getSize();
+    point drawLoc = getLoc();
+
+    prevLoc = getLoc();
+
+    // Erase
+    for (int r = 0; r < drawSize; r++) {
+        for (int c = 0; c < drawSize; c++) {
+            inPlot.plotPixel(prevLoc.x + c, prevLoc.y + r, BACKGROUND);
+        }
+    }
+    
+    // Draw
+    for (int r = 0; r < drawSize; r++) {
+        for (int c = 0; c < drawSize; c++) {
+            currentCol = tile_color;
+            if (r == 0 or c == 0 or r == drawSize - 1 or c == drawSize - 1) {
+                currentCol = BLACK;
+            }
+            inPlot.plotPixel(drawLoc.x + c, drawLoc.y + r, currentCol);
+        }
+    }
+    prevLoc = getLoc();
+}

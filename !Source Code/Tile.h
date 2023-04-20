@@ -21,7 +21,7 @@ class Tile {
     point getLoc() const;
     color getColor() const;
 
-    void draw(SDL_Plotter&) const;
+    void draw(SDL_Plotter&);
 
     void moveDown();
     void moveRight();
