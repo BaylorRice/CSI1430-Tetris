@@ -17,5 +17,5 @@ we will use GitHub's Workflow (https://docs.github.com/en/get-started/quickstart
 Any questions? Email me (Reese_ford1@baylor.edu), or message me on Teams. :)
 
 ## How do I open the code
-Visual Studio: Open the Tetris.sln file in Source Code > Tetris\
-Code::Blocks: Open the Tetris.vcxproj in Source Code > Tetris
+Visual Studio: In the folder Visual Studio > Tetris_VS, open the Tetris_VS.sln file
+Code Blocks: In the folder Code Blocks > Tetris_CB, open the Tetris_CB.cbp file
