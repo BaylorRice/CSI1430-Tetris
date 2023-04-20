@@ -11,9 +11,7 @@ class Tile {
     point loc, prevLoc;
 
     public:
-    Tile();
-    Tile(int);
-    Tile(int, color);
+    Tile(int, color, point);
 
     void setSize(int);
     void setLoc(point);
