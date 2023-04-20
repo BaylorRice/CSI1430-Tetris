@@ -73,12 +73,16 @@ void Tile::moveDown() {
 
 void Tile::moveRight() {
     point p = getLoc();
-    p.x += getSize();
+    if (p.x < NUM_COL - getSize()) {
+        p.x += getSize();
+    }
     setLoc(p);
 }
 
 void Tile::moveLeft() {
     point p = getLoc();
-    p.x -= getSize();
+    if (p.x > 0) {
+        p.x -= getSize();
+    }
     setLoc(p);
 }
