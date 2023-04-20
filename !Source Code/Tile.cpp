@@ -1,5 +1,11 @@
 #include "Tile.h"
 
+Tile::Tile() {
+    size = 50;
+    tile_color = YELLOW;
+    loc = point(0, 0);
+}
+
 Tile::Tile(int inSize = 50, color inColor = YELLOW, point inLoc = point(0,0)) {
     size = inSize;
     tile_color = inColor;

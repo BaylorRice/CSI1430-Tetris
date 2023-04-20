@@ -12,6 +12,8 @@
 #include "Constants.h"
 #include "SDL_Plotter.h"
 
+#include "Tile.h"
+
 using namespace std;
 
 int main(int argc, char** argv) {
@@ -19,7 +21,7 @@ int main(int argc, char** argv) {
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     char key;
-    tile square;
+    Tile square();
 
     while (!g.getQuit()) {
 
