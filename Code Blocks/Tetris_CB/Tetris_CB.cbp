@@ -33,8 +33,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="../../!Source Code/Constants.h" />
 		<Unit filename="../../!Source Code/SDL Files/SDL_Plotter.cpp" />
 		<Unit filename="../../!Source Code/SDL Files/SDL_Plotter.h" />
+		<Unit filename="../../!Source Code/Tile.cpp" />
+		<Unit filename="../../!Source Code/Tile.h" />
 		<Unit filename="../../!Source Code/main.cpp" />
 		<Extensions />
 	</Project>
