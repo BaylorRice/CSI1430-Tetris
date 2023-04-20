@@ -14,11 +14,11 @@
 using namespace std;
 
 const int XSIZE = 500;
-const int YSIZE = 500;
+const int YSIZE = 750;
 
 int main(int argc, char** argv) {
 
-    SDL_Plotter g(XSIZE, YSIZE);
+    SDL_Plotter g(YSIZE, XSIZE);
     while (!g.getQuit()) {
 
         // Code Here...
