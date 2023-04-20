@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     char key;
-    Tile square();
+    Tile square;
 
     while (!g.getQuit()) {
 
@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
             }
         }
         square.draw(g);
-        square.move();
+        square.moveDown();
 
         g.update();
         g.Sleep(20);
