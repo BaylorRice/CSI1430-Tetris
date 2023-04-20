@@ -19,4 +19,3 @@ Any questions? Email me (Reese_ford1@baylor.edu), or message me on Teams. :)
 ## How do I open the code
 Visual Studio: In the folder Visual Studio > Tetris_VS, open the Tetris_VS.sln file
 Code Blocks: In the folder Code Blocks > Tetris_CB, open the Tetris_CB.cbp file
-
