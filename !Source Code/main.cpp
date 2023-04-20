@@ -19,11 +19,26 @@ const int YSIZE = 750;
 int main(int argc, char** argv) {
 
     SDL_Plotter g(YSIZE, XSIZE);
+
+    char key;
+    tile square;
+
     while (!g.getQuit()) {
 
-        // Code Here...
+        if (g.kbhit()) {
+            key = g.getKey();
+            switch (toupper(key)) {
+                case RIGHT_ARROW: square.moveRight();
+                    break;
+                case LEFT_ARROW: square.moveLeft();
+                    break;
+            }
+        }
+        square.draw(g);
+        square.move();
 
         g.update();
+        g.Sleep(20);
     }
 
     return 0;
