@@ -65,7 +65,9 @@ void Tile::draw(SDL_Plotter& inPlot) {
 
 void Tile::moveDown() {
     point p = getLoc();
-    p.y++;
+    if (p.y < NUM_ROW - getSize()) {
+        p.y++;
+    }
     setLoc(p);
 }
 
