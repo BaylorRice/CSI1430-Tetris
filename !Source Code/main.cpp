@@ -23,7 +23,12 @@ int main(int argc, char** argv) {
     char key;
     Tile square;
 
-    while (!g.getQuit()) {
+    while (!g.getQuit()) { // ESC
+
+        //if (square.hitFloor()) {
+        //    square.detach() // Detach all tiles from the current block
+        //    Tile square; // Somehow create new block if existing block is at bottom
+        //}
 
         if (g.kbhit()) {
             key = g.getKey();
@@ -32,10 +37,19 @@ int main(int argc, char** argv) {
                     break;
                 case LEFT_ARROW: square.moveLeft();
                     break;
+                // case SPACE: square.rotateClock();
+                // case LEFT_CTRL: sqaure.rotateCounterClock();
+                // case DOWN_ARROW: square.drop();
+                // MAYBE: case RIGHT_SHIFT square.hold(); // "Hold" the current tile and spawn the next one
             }
         }
         square.draw(g);
         square.moveDown();
+
+        //if (square.hitFloor()) {
+        //    // Check all rows for complete-ness
+        //    // This I have no idea how to do
+        //}
 
         g.update();
         g.Sleep(20);
