@@ -10,6 +10,7 @@ class Tile {
     color tile_color;
     point loc;
     vector<point> prevLoc;
+    bool isDelete = false;
 
     public:
     Tile();
@@ -22,16 +23,20 @@ class Tile {
     int getSize() const;
     point getLoc() const;
     color getColor() const;
+    bool isDeleted() const;
 
     void draw(SDL_Plotter&);
 
     void moveDown(vector<Tile>& others);
+    void moveDownLine(vector<Tile>& others);
     void snapToBottom(vector<Tile>& others);
 
-    void moveToMouse(point mouseLoc);
+    void strafeToMouse(point mouseLoc);
 
     bool atBottom() const;
     bool sitting(vector<Tile>& others) const;
+
+    void remove(SDL_Plotter& g);
 
     /*void moveRight();
     void moveLeft();*/

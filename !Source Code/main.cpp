@@ -17,6 +17,8 @@
 
 using namespace std;
 
+void lineClear(vector<Tile>& others, SDL_Plotter& g);
+
 int main(int argc, char** argv) {
 
     SDL_Plotter g(NUM_ROW, NUM_COL);
@@ -48,11 +50,12 @@ int main(int argc, char** argv) {
                 }
             }
             g.getMouseLocation(mouse.x, mouse.y);
-            squares[count].moveToMouse(mouse);
+            squares[count].strafeToMouse(mouse);
         }
 
         squares[count].moveDown(squares);
         squares[count].draw(g);
+        lineClear(squares, g);
 
         g.update();
         g.Sleep(20);
@@ -67,19 +70,36 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-// No Man's Land
+void lineClear(vector<Tile>& others, SDL_Plotter& g) {
+    int lineCounts[16] = { 0 };
+    int currentY = 1000;
+    // Determining what lines are full
+    for (int i = 0; i < others.size(); i++) {
+        int currentY = others.at(i).getLoc().y;
+        lineCounts[currentY / 50]++;
+    }
 
-/// Keyboard Movement of Blocks
-//if (g.kbhit()) {
-//    key = g.getKey();
-//    switch (toupper(key)) {
-//        case RIGHT_ARROW: square.moveRight();
-//            break;
-//        case LEFT_ARROW: square.moveLeft();
-//            break;
-//        // case SPACE: square.rotateClock();
-//        // case LEFT_CTRL: sqaure.rotateCounterClock();
-//        // case DOWN_ARROW: square.drop();
-//        // MAYBE: case RIGHT_SHIFT square.hold(); // "Hold" the current tile and spawn the next one
-//    }
-//}
+    // Removing tiles in full lines
+    for (int c = 15; c >= 0; c--) {
+        if (lineCounts[c] == 12) {
+            for (int i = 0; i < others.size(); i++) {
+                currentY = others.at(i).getLoc().y;
+                if (currentY == c * 50) {
+                    others.at(i).remove(g);
+                }
+            }
+            // Moving Everything else down
+            for (int i = 0; i < others.size(); i++) {
+                if (others.at(i).isDeleted() == false) {
+                    others.at(i).moveDownLine(others);
+                }
+            }
+            for (int i = 0; i < others.size(); i++) {
+                if (others.at(i).isDeleted() == false) {
+                    others.at(i).draw(g);
+                }
+            }
+        }
+    }
+
+}

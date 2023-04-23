@@ -17,6 +17,7 @@ void Tile::setSize(int inSize) {
 }
 
 void Tile::setLoc(point inLoc) {
+    prevLoc.push_back(getLoc());
     loc = inLoc;
 }
 
@@ -34,6 +35,10 @@ point Tile::getLoc() const {
 
 color Tile::getColor() const {
     return tile_color;
+}
+
+bool Tile::isDeleted() const {
+    return isDelete;
 }
 
 void Tile::draw(SDL_Plotter& inPlot) {
@@ -72,6 +77,17 @@ void Tile::moveDown(vector<Tile>& others) {
     setLoc(p);
 }
 
+void Tile::moveDownLine(vector<Tile>& others) {
+    for (int i = 0; i < 50; i++) {
+        point p = getLoc();
+        prevLoc.push_back(getLoc());
+        if (!atBottom() && !sitting(others)) {
+            p.y++;
+        }
+        setLoc(p);
+    }
+}
+
 void Tile::snapToBottom(vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(getLoc());
@@ -99,7 +115,7 @@ void Tile::snapToBottom(vector<Tile>& others) {
 //    setLoc(p);
 //}
 
-void Tile::moveToMouse(point mouseLoc) {
+void Tile::strafeToMouse(point mouseLoc) {
     point p = getLoc();
     prevLoc.push_back(getLoc());
     if (mouseLoc.x >= 551) {
@@ -164,4 +180,11 @@ bool Tile::sitting(vector<Tile>& others) const{
         }
     }
     return sit;
+}
+
+void Tile::remove(SDL_Plotter& g) {
+    point p(0, 900);
+    setLoc(p);
+    draw(g);
+    isDelete = true;
 }
