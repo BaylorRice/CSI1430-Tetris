@@ -72,13 +72,13 @@ void Tile::moveDown(vector<Tile>& others) {
     setLoc(p);
 }
 
-void Tile::moveDownFaster(vector<Tile>& others) {
+void Tile::snapToBottom(vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(getLoc());
-    if (!atBottom() && !sitting(others)) {
-        p.y += getSize();
+    while (!atBottom() && !sitting(others)) {
+        p.y++;
+        setLoc(p);
     }
-    setLoc(p);
 }
 
 //void Tile::moveRight() {

@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
                         break;
                     case LEFT_ARROW: block.rotateOunterClock();
                         break;*/
-                    case DOWN_ARROW: squares[count].moveDownFaster(squares);
+                    case DOWN_ARROW: squares[count].snapToBottom(squares);
                         break;
                 }
             }
@@ -57,6 +57,7 @@ int main(int argc, char** argv) {
         g.update();
         g.Sleep(20);
 
+        // Is Tile finished moving?
         if ((squares[count].atBottom()) || (squares[count].sitting(squares))) {
             squares.emplace_back();
             count++;
