@@ -26,10 +26,14 @@ class Tile {
     void draw(SDL_Plotter&);
 
     void moveDown();
-    void moveRight();
-    void moveLeft();
+    void moveDownFaster();
 
     void moveToMouse(point mouseLoc);
+
+    bool atBottom();
+
+    /*void moveRight();
+    void moveLeft();*/
 };
 
 #endif TILE_H_

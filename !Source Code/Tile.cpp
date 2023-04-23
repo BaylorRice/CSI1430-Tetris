@@ -66,29 +66,38 @@ void Tile::draw(SDL_Plotter& inPlot) {
 void Tile::moveDown() {
     point p = getLoc();
     prevLoc.push_back(getLoc());
-    if (p.y < NUM_ROW - getSize()) {
+    if (!atBottom()) {
         p.y++;
     }
     setLoc(p);
 }
 
-void Tile::moveRight() {
+void Tile::moveDownFaster() {
     point p = getLoc();
     prevLoc.push_back(getLoc());
-    if (p.x < NUM_COL - getSize()) {
-        p.x += getSize();
+    if (p.y < NUM_ROW - getSize()) {
+        p.y += getSize();
     }
     setLoc(p);
 }
 
-void Tile::moveLeft() {
-    point p = getLoc();
-    prevLoc.push_back(getLoc());
-    if (p.x > 0) {
-        p.x -= getSize();
-    }
-    setLoc(p);
-}
+//void Tile::moveRight() {
+//    point p = getLoc();
+//    prevLoc.push_back(getLoc());
+//    if (p.x < NUM_COL - getSize()) {
+//        p.x += getSize();
+//    }
+//    setLoc(p);
+//}
+//
+//void Tile::moveLeft() {
+//    point p = getLoc();
+//    prevLoc.push_back(getLoc());
+//    if (p.x > 0) {
+//        p.x -= getSize();
+//    }
+//    setLoc(p);
+//}
 
 void Tile::moveToMouse(point mouseLoc) {
     point p = getLoc();
@@ -133,4 +142,12 @@ void Tile::moveToMouse(point mouseLoc) {
         p.x = 0;
     }
     setLoc(p);
+}
+
+bool Tile::atBottom() {
+    bool atBottom = false;
+    if (getLoc().y >= NUM_ROW - getSize()) {
+        atBottom = true;
+    }
+    return atBottom;
 }

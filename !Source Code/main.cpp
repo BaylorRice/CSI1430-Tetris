@@ -22,6 +22,7 @@ int main(int argc, char** argv) {
 
     char key;
     Tile square;
+    //Block_leftL block;
     point mouse;
 
     while (!g.getQuit()) { // ESC
@@ -31,29 +32,24 @@ int main(int argc, char** argv) {
         //    Tile square; // Somehow create new block if existing block is at bottom
         //}
 
-        //if (g.kbhit()) {
-        //    key = g.getKey();
-        //    switch (toupper(key)) {
-        //        case RIGHT_ARROW: square.moveRight();
-        //            break;
-        //        case LEFT_ARROW: square.moveLeft();
-        //            break;
-        //        // case SPACE: square.rotateClock();
-        //        // case LEFT_CTRL: sqaure.rotateCounterClock();
-        //        // case DOWN_ARROW: square.drop();
-        //        // MAYBE: case RIGHT_SHIFT square.hold(); // "Hold" the current tile and spawn the next one
-        //    }
-        //}
-        g.getMouseLocation(mouse.x, mouse.y);
+        if (!square.atBottom()) {
+            if (g.kbhit()) {
+                key = g.getKey();
+                switch (toupper(key)) {
+                    /*case RIGHT_ARROW: block.rotateClock();
+                        break;
+                    case LEFT_ARROW: block.rotateOunterClock();
+                        break;*/
+                    case DOWN_ARROW: square.moveDownFaster();
+                        break;
+                }
+            }
+            g.getMouseLocation(mouse.x, mouse.y);
+            square.moveToMouse(mouse);
+        }
 
-        square.draw(g);
-        square.moveToMouse(mouse);
         square.moveDown();
-
-        //if (square.hitFloor()) {
-        //    // Check all rows for complete-ness
-        //    // This I have no idea how to do
-        //}
+        square.draw(g);
 
         g.update();
         g.Sleep(20);
@@ -61,3 +57,20 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+
+// No Man's Land
+
+/// Keyboard Movement of Blocks
+//if (g.kbhit()) {
+//    key = g.getKey();
+//    switch (toupper(key)) {
+//        case RIGHT_ARROW: square.moveRight();
+//            break;
+//        case LEFT_ARROW: square.moveLeft();
+//            break;
+//        // case SPACE: square.rotateClock();
+//        // case LEFT_CTRL: sqaure.rotateCounterClock();
+//        // case DOWN_ARROW: square.drop();
+//        // MAYBE: case RIGHT_SHIFT square.hold(); // "Hold" the current tile and spawn the next one
+//    }
+//}
