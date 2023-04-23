@@ -89,3 +89,15 @@ void Tile::moveLeft() {
     }
     setLoc(p);
 }
+
+void Tile::moveToMouse(point mouseLoc) {
+    point p = getLoc();
+    prevLoc.push_back(getLoc());
+    if (mouseLoc.x < NUM_COL - getSize()) {
+        p.x = mouseLoc.x;
+    }
+    else if (mouseLoc.x > NUM_COL - getSize()) {
+        p.x = NUM_COL - getSize();
+    }
+    setLoc(p);
+}

@@ -28,6 +28,8 @@ class Tile {
     void moveDown();
     void moveRight();
     void moveLeft();
+
+    void moveToMouse(point mouseLoc);
 };
 
 #endif TILE_H_

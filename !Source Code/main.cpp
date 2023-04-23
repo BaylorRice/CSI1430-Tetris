@@ -22,6 +22,7 @@ int main(int argc, char** argv) {
 
     char key;
     Tile square;
+    point mouse;
 
     while (!g.getQuit()) { // ESC
 
@@ -30,20 +31,23 @@ int main(int argc, char** argv) {
         //    Tile square; // Somehow create new block if existing block is at bottom
         //}
 
-        if (g.kbhit()) {
-            key = g.getKey();
-            switch (toupper(key)) {
-                case RIGHT_ARROW: square.moveRight();
-                    break;
-                case LEFT_ARROW: square.moveLeft();
-                    break;
-                // case SPACE: square.rotateClock();
-                // case LEFT_CTRL: sqaure.rotateCounterClock();
-                // case DOWN_ARROW: square.drop();
-                // MAYBE: case RIGHT_SHIFT square.hold(); // "Hold" the current tile and spawn the next one
-            }
-        }
+        //if (g.kbhit()) {
+        //    key = g.getKey();
+        //    switch (toupper(key)) {
+        //        case RIGHT_ARROW: square.moveRight();
+        //            break;
+        //        case LEFT_ARROW: square.moveLeft();
+        //            break;
+        //        // case SPACE: square.rotateClock();
+        //        // case LEFT_CTRL: sqaure.rotateCounterClock();
+        //        // case DOWN_ARROW: square.drop();
+        //        // MAYBE: case RIGHT_SHIFT square.hold(); // "Hold" the current tile and spawn the next one
+        //    }
+        //}
+        g.getMouseLocation(mouse.x, mouse.y);
+
         square.draw(g);
+        square.moveToMouse(mouse);
         square.moveDown();
 
         //if (square.hitFloor()) {
