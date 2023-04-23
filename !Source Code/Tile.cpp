@@ -151,3 +151,17 @@ bool Tile::atBottom() {
     }
     return atBottom;
 }
+
+bool Tile::sitting(vector<Tile>& others) {
+    bool sit = false;
+    point loc = getLoc();
+    int size = getSize();
+    for (int i = 0; i < others.size() || sit; i++) {
+        if (loc.x == others.at(i).getLoc().x) {
+            if (loc.y + size == others.at(i).getLoc().y) {
+                sit = true;
+            }
+        }
+    }
+    return sit;
+}

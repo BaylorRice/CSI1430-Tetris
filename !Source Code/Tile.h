@@ -31,6 +31,7 @@ class Tile {
     void moveToMouse(point mouseLoc);
 
     bool atBottom();
+    bool sitting(vector<Tile>& others);
 
     /*void moveRight();
     void moveLeft();*/
