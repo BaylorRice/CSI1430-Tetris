@@ -63,19 +63,19 @@ void Tile::draw(SDL_Plotter& inPlot) {
     prevLoc.clear();
 }
 
-void Tile::moveDown() {
+void Tile::moveDown(vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(getLoc());
-    if (!atBottom()) {
+    if (!atBottom() && !sitting(others)) {
         p.y++;
     }
     setLoc(p);
 }
 
-void Tile::moveDownFaster() {
+void Tile::moveDownFaster(vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(getLoc());
-    if (p.y < NUM_ROW - getSize()) {
+    if (!atBottom() && !sitting(others)) {
         p.y += getSize();
     }
     setLoc(p);
@@ -156,7 +156,7 @@ bool Tile::sitting(vector<Tile>& others) {
     bool sit = false;
     point loc = getLoc();
     int size = getSize();
-    for (int i = 0; i < others.size() || sit; i++) {
+    for (int i = 0; i < others.size(); i++) {
         if (loc.x == others.at(i).getLoc().x) {
             if (loc.y + size == others.at(i).getLoc().y) {
                 sit = true;

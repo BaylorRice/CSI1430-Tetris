@@ -25,8 +25,8 @@ class Tile {
 
     void draw(SDL_Plotter&);
 
-    void moveDown();
-    void moveDownFaster();
+    void moveDown(vector<Tile>& others);
+    void moveDownFaster(vector<Tile>& others);
 
     void moveToMouse(point mouseLoc);
 

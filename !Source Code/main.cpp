@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
                         break;
                     case LEFT_ARROW: block.rotateOunterClock();
                         break;*/
-                    case DOWN_ARROW: squares[count].moveDownFaster();
+                    case DOWN_ARROW: squares[count].moveDownFaster(squares);
                         break;
                 }
             }
@@ -51,13 +51,13 @@ int main(int argc, char** argv) {
             squares[count].moveToMouse(mouse);
         }
 
-        squares[count].moveDown();
+        squares[count].moveDown(squares);
         squares[count].draw(g);
 
         g.update();
         g.Sleep(20);
 
-        if (squares[count].atBottom()) {
+        if ((squares[count].atBottom()) || (squares[count].sitting(squares))) {
             squares.emplace_back();
             count++;
         }
