@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <vector>
 #include "Constants.h"
 #include "SDL_Plotter.h"
 
@@ -21,7 +22,9 @@ int main(int argc, char** argv) {
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     char key;
-    Tile square;
+    vector<Tile> squares(1);
+    bool newSquare = true;
+    int count = 0;
     //Block_leftL block;
     point mouse;
 
@@ -32,7 +35,7 @@ int main(int argc, char** argv) {
         //    Tile square; // Somehow create new block if existing block is at bottom
         //}
 
-        if (!square.atBottom()) {
+        if (!squares[count].atBottom()) {
             if (g.kbhit()) {
                 key = g.getKey();
                 switch (toupper(key)) {
@@ -40,19 +43,24 @@ int main(int argc, char** argv) {
                         break;
                     case LEFT_ARROW: block.rotateOunterClock();
                         break;*/
-                    case DOWN_ARROW: square.moveDownFaster();
+                    case DOWN_ARROW: squares[count].moveDownFaster();
                         break;
                 }
             }
             g.getMouseLocation(mouse.x, mouse.y);
-            square.moveToMouse(mouse);
+            squares[count].moveToMouse(mouse);
         }
 
-        square.moveDown();
-        square.draw(g);
+        squares[count].moveDown();
+        squares[count].draw(g);
 
         g.update();
         g.Sleep(20);
+
+        if (squares[count].atBottom()) {
+            squares.emplace_back();
+            count++;
+        }
     }
 
     return 0;
