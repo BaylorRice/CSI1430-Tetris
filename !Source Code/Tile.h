@@ -13,7 +13,7 @@ class Tile {
 
     public:
     Tile();
-    Tile(int, color, point);
+    Tile(int, color, point); // int -> Size
 
     void setSize(int);
     void setLoc(point);
@@ -30,8 +30,8 @@ class Tile {
 
     void moveToMouse(point mouseLoc);
 
-    bool atBottom();
-    bool sitting(vector<Tile>& others);
+    bool atBottom() const;
+    bool sitting(vector<Tile>& others) const;
 
     /*void moveRight();
     void moveLeft();*/

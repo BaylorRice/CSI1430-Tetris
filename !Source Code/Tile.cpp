@@ -144,7 +144,7 @@ void Tile::moveToMouse(point mouseLoc) {
     setLoc(p);
 }
 
-bool Tile::atBottom() {
+bool Tile::atBottom() const {
     bool atBottom = false;
     if (getLoc().y >= NUM_ROW - getSize()) {
         atBottom = true;
@@ -152,7 +152,7 @@ bool Tile::atBottom() {
     return atBottom;
 }
 
-bool Tile::sitting(vector<Tile>& others) {
+bool Tile::sitting(vector<Tile>& others) const{
     bool sit = false;
     point loc = getLoc();
     int size = getSize();
