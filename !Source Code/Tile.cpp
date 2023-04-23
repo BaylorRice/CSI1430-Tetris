@@ -93,11 +93,44 @@ void Tile::moveLeft() {
 void Tile::moveToMouse(point mouseLoc) {
     point p = getLoc();
     prevLoc.push_back(getLoc());
-    if (mouseLoc.x < NUM_COL - getSize()) {
-        p.x = mouseLoc.x;
+    if (mouseLoc.x >= 551) {
+        p.x = 550;
     }
-    else if (mouseLoc.x > NUM_COL - getSize()) {
-        p.x = NUM_COL - getSize();
+    else if (mouseLoc.x >= 501) {
+        p.x = 500;
+    }
+    else if (mouseLoc.x >= 451) {
+        p.x = 450;
+    }
+    else if (mouseLoc.x >= 401) {
+        p.x = 400;
+    }
+    else if (mouseLoc.x >= 351) {
+        p.x = 350;
+    }
+    else if (mouseLoc.x >= 301) {
+        p.x = 300;
+    }
+    else if (mouseLoc.x >= 251) {
+        p.x = 250;
+    }
+    else if (mouseLoc.x >= 201) {
+        p.x = 200;
+    }
+    else if (mouseLoc.x >= 151) {
+        p.x = 150;
+    }
+    else if (mouseLoc.x >= 101) {
+        p.x = 100;
+    }
+    else if (mouseLoc.x >= 51) {
+        p.x = 50;
+    }
+    else if (mouseLoc.x >= 1) {
+        p.x = 0;
+    }
+    else {
+        p.x = 0;
     }
     setLoc(p);
 }
