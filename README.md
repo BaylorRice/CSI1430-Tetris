@@ -25,4 +25,9 @@ XCode: In the folder XCODE > Tetris_XC, open the Tetris_XC.xcodeproj file
 Create the file in the !Source Code Folder either by creating a text document and renaming it (make sure to rename the extension), or, using your IDE of choice, make the file, but be sure it creates the file in !Source Code
 
 ## There is a file in !Source Code that my IDE is not aware of. Help!
-Visual Studio: Right Click the folder the file belongs in (CPP Files or Header Files)
+Visual Studio: Right Click the folder the file belongs in (CPP Files or Header Files), and select "Add Existing File". Navigate to the !Source Code folder and add the file you need. Make sure to save the solution and commit the changes
+Code Blocks: Right Click the Project file, and select "Add Files...". Navigate to the !Source Code Folder and select the files you need. Make sure to save the project and commit your changes.
+XCode: Control+Click the project (The very first "folder" in your navigation pane) and select Add Files. Navigate to !Source Code Folder and select the files you need. Before clicking Okay, make sure that "Copy Files" is NOT selected, and "Create Folder References" is selected. Now you can hit Okay, and drag the file into the folder (CPP Files or Header Files) based on it's type.
+
+If you ever have any questions, just email me (Reese_ford1@baylor), text or call me (254 651 9259), or send me a message in Teams!
+:)
