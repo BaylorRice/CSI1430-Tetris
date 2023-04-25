@@ -42,6 +42,7 @@ class Block_LeftL {
     void moveDown(vector<Tile>& others);
     void snapToBottom(vector<Tile>& others);
 
+    int snapLateral(int in, int min, int max, int interval); // ROT
     void strafeToMouse(point mouseLoc, vector<Tile>& others); // ROT
 
     bool atBottom(); // ROT

@@ -115,6 +115,19 @@ void Block_LeftL::snapToBottom(vector<Tile>& others) {
     }
 }
 
+int Block_LeftL::snapLateral(int in, int min, int max, int interval) {
+    int numIntervals = round((max - min) / interval);
+    int snappedValue = round((in - min) / interval);
+
+    if (snappedValue < min) {
+        snappedValue = min;
+    }
+    else if (snappedValue > max) {
+        snappedValue = max;
+    }
+    return snappedValue;
+}
+
 void Block_LeftL::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(p);
