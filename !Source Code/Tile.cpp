@@ -81,9 +81,7 @@ void Tile::moveDownLine(vector<Tile>& others) {
     for (int i = 0; i < 50; i++) {
         point p = getLoc();
         prevLoc.push_back(getLoc());
-        if (!atBottom() && !sitting(others)) {
-            p.y++;
-        }
+        p.y++;
         setLoc(p);
     }
 }

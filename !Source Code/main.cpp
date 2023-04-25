@@ -25,31 +25,38 @@ int main(int argc, char** argv) {
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     char key;
-    Block_LeftL block;
-    vector<Tile> squares(1);
-    bool newSquare = true;
+    vector<Block_LeftL> blocks(1);
+    vector<Tile> squares(0);
+    bool nextBlockReady = true;
     int count = 0;
-    //Block_leftL block;
     point mouse;
 
     while (!g.getQuit()) { // ESC
 
         if (g.kbhit()) {
             switch (toupper(g.getKey())) {
-                case DOWN_ARROW: block.snapToBottom(squares);
+                case DOWN_ARROW: blocks.back().snapToBottom(squares);
                     break;
-                case LEFT_ARROW: block.rotateCounterClock(squares);
+                case LEFT_ARROW: blocks.back().rotateCounterClock(squares);
                     break;
-                case RIGHT_ARROW: block.rotateClock(squares);
+                case RIGHT_ARROW: blocks.back().rotateClock(squares);
                     break;
             }
         }
 
         g.getMouseLocation(mouse.x, mouse.y);
-        block.strafeToMouse(mouse, squares);
-        block.moveDown(squares);
-        block.draw(g);
-        lineClear(squares, g);
+        blocks.back().strafeToMouse(mouse, squares);
+        blocks.back().moveDown(squares);
+        if (blocks.back().atBottom() || blocks.back().sitting(squares)) {
+            blocks.back().remove(squares, g);
+            blocks.back().draw(g);
+            blocks.emplace_back();
+            lineClear(squares, g);
+            for (size_t i = 0; i < squares.size(); i++) {
+                squares.at(i).draw(g);
+            }
+        }
+        blocks.back().draw(g);
 
         g.update();
         g.Sleep(20);

@@ -335,3 +335,13 @@ bool Block_LeftL::sitting(vector<Tile>& others) {
 
     return sit;
 }
+
+void Block_LeftL::remove(vector<Tile>& others, SDL_Plotter& g) {
+    others.push_back(Tile(SIZE, YELLOW, a.getLoc()));
+    others.push_back(Tile(SIZE, YELLOW, b.getLoc()));
+    others.push_back(Tile(SIZE, YELLOW, c.getLoc()));
+    others.push_back(Tile(SIZE, YELLOW, d.getLoc()));
+
+    setLoc(point(0, 900));
+    draw(g);
+}
