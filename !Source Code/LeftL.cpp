@@ -117,7 +117,7 @@ void Block_LeftL::snapToBottom(vector<Tile>& others) {
 
 int Block_LeftL::snapLateral(int in, int min, int max, int interval) {
     int numIntervals = round((max - min) / interval);
-    int snappedValue = round((in - min) / interval);
+    int snappedValue = round((in - min) / interval) * interval + min;
 
     if (snappedValue < min) {
         snappedValue = min;
@@ -132,151 +132,15 @@ void Block_LeftL::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(p);
     if (!atBottom() && !sitting(others)) {
-        if (rotation == 1) {
-            if (mouseLoc.x >= 551) {
-                p.x = 550;
-            }
-            else if (mouseLoc.x >= 501) {
-                p.x = 500;
-            }
-            else if (mouseLoc.x >= 451) {
-                p.x = 450;
-            }
-            else if (mouseLoc.x >= 401) {
-                p.x = 400;
-            }
-            else if (mouseLoc.x >= 351) {
-                p.x = 350;
-            }
-            else if (mouseLoc.x >= 301) {
-                p.x = 300;
-            }
-            else if (mouseLoc.x >= 251) {
-                p.x = 250;
-            }
-            else if (mouseLoc.x >= 201) {
-                p.x = 200;
-            }
-            else if (mouseLoc.x >= 151) {
-                p.x = 150;
-            }
-            else if (mouseLoc.x >= 101) {
-                p.x = 100;
-            }
-            else if (mouseLoc.x >= 51) {
-                p.x = 50;
-            }
-            else {
-                p.x = 50;
-            }
+        // Check for Side to Side Collision
+        if ((rotation == 1) || (rotation == 3)) {
+            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
         }
         else if (rotation == 2) {
-            if (mouseLoc.x >= 501) {
-                p.x = 500;
-            }
-            else if (mouseLoc.x >= 451) {
-                p.x = 450;
-            }
-            else if (mouseLoc.x >= 401) {
-                p.x = 400;
-            }
-            else if (mouseLoc.x >= 351) {
-                p.x = 350;
-            }
-            else if (mouseLoc.x >= 301) {
-                p.x = 300;
-            }
-            else if (mouseLoc.x >= 251) {
-                p.x = 250;
-            }
-            else if (mouseLoc.x >= 201) {
-                p.x = 200;
-            }
-            else if (mouseLoc.x >= 151) {
-                p.x = 150;
-            }
-            else if (mouseLoc.x >= 101) {
-                p.x = 100;
-            }
-            else if (mouseLoc.x >= 51) {
-                p.x = 50;
-            }
-            else {
-                p.x = 50;
-            }
-        }
-        else if (rotation == 3) {
-            if (mouseLoc.x >= 551) {
-                p.x = 550;
-            }
-            else if (mouseLoc.x >= 501) {
-                p.x = 500;
-            }
-            else if (mouseLoc.x >= 451) {
-                p.x = 450;
-            }
-            else if (mouseLoc.x >= 401) {
-                p.x = 400;
-            }
-            else if (mouseLoc.x >= 351) {
-                p.x = 350;
-            }
-            else if (mouseLoc.x >= 301) {
-                p.x = 300;
-            }
-            else if (mouseLoc.x >= 251) {
-                p.x = 250;
-            }
-            else if (mouseLoc.x >= 201) {
-                p.x = 200;
-            }
-            else if (mouseLoc.x >= 151) {
-                p.x = 150;
-            }
-            else if (mouseLoc.x >= 101) {
-                p.x = 100;
-            }
-            else if (mouseLoc.x >= 51) {
-                p.x = 50;
-            }
-            else {
-                p.x = 50;
-            }
+            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - (2 * SIZE), SIZE);
         }
         else if (rotation == 4) {
-            if (mouseLoc.x >= 551) {
-                p.x = 550;
-            }
-            else if (mouseLoc.x >= 501) {
-                p.x = 500;
-            }
-            else if (mouseLoc.x >= 451) {
-                p.x = 450;
-            }
-            else if (mouseLoc.x >= 401) {
-                p.x = 400;
-            }
-            else if (mouseLoc.x >= 351) {
-                p.x = 350;
-            }
-            else if (mouseLoc.x >= 301) {
-                p.x = 300;
-            }
-            else if (mouseLoc.x >= 251) {
-                p.x = 250;
-            }
-            else if (mouseLoc.x >= 201) {
-                p.x = 200;
-            }
-            else if (mouseLoc.x >= 151) {
-                p.x = 150;
-            }
-            else if (mouseLoc.x >= 101) {
-                p.x = 100;
-            }
-            else {
-                p.x = 100;
-            }
+            p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - SIZE, SIZE);
         }
     }
     setLoc(p);
