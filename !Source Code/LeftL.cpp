@@ -1,3 +1,12 @@
+/*
+* Authors: Reese Ford, ...
+* Assignment Title: Group Project - Tetris
+* Assignment Description: INSERT DESCRIPTION
+* Due Date: INSERT DUE DATE
+* Date Created: ...
+* Date Last Modified: 04/24/2023
+*/
+
 #include "LeftL.h"
 
 Block_LeftL::Block_LeftL() {
