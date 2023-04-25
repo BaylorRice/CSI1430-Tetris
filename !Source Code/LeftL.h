@@ -21,7 +21,7 @@ class Block_LeftL {
     vector<point> prevLoc;
     Tile a, b, c, d;
     color block_color;
-    int rotation = 4;
+    int rotation = 1;
     bool isDelete = false;
 
     public:

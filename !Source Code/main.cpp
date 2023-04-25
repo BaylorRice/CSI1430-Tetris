@@ -38,6 +38,10 @@ int main(int argc, char** argv) {
             switch (toupper(g.getKey())) {
                 case DOWN_ARROW: block.snapToBottom(squares);
                     break;
+                case LEFT_ARROW: block.rotateCounterClock();
+                    break;
+                case RIGHT_ARROW: block.rotateClock();
+                    break;
             }
         }
 
