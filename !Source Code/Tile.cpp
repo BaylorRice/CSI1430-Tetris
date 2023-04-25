@@ -3,7 +3,7 @@
 Tile::Tile() {
     size = SIZE;
     tile_color = YELLOW;
-    loc = point(0, 0);
+    loc = point((NUM_COL / 2) - (SIZE / 2), SIZE);
 }
 
 Tile::Tile(int inSize = SIZE, color inColor = YELLOW, point inLoc = point(0,0)) {
@@ -70,7 +70,7 @@ void Tile::draw(SDL_Plotter& inPlot) {
 
 void Tile::moveDown(vector<Tile>& others) {
     point p = getLoc();
-    prevLoc.push_back(getLoc());
+    prevLoc.push_back(p);
     if (!atBottom() && !sitting(others)) {
         p.y++;
     }

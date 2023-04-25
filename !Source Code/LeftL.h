@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include "Tile.h"
+#include "SDL_Plotter.h"
 using namespace std;
 
 #ifndef LEFTL_H_INCLUDED
@@ -20,23 +21,33 @@ class Block_LeftL {
     vector<point> prevLoc;
     Tile a, b, c, d;
     color block_color;
+    int rotate = 1;
     bool isDelete = false;
 
     public:
     Block_LeftL();
     Block_LeftL(point inLoc, color inColor);
 
+    void setLoc(point inLoc);
+    void setColor(color inColor);
+
+    point getLoc() const;
+    color getColor() const;
+
+    void draw(SDL_Plotter& g);
+
     void rotateClock();
     void rotateCounterClock();
 
     void moveDown(vector<Tile>& others);
+    void snapToBottom(vector<Tile>& others);
 
     void strafeToMouse(point mouseLoc);
 
-    void atBottom();
-    void sitting(vector<Tile>& others);
+    bool atBottom();
+    bool sitting(vector<Tile>& others);
 
-    void remove(vector<Tile>& others);
+    void remove(vector<Tile>& others); // Removes the Tiles from this object's "supervision"
 };
 
 #endif // LEFTL_H_INCLUDED
