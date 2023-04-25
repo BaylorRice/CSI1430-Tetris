@@ -21,7 +21,7 @@ class Block_LeftL {
     vector<point> prevLoc;
     Tile a, b, c, d;
     color block_color;
-    int rotation = 2;
+    int rotation = 3;
     bool isDelete = false;
 
     public:
@@ -42,13 +42,14 @@ class Block_LeftL {
     void moveDown(vector<Tile>& others);
     void snapToBottom(vector<Tile>& others);
 
+    void remove(vector<Tile>& others); // Removes the Tiles from this object's "supervision"
+
     // All below this line are ROTATIONALY DEPENDENT --------------------------------------------------------------------------------
     void strafeToMouse(point mouseLoc);
 
     bool atBottom();
     bool sitting(vector<Tile>& others);
 
-    void remove(vector<Tile>& others); // Removes the Tiles from this object's "supervision"
 };
 
 #endif // LEFTL_H_INCLUDED
