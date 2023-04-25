@@ -25,28 +25,33 @@ class Block_LeftL {
     bool isDelete = false;
 
     public:
+    // Specific Constructors
     Block_LeftL();
     Block_LeftL(point inLoc, int inRot, color inColor);
 
-    void setLoc(point inLoc);
+    // Block-Universal Functions
     void setColor(color inColor);
 
-    point getLoc() const; // ROT
+    point getLoc() const;
     color getColor() const;
 
     void draw(SDL_Plotter& g);
 
-    void rotateClock(vector<Tile>& others); // ROT
-    void rotateCounterClock(vector<Tile>& others); // ROT
+    void rotateClock(vector<Tile>& others);
+    void rotateCounterClock(vector<Tile>& others);
 
     void moveDown(vector<Tile>& others);
     void snapToBottom(vector<Tile>& others);
 
-    int snapLateral(int in, int min, int max, int interval); // ROT
-    void strafeToMouse(point mouseLoc, vector<Tile>& others); // ROT
+    int snapLateral(int in, int min, int max, int interval);
 
-    bool atBottom(); // ROT
-    bool sitting(vector<Tile>& others); // ROT
+    // LeftL-Specific Functions
+    void setLoc(point inLoc);
+
+    void strafeToMouse(point mouseLoc, vector<Tile>& others);
+
+    bool atBottom();
+    bool sitting(vector<Tile>& others);
 
     void remove(vector<Tile>& others, SDL_Plotter& g); // Removes the Tiles from this object's "supervision"
 
