@@ -70,6 +70,20 @@ void Block_LeftL::draw(SDL_Plotter& g) {
     prevLoc.clear();
 }
 
+void Block_LeftL::rotateClock() {
+    rotation++;
+    if (rotation > 4) {
+        rotation = 1;
+    }
+}
+
+void Block_LeftL::rotateCounterClock() {
+    rotation--;
+    if (rotation < 1) {
+        rotation = 4;
+    }
+}
+
 void Block_LeftL::moveDown(vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(p);
