@@ -40,6 +40,7 @@ int main(int argc, char** argv) {
                     break;
             }
         }
+
         g.getMouseLocation(mouse.x, mouse.y);
         block.strafeToMouse(mouse);
         block.moveDown(squares);

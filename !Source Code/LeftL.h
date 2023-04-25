@@ -21,12 +21,12 @@ class Block_LeftL {
     vector<point> prevLoc;
     Tile a, b, c, d;
     color block_color;
-    int rotate = 1;
+    int rotation = 2;
     bool isDelete = false;
 
     public:
     Block_LeftL();
-    Block_LeftL(point inLoc, color inColor);
+    Block_LeftL(point inLoc, int inRot, color inColor);
 
     void setLoc(point inLoc);
     void setColor(color inColor);
@@ -42,6 +42,7 @@ class Block_LeftL {
     void moveDown(vector<Tile>& others);
     void snapToBottom(vector<Tile>& others);
 
+    // All below this line are ROTATIONALY DEPENDENT --------------------------------------------------------------------------------
     void strafeToMouse(point mouseLoc);
 
     bool atBottom();
