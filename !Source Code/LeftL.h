@@ -36,13 +36,13 @@ class Block_LeftL {
 
     void draw(SDL_Plotter& g);
 
-    void rotateClock(); // ROT
-    void rotateCounterClock(); // ROT
+    void rotateClock(vector<Tile>& others); // ROT
+    void rotateCounterClock(vector<Tile>& others); // ROT
 
     void moveDown(vector<Tile>& others);
     void snapToBottom(vector<Tile>& others);
 
-    void strafeToMouse(point mouseLoc); // ROT
+    void strafeToMouse(point mouseLoc, vector<Tile>& others); // ROT
 
     bool atBottom(); // ROT
     bool sitting(vector<Tile>& others); // ROT

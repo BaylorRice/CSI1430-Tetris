@@ -70,17 +70,21 @@ void Block_LeftL::draw(SDL_Plotter& g) {
     prevLoc.clear();
 }
 
-void Block_LeftL::rotateClock() {
-    rotation++;
-    if (rotation > 4) {
-        rotation = 1;
+void Block_LeftL::rotateClock(vector<Tile>& others) {
+    if (!atBottom() && !sitting(others)) {
+        rotation++;
+        if (rotation > 4) {
+            rotation = 1;
+        }
     }
 }
 
-void Block_LeftL::rotateCounterClock() {
-    rotation--;
-    if (rotation < 1) {
-        rotation = 4;
+void Block_LeftL::rotateCounterClock(vector<Tile>& others) {
+    if (!atBottom() && !sitting(others)) {
+        rotation--;
+        if (rotation < 1) {
+            rotation = 4;
+        }
     }
 }
 
@@ -102,153 +106,155 @@ void Block_LeftL::snapToBottom(vector<Tile>& others) {
     }
 }
 
-void Block_LeftL::strafeToMouse(point mouseLoc) {
+void Block_LeftL::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(p);
-    if (rotation == 1) {
-        if (mouseLoc.x >= 551) {
-            p.x = 550;
+    if (!atBottom() && !sitting(others)) {
+        if (rotation == 1) {
+            if (mouseLoc.x >= 551) {
+                p.x = 550;
+            }
+            else if (mouseLoc.x >= 501) {
+                p.x = 500;
+            }
+            else if (mouseLoc.x >= 451) {
+                p.x = 450;
+            }
+            else if (mouseLoc.x >= 401) {
+                p.x = 400;
+            }
+            else if (mouseLoc.x >= 351) {
+                p.x = 350;
+            }
+            else if (mouseLoc.x >= 301) {
+                p.x = 300;
+            }
+            else if (mouseLoc.x >= 251) {
+                p.x = 250;
+            }
+            else if (mouseLoc.x >= 201) {
+                p.x = 200;
+            }
+            else if (mouseLoc.x >= 151) {
+                p.x = 150;
+            }
+            else if (mouseLoc.x >= 101) {
+                p.x = 100;
+            }
+            else if (mouseLoc.x >= 51) {
+                p.x = 50;
+            }
+            else {
+                p.x = 50;
+            }
         }
-        else if (mouseLoc.x >= 501) {
-            p.x = 500;
+        else if (rotation == 2) {
+            if (mouseLoc.x >= 501) {
+                p.x = 500;
+            }
+            else if (mouseLoc.x >= 451) {
+                p.x = 450;
+            }
+            else if (mouseLoc.x >= 401) {
+                p.x = 400;
+            }
+            else if (mouseLoc.x >= 351) {
+                p.x = 350;
+            }
+            else if (mouseLoc.x >= 301) {
+                p.x = 300;
+            }
+            else if (mouseLoc.x >= 251) {
+                p.x = 250;
+            }
+            else if (mouseLoc.x >= 201) {
+                p.x = 200;
+            }
+            else if (mouseLoc.x >= 151) {
+                p.x = 150;
+            }
+            else if (mouseLoc.x >= 101) {
+                p.x = 100;
+            }
+            else if (mouseLoc.x >= 51) {
+                p.x = 50;
+            }
+            else {
+                p.x = 50;
+            }
         }
-        else if (mouseLoc.x >= 451) {
-            p.x = 450;
+        else if (rotation == 3) {
+            if (mouseLoc.x >= 551) {
+                p.x = 550;
+            }
+            else if (mouseLoc.x >= 501) {
+                p.x = 500;
+            }
+            else if (mouseLoc.x >= 451) {
+                p.x = 450;
+            }
+            else if (mouseLoc.x >= 401) {
+                p.x = 400;
+            }
+            else if (mouseLoc.x >= 351) {
+                p.x = 350;
+            }
+            else if (mouseLoc.x >= 301) {
+                p.x = 300;
+            }
+            else if (mouseLoc.x >= 251) {
+                p.x = 250;
+            }
+            else if (mouseLoc.x >= 201) {
+                p.x = 200;
+            }
+            else if (mouseLoc.x >= 151) {
+                p.x = 150;
+            }
+            else if (mouseLoc.x >= 101) {
+                p.x = 100;
+            }
+            else if (mouseLoc.x >= 51) {
+                p.x = 50;
+            }
+            else {
+                p.x = 50;
+            }
         }
-        else if (mouseLoc.x >= 401) {
-            p.x = 400;
-        }
-        else if (mouseLoc.x >= 351) {
-            p.x = 350;
-        }
-        else if (mouseLoc.x >= 301) {
-            p.x = 300;
-        }
-        else if (mouseLoc.x >= 251) {
-            p.x = 250;
-        }
-        else if (mouseLoc.x >= 201) {
-            p.x = 200;
-        }
-        else if (mouseLoc.x >= 151) {
-            p.x = 150;
-        }
-        else if (mouseLoc.x >= 101) {
-            p.x = 100;
-        }
-        else if (mouseLoc.x >= 51) {
-            p.x = 50;
-        }
-        else {
-            p.x = 50;
-        }
-    }
-    else if (rotation == 2) {
-        if (mouseLoc.x >= 501) {
-            p.x = 500;
-        }
-        else if (mouseLoc.x >= 451) {
-            p.x = 450;
-        }
-        else if (mouseLoc.x >= 401) {
-            p.x = 400;
-        }
-        else if (mouseLoc.x >= 351) {
-            p.x = 350;
-        }
-        else if (mouseLoc.x >= 301) {
-            p.x = 300;
-        }
-        else if (mouseLoc.x >= 251) {
-            p.x = 250;
-        }
-        else if (mouseLoc.x >= 201) {
-            p.x = 200;
-        }
-        else if (mouseLoc.x >= 151) {
-            p.x = 150;
-        }
-        else if (mouseLoc.x >= 101) {
-            p.x = 100;
-        }
-        else if (mouseLoc.x >= 51) {
-            p.x = 50;
-        }
-        else {
-            p.x = 50;
-        }
-    }
-    else if (rotation == 3) {
-        if (mouseLoc.x >= 551) {
-            p.x = 550;
-        }
-        else if (mouseLoc.x >= 501) {
-            p.x = 500;
-        }
-        else if (mouseLoc.x >= 451) {
-            p.x = 450;
-        }
-        else if (mouseLoc.x >= 401) {
-            p.x = 400;
-        }
-        else if (mouseLoc.x >= 351) {
-            p.x = 350;
-        }
-        else if (mouseLoc.x >= 301) {
-            p.x = 300;
-        }
-        else if (mouseLoc.x >= 251) {
-            p.x = 250;
-        }
-        else if (mouseLoc.x >= 201) {
-            p.x = 200;
-        }
-        else if (mouseLoc.x >= 151) {
-            p.x = 150;
-        }
-        else if (mouseLoc.x >= 101) {
-            p.x = 100;
-        }
-        else if (mouseLoc.x >= 51) {
-            p.x = 50;
-        }
-        else {
-            p.x = 50;
-        }
-    }
-    else if (rotation == 4) {
-        if (mouseLoc.x >= 551) {
-            p.x = 550;
-        }
-        else if (mouseLoc.x >= 501) {
-            p.x = 500;
-        }
-        else if (mouseLoc.x >= 451) {
-            p.x = 450;
-        }
-        else if (mouseLoc.x >= 401) {
-            p.x = 400;
-        }
-        else if (mouseLoc.x >= 351) {
-            p.x = 350;
-        }
-        else if (mouseLoc.x >= 301) {
-            p.x = 300;
-        }
-        else if (mouseLoc.x >= 251) {
-            p.x = 250;
-        }
-        else if (mouseLoc.x >= 201) {
-            p.x = 200;
-        }
-        else if (mouseLoc.x >= 151) {
-            p.x = 150;
-        }
-        else if (mouseLoc.x >= 101) {
-            p.x = 100;
-        }
-        else {
-            p.x = 100;
+        else if (rotation == 4) {
+            if (mouseLoc.x >= 551) {
+                p.x = 550;
+            }
+            else if (mouseLoc.x >= 501) {
+                p.x = 500;
+            }
+            else if (mouseLoc.x >= 451) {
+                p.x = 450;
+            }
+            else if (mouseLoc.x >= 401) {
+                p.x = 400;
+            }
+            else if (mouseLoc.x >= 351) {
+                p.x = 350;
+            }
+            else if (mouseLoc.x >= 301) {
+                p.x = 300;
+            }
+            else if (mouseLoc.x >= 251) {
+                p.x = 250;
+            }
+            else if (mouseLoc.x >= 201) {
+                p.x = 200;
+            }
+            else if (mouseLoc.x >= 151) {
+                p.x = 150;
+            }
+            else if (mouseLoc.x >= 101) {
+                p.x = 100;
+            }
+            else {
+                p.x = 100;
+            }
         }
     }
     setLoc(p);

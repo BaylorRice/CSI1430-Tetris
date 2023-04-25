@@ -38,15 +38,15 @@ int main(int argc, char** argv) {
             switch (toupper(g.getKey())) {
                 case DOWN_ARROW: block.snapToBottom(squares);
                     break;
-                case LEFT_ARROW: block.rotateCounterClock();
+                case LEFT_ARROW: block.rotateCounterClock(squares);
                     break;
-                case RIGHT_ARROW: block.rotateClock();
+                case RIGHT_ARROW: block.rotateClock(squares);
                     break;
             }
         }
 
         g.getMouseLocation(mouse.x, mouse.y);
-        block.strafeToMouse(mouse);
+        block.strafeToMouse(mouse, squares);
         block.moveDown(squares);
         block.draw(g);
         lineClear(squares, g);
