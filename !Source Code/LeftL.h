@@ -8,6 +8,7 @@
 */
 
 #include <iostream>
+#include "Tile.h"
 using namespace std;
 
 #ifndef LEFTL_H_INCLUDED
