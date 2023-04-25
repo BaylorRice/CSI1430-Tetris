@@ -73,6 +73,50 @@ void Block_LeftL::snapToBottom(vector<Tile>& others) {
     }
 }
 
+void Block_LeftL::strafeToMouse(point mouseLoc) {
+    point p = getLoc();
+    prevLoc.push_back(p);
+    if (rotate == 1) {
+        if (mouseLoc.x >= 551) {
+            p.x = 550;
+        }
+        else if (mouseLoc.x >= 501) {
+            p.x = 500;
+        }
+        else if (mouseLoc.x >= 451) {
+            p.x = 450;
+        }
+        else if (mouseLoc.x >= 401) {
+            p.x = 400;
+        }
+        else if (mouseLoc.x >= 351) {
+            p.x = 350;
+        }
+        else if (mouseLoc.x >= 301) {
+            p.x = 300;
+        }
+        else if (mouseLoc.x >= 251) {
+            p.x = 250;
+        }
+        else if (mouseLoc.x >= 201) {
+            p.x = 200;
+        }
+        else if (mouseLoc.x >= 151) {
+            p.x = 150;
+        }
+        else if (mouseLoc.x >= 101) {
+            p.x = 100;
+        }
+        else if (mouseLoc.x >= 51) {
+            p.x = 50;
+        }
+        else {
+            p.x = 50;
+        }
+    }
+    setLoc(p);
+}
+
 bool Block_LeftL::atBottom() {
     bool atBottom = false;
     if (rotate == 1) {
