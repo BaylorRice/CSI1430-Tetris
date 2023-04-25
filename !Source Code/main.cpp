@@ -34,21 +34,12 @@ int main(int argc, char** argv) {
 
     while (!g.getQuit()) { // ESC
 
-        //if (!squares[count].atBottom()) {
-        //    if (g.kbhit()) {
-        //        key = g.getKey();
-        //        switch (toupper(key)) {
-        //            /*case RIGHT_ARROW: block.rotateClock();
-        //                break;
-        //            case LEFT_ARROW: block.rotateOunterClock();
-        //                break;*/
-        //            case DOWN_ARROW: squares[count].snapToBottom(squares);
-        //                break;
-        //        }
-        //    }
-        //    //g.getMouseLocation(mouse.x, mouse.y);
-        //}
-
+        if (g.kbhit()) {
+            switch (toupper(g.getKey())) {
+                case DOWN_ARROW: block.snapToBottom(squares);
+                    break;
+            }
+        }
         block.moveDown(squares);
         block.draw(g);
         lineClear(squares, g);
@@ -56,11 +47,6 @@ int main(int argc, char** argv) {
         g.update();
         g.Sleep(20);
 
-        //// Is Tile finished moving?
-        //if ((squares[count].atBottom()) || (squares[count].sitting(squares))) {
-        //    squares.emplace_back();
-        //    count++;
-        //}
     }
 
     return 0;

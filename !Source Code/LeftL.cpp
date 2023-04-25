@@ -64,6 +64,15 @@ void Block_LeftL::moveDown(vector<Tile>& others) {
     setLoc(p);
 }
 
+void Block_LeftL::snapToBottom(vector<Tile>& others) {
+    point p = getLoc();
+    prevLoc.push_back(p);
+    while (!atBottom() && !sitting(others)) {
+        p.y++;
+        setLoc(p);
+    }
+}
+
 bool Block_LeftL::atBottom() {
     bool atBottom = false;
     if (rotate == 1) {
