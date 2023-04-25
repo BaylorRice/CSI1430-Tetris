@@ -25,6 +25,7 @@ int main(int argc, char** argv) {
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     char key;
+    Block_LeftL block;
     vector<Tile> squares(1);
     bool newSquare = true;
     int count = 0;
@@ -33,39 +34,33 @@ int main(int argc, char** argv) {
 
     while (!g.getQuit()) { // ESC
 
-        //if (square.hitFloor()) {
-        //    square.detach() // Detach all tiles from the current block
-        //    Tile square; // Somehow create new block if existing block is at bottom
+        //if (!squares[count].atBottom()) {
+        //    if (g.kbhit()) {
+        //        key = g.getKey();
+        //        switch (toupper(key)) {
+        //            /*case RIGHT_ARROW: block.rotateClock();
+        //                break;
+        //            case LEFT_ARROW: block.rotateOunterClock();
+        //                break;*/
+        //            case DOWN_ARROW: squares[count].snapToBottom(squares);
+        //                break;
+        //        }
+        //    }
+        //    //g.getMouseLocation(mouse.x, mouse.y);
         //}
 
-        if (!squares[count].atBottom()) {
-            if (g.kbhit()) {
-                key = g.getKey();
-                switch (toupper(key)) {
-                    /*case RIGHT_ARROW: block.rotateClock();
-                        break;
-                    case LEFT_ARROW: block.rotateOunterClock();
-                        break;*/
-                    case DOWN_ARROW: squares[count].snapToBottom(squares);
-                        break;
-                }
-            }
-            g.getMouseLocation(mouse.x, mouse.y);
-            squares[count].strafeToMouse(mouse);
-        }
-
-        squares[count].moveDown(squares);
-        squares[count].draw(g);
+        block.moveDown(squares);
+        block.draw(g);
         lineClear(squares, g);
 
         g.update();
         g.Sleep(20);
 
-        // Is Tile finished moving?
-        if ((squares[count].atBottom()) || (squares[count].sitting(squares))) {
-            squares.emplace_back();
-            count++;
-        }
+        //// Is Tile finished moving?
+        //if ((squares[count].atBottom()) || (squares[count].sitting(squares))) {
+        //    squares.emplace_back();
+        //    count++;
+        //}
     }
 
     return 0;
