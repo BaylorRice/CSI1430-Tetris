@@ -19,3 +19,10 @@ Any questions? Email me (Reese_ford1@baylor.edu), or message me on Teams. :)
 ## How do I open the code
 Visual Studio: In the folder Visual Studio > Tetris_VS, open the Tetris_VS.sln file
 Code Blocks: In the folder Code Blocks > Tetris_CB, open the Tetris_CB.cbp file
+XCode: In the folder XCODE > Tetris_XC, open the Tetris_XC.xcodeproj file
+
+## How do I create source code
+Create the file in the !Source Code Folder either by creating a text document and renaming it (make sure to rename the extension), or, using your IDE of choice, make the file, but be sure it creates the file in !Source Code
+
+## There is a file in !Source Code that my IDE is not aware of. Help!
+Visual Studio: Right Click the folder the file belongs in (CPP Files or Header Files)
