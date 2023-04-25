@@ -37,6 +37,12 @@ void Block_LeftL::setLoc(point inLoc) {
         c.setLoc(point(loc.x - SIZE, loc.y));
         d.setLoc(point(loc.x - SIZE, loc.y + SIZE));
     }
+    else if (rotation == 4) {
+        a.setLoc(point(loc.x, loc.y - SIZE));
+        b.setLoc(loc);
+        c.setLoc(point(loc.x - SIZE, loc.y - SIZE));
+        d.setLoc(point(loc.x - (2 * SIZE), loc.y - SIZE));
+    }
 
 }
 
@@ -196,12 +202,47 @@ void Block_LeftL::strafeToMouse(point mouseLoc) {
             p.x = 50;
         }
     }
+    else if (rotation == 4) {
+        if (mouseLoc.x >= 551) {
+            p.x = 550;
+        }
+        else if (mouseLoc.x >= 501) {
+            p.x = 500;
+        }
+        else if (mouseLoc.x >= 451) {
+            p.x = 450;
+        }
+        else if (mouseLoc.x >= 401) {
+            p.x = 400;
+        }
+        else if (mouseLoc.x >= 351) {
+            p.x = 350;
+        }
+        else if (mouseLoc.x >= 301) {
+            p.x = 300;
+        }
+        else if (mouseLoc.x >= 251) {
+            p.x = 250;
+        }
+        else if (mouseLoc.x >= 201) {
+            p.x = 200;
+        }
+        else if (mouseLoc.x >= 151) {
+            p.x = 150;
+        }
+        else if (mouseLoc.x >= 101) {
+            p.x = 100;
+        }
+        else {
+            p.x = 100;
+        }
+    }
     setLoc(p);
 }
 
 bool Block_LeftL::atBottom() {
     bool atBottom = false;
-    if ((rotation == 1) || (rotation == 2)) {
+    if (rotation != 3) {
         if (getLoc().y >= NUM_ROW - SIZE) {
             atBottom = true;
         }
@@ -246,6 +287,25 @@ bool Block_LeftL::sitting(vector<Tile>& others) {
                 }
             }
             if (loc.x == others.at(i).getLoc().x) {
+                if (loc.y == others.at(i).getLoc().y) {
+                    sit = true;
+                }
+            }
+        }
+    }
+    else if (rotation == 4) {
+        for (int i = 0; i < others.size(); i++) {
+            if (loc.x == others.at(i).getLoc().x) {
+                if (loc.y + SIZE == others.at(i).getLoc().y) {
+                    sit = true;
+                }
+            }
+            if (loc.x - SIZE == others.at(i).getLoc().x) {
+                if (loc.y == others.at(i).getLoc().y) {
+                    sit = true;
+                }
+            }
+            if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
                 if (loc.y == others.at(i).getLoc().y) {
                     sit = true;
                 }

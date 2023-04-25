@@ -21,7 +21,7 @@ class Block_LeftL {
     vector<point> prevLoc;
     Tile a, b, c, d;
     color block_color;
-    int rotation = 3;
+    int rotation = 4;
     bool isDelete = false;
 
     public:
@@ -31,24 +31,23 @@ class Block_LeftL {
     void setLoc(point inLoc);
     void setColor(color inColor);
 
-    point getLoc() const;
+    point getLoc() const; // ROT
     color getColor() const;
 
     void draw(SDL_Plotter& g);
 
-    void rotateClock();
-    void rotateCounterClock();
+    void rotateClock(); // ROT
+    void rotateCounterClock(); // ROT
 
     void moveDown(vector<Tile>& others);
     void snapToBottom(vector<Tile>& others);
 
+    void strafeToMouse(point mouseLoc); // ROT
+
+    bool atBottom(); // ROT
+    bool sitting(vector<Tile>& others); // ROT
+
     void remove(vector<Tile>& others); // Removes the Tiles from this object's "supervision"
-
-    // All below this line are ROTATIONALY DEPENDENT --------------------------------------------------------------------------------
-    void strafeToMouse(point mouseLoc);
-
-    bool atBottom();
-    bool sitting(vector<Tile>& others);
 
 };
 
