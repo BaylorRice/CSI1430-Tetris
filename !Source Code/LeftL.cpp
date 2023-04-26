@@ -8,6 +8,9 @@
 */
 
 #include "LeftL.h"
+#include <vector>
+
+vector<Tile> emptyTiles;
 
 Block_LeftL::Block_LeftL() {
     loc = point(NUM_COL/2, 0);
@@ -25,6 +28,11 @@ Block_LeftL::Block_LeftL(point inLoc = point(NUM_COL / 2, 0), int inRot = 1, col
 }
 
 void Block_LeftL::setLoc(point inLoc) {
+    vector<Tile> emptyTiles(0);
+    setLoc(inLoc, emptyTiles);
+}
+
+void Block_LeftL::setLoc(point inLoc, vector<Tile> others) {
     prevLoc.push_back(getLoc());
     loc = inLoc;
 
@@ -53,6 +61,11 @@ void Block_LeftL::setLoc(point inLoc) {
         d.setLoc(point(loc.x - (2 * SIZE), loc.y - SIZE));
     }
 
+    e.setLoc(point(a.getLoc().x, a.getLoc().y+10));
+    f.setLoc(point(b.getLoc().x, b.getLoc().y+10));
+    G.setLoc(point(c.getLoc().x, c.getLoc().y+10));
+    h.setLoc(point(d.getLoc().x, d.getLoc().y+10));
+
 }
 
 void Block_LeftL::setColor(color inColor) {
@@ -61,6 +74,11 @@ void Block_LeftL::setColor(color inColor) {
     b.setColor(block_color);
     c.setColor(block_color);
     d.setColor(block_color);
+
+    e.setColor(GREY);
+    f.setColor(GREY);
+    G.setColor(GREY);
+    h.setColor(GREY);
 }
 
 point Block_LeftL::getLoc() const {
@@ -76,6 +94,10 @@ void Block_LeftL::draw(SDL_Plotter& g) {
     b.draw(g);
     c.draw(g);
     d.draw(g);
+    e.draw(g);
+    f.draw(g);
+    G.draw(g);
+    h.draw(g);
     prevLoc.clear();
 }
 
@@ -109,7 +131,7 @@ void Block_LeftL::moveDown(vector<Tile>& others) {
     if (!atBottom() && !sitting(others)) {
         p.y += SIZE;
     }
-    setLoc(p);
+    setLoc(p, others);
 }
 
 void Block_LeftL::snapToBottom(vector<Tile>& others) {
@@ -117,7 +139,7 @@ void Block_LeftL::snapToBottom(vector<Tile>& others) {
     prevLoc.push_back(p);
     while (!atBottom() && !sitting(others)) {
         p.y++;
-        setLoc(p);
+        setLoc(p, others);
     }
 }
 
@@ -176,7 +198,7 @@ void Block_LeftL::strafeToMouse(point mouseLoc, vector<Tile>& others) {
             p.x = snapLateral(mouseLoc.x, (2 * SIZE), loc.x, SIZE);
         }
     }
-    setLoc(p);
+    setLoc(p, others);
 }
 
 bool Block_LeftL::atBottom() {

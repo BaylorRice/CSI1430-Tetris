@@ -20,6 +20,7 @@ class Block_LeftL {
     point loc;
     vector<point> prevLoc;
     Tile a, b, c, d;
+    Tile e, f, G, h;
     color block_color;
     int rotation = 1;
     bool isDelete = false;
@@ -47,6 +48,7 @@ class Block_LeftL {
 
     // LeftL-Specific Functions
     void setLoc(point inLoc);
+    void setLoc(point inLoc, vector<Tile> others);
 
     void strafeToMouse(point mouseLoc, vector<Tile>& others);
 

@@ -14,6 +14,7 @@ const color YELLOW = color(220, 220, 20);
 const color RED = color(220, 20, 20);
 const color BLUE = color(10, 10, 220);
 const color BLACK = color(0, 0, 0);
+const color GREY = color(135, 135, 135);
 const color BACKGROUND = color(255, 255, 255);
 
 #endif // CONSTANT_H_
