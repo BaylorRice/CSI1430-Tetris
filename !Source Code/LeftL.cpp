@@ -302,6 +302,28 @@ bool Block_LeftL::touchingTileSides(vector<Tile>& others) {
             }
         }
     }
+    else if (rotation == 4) {
+        for (int i = 0; i < others.size(); i++) {
+            if (loc.x - (3 * SIZE) == others.at(i).getLoc().x) {
+                if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
+                    isTouching = true;
+                }
+            }
+            else if (loc.x - SIZE == others.at(i).getLoc().x) {
+                if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
+                    isTouching = true;
+                }
+            }
+            else if (loc.x + SIZE == others.at(i).getLoc().x) {
+                if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT TOP
+                    isTouching = true;
+                }
+                else if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
+                    isTouching = true;
+                }
+            }
+        }
+    }
     return isTouching;
 }
 
