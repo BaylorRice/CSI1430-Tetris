@@ -4,7 +4,7 @@
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: ...
-* Date Last Modified: 04/21/2023
+* Date Last Modified: 04/25/2023
 */
 
 #include <iostream>
@@ -14,6 +14,7 @@
 #include "SDL_Plotter.h"
 
 #include "Tile.h"
+#include "LeftL.h"
 
 using namespace std;
 
@@ -23,83 +24,132 @@ int main(int argc, char** argv) {
 
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
-    char key;
-    vector<Tile> squares(1);
-    bool newSquare = true;
-    int count = 0;
-    //Block_leftL block;
+    //char key;
+    vector<Block_LeftL> blocks(1);
+    vector<Tile> squares(0);
+    //bool nextBlockReady = true;
+    bool snapped = false;
+    //int count = 0;
+    int timeCount = LEVELTIME/2;
     point mouse;
+    bool gameOver = false;
 
-    while (!g.getQuit()) { // ESC
+    while (!g.getQuit() && !gameOver) { // ESC
 
-        //if (square.hitFloor()) {
-        //    square.detach() // Detach all tiles from the current block
-        //    Tile square; // Somehow create new block if existing block is at bottom
-        //}
-
-        if (!squares[count].atBottom()) {
-            if (g.kbhit()) {
-                key = g.getKey();
-                switch (toupper(key)) {
-                    /*case RIGHT_ARROW: block.rotateClock();
-                        break;
-                    case LEFT_ARROW: block.rotateOunterClock();
-                        break;*/
-                    case DOWN_ARROW: squares[count].snapToBottom(squares);
-                        break;
-                }
+        if (g.kbhit()) {
+            switch (toupper(g.getKey())) {
+                case DOWN_ARROW: blocks.back().snapToBottom(squares); snapped = true;
+                    break;
+                case LEFT_ARROW: blocks.back().rotateCounterClock(squares);
+                    break;
+                case RIGHT_ARROW: blocks.back().rotateClock(squares);
+                    break;
             }
-            g.getMouseLocation(mouse.x, mouse.y);
-            squares[count].strafeToMouse(mouse);
         }
 
-        squares[count].moveDown(squares);
-        squares[count].draw(g);
-        lineClear(squares, g);
+        g.getMouseLocation(mouse.x, mouse.y);
+        blocks.back().strafeToMouse(mouse, squares);
+
+        if (timeCount == LEVELTIME/2) {
+            blocks.back().moveDown(squares);
+        }
+
+        if ((timeCount == LEVELTIME) || snapped) {
+            if (blocks.back().atBottom() || blocks.back().sitting(squares)) {
+                blocks.back().remove(squares, g);
+                blocks.emplace_back();
+                for (size_t i = 0; i < squares.size(); i++) {
+                    squares.at(i).draw(g);
+                }
+
+                lineClear(squares, g);
+                for (size_t i = 0; i < squares.size(); i++) {
+                    squares.at(i).draw(g);
+                }
+                timeCount = LEVELTIME / 2;
+            }
+            snapped = false;
+        }
+        blocks.back().draw(g);
 
         g.update();
-        g.Sleep(20);
-
-        // Is Tile finished moving?
-        if ((squares[count].atBottom()) || (squares[count].sitting(squares))) {
-            squares.emplace_back();
-            count++;
+        g.Sleep(REFRESH);
+        timeCount += REFRESH;
+        if (timeCount > LEVELTIME + 1) {
+            timeCount = 0;
         }
+        /*if (blocks.back().getLoc().y <= 0) {
+            gameOver = true;
+        }*/
+
     }
 
+    cout << endl << "Game Over" << endl;
     return 0;
 }
 
 void lineClear(vector<Tile>& others, SDL_Plotter& g) {
-    int lineCounts[16] = { 0 };
-    int currentY = 1000;
-    // Determining what lines are full
-    for (int i = 0; i < others.size(); i++) {
-        int currentY = others.at(i).getLoc().y;
-        lineCounts[currentY / 50]++;
-    }
+    vector<int> lineCounts(NUM_ROW / SIZE, 0);
+    int currentY = NUM_ROW;
 
-    // Removing tiles in full lines
-    for (int c = 15; c >= 0; c--) {
-        if (lineCounts[c] == 12) {
-            for (int i = 0; i < others.size(); i++) {
-                currentY = others.at(i).getLoc().y;
-                if (currentY == c * 50) {
-                    others.at(i).remove(g);
-                }
-            }
-            // Moving Everything else down
-            for (int i = 0; i < others.size(); i++) {
-                if (others.at(i).isDeleted() == false) {
-                    others.at(i).moveDownLine(others);
-                }
-            }
-            for (int i = 0; i < others.size(); i++) {
-                if (others.at(i).isDeleted() == false) {
-                    others.at(i).draw(g);
+    for (int c = lineCounts.size() - 1; c >= 0; c--) {
+        lineCounts.assign(NUM_ROW / SIZE, 0);
+        for (size_t i = 0; i < others.size(); i++) {
+            int currentY = others.at(i).getLoc().y;
+            if (currentY > 0) {
+                int index = currentY / SIZE;
+                if (index < lineCounts.size()) {
+                    lineCounts.at(index)++;
                 }
             }
         }
+        if (lineCounts.at(c) == NUM_COL / SIZE) {
+            for (size_t i = 0; i < others.size(); i++) {
+                currentY = others.at(i).getLoc().y;
+                if (currentY == c * SIZE) {
+                    others.at(i).remove(g);
+                }
+            }
+            for (size_t i = 0; i < others.size(); i++) {
+                currentY = others.at(i).getLoc().y;
+                if (currentY < c * SIZE) {
+                    others.at(i).moveDownLine(others);
+                }
+            }
+            c++;
+        }
     }
-
+    //Fully delete removed tiles
+    for (size_t i = 0; i < others.size(); i++) {
+        if (others.at(i).isDeleted() == true) {
+            others.erase(others.begin() + i);
+            i--;
+        }
+    } 
 }
+
+//    // Fully delete removed tiles
+//    for (size_t i = 0; i < others.size(); i++) {
+//        if (others.at(i).isDeleted() == true) {
+//            others.erase(others.begin() + i);
+//            i--;
+//        }
+//    }  
+//}
+//removedLinesCount++;
+//            for (size_t i = 0; i < others.size(); i++) {
+//                for (int l = 0; l < removedLinesCount; l++) {
+//                    others.at(i).moveDownLine(others);
+//                }
+//            }
+//            
+//            // Determining how many tiles are in each line
+//    for (size_t i = 0; i < others.size(); i++) {
+//        int currentY = others.at(i).getLoc().y;
+//        if (currentY > 0) {
+//            int index = currentY / SIZE;
+//            if (index < lineCounts.size()) {
+//                lineCounts.at(index)++;
+//            }
+//        }
+//    }

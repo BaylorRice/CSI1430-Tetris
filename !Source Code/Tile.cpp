@@ -1,12 +1,21 @@
+/*
+* Authors: Reese Ford, ...
+* Assignment Title: Group Project - Tetris
+* Assignment Description: INSERT DESCRIPTION
+* Due Date: INSERT DUE DATE
+* Date Created: ...
+* Date Last Modified: 04/25/2023
+*/
+
 #include "Tile.h"
 
 Tile::Tile() {
-    size = 50;
+    size = SIZE;
     tile_color = YELLOW;
-    loc = point(0, 0);
+    loc = point((NUM_COL / 2) - (SIZE / 2), SIZE);
 }
 
-Tile::Tile(int inSize = 50, color inColor = YELLOW, point inLoc = point(0,0)) {
+Tile::Tile(int inSize = SIZE, color inColor = YELLOW, point inLoc = point(0,0)) {
     size = inSize;
     tile_color = inColor;
     loc = inLoc;
@@ -62,6 +71,12 @@ void Tile::draw(SDL_Plotter& inPlot) {
             if (r == 0 or c == 0 or r == drawSize - 1 or c == drawSize - 1) {
                 currentCol = BLACK;
             }
+            if ( r == drawSize - 2 or c == drawSize - 2) {
+                currentCol = BLACK;
+            }
+            if (r == drawSize - 3 or c == drawSize - 3) {
+                currentCol = BLACK;
+            }
             inPlot.plotPixel(drawLoc.x + c, drawLoc.y + r, currentCol);
         }
     }
@@ -70,7 +85,7 @@ void Tile::draw(SDL_Plotter& inPlot) {
 
 void Tile::moveDown(vector<Tile>& others) {
     point p = getLoc();
-    prevLoc.push_back(getLoc());
+    prevLoc.push_back(p);
     if (!atBottom() && !sitting(others)) {
         p.y++;
     }
@@ -78,12 +93,10 @@ void Tile::moveDown(vector<Tile>& others) {
 }
 
 void Tile::moveDownLine(vector<Tile>& others) {
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < SIZE; i++) {
         point p = getLoc();
         prevLoc.push_back(getLoc());
-        if (!atBottom() && !sitting(others)) {
-            p.y++;
-        }
+        p.y++;
         setLoc(p);
     }
 }
