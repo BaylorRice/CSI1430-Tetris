@@ -80,7 +80,10 @@ void Block_LeftL::draw(SDL_Plotter& g) {
 }
 
 void Block_LeftL::rotateClock(vector<Tile>& others) {
-    if (!atBottom() && !sitting(others)) {
+    bool touchingLeft = false;
+    bool touchingRight = false;
+    touchingTileSides(others, touchingLeft, touchingRight);
+    if (!atBottom() && !sitting(others) && !touchingLeft && !touchingRight) {
         rotation++;
         if (rotation > 4) {
             rotation = 1;
@@ -89,7 +92,10 @@ void Block_LeftL::rotateClock(vector<Tile>& others) {
 }
 
 void Block_LeftL::rotateCounterClock(vector<Tile>& others) {
-    if (!atBottom() && !sitting(others)) {
+    bool touchingLeft = false;
+    bool touchingRight = false;
+    touchingTileSides(others, touchingLeft, touchingRight);
+    if (!atBottom() && !sitting(others) && !touchingLeft && !touchingRight) {
         rotation--;
         if (rotation < 1) {
             rotation = 4;
