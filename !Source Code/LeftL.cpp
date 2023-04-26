@@ -222,6 +222,39 @@ bool Block_LeftL::sitting(vector<Tile>& others) {
     return sit;
 }
 
+bool Block_LeftL::touchingTileSides(vector<Tile>& others) {
+    bool isTouching = false;
+    if (rotation == 1) {
+        for (int i = 0; i < others.size(); i++) {
+            if (loc.x - SIZE == others.at(i).getLoc().x) {
+                if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // LEFT TOP
+                    isTouching = true;
+                }
+                else if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT MIDDLE
+                    isTouching = true;
+                }
+            }
+            else if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
+                if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
+                    isTouching = true;
+                }
+            }
+            else if (loc.x + SIZE == others.at(i).getLoc().x) {
+                if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // RIGHT TOP
+                    isTouching = true;
+                }
+                else if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT MIDDLE
+                    isTouching = true;
+                }
+                else if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
+                    isTouching = true;
+                }
+            }
+        }
+    }
+    return isTouching;
+}
+
 void Block_LeftL::remove(vector<Tile>& others, SDL_Plotter& g) {
     others.push_back(Tile(SIZE, YELLOW, a.getLoc()));
     others.push_back(Tile(SIZE, YELLOW, b.getLoc()));

@@ -52,6 +52,7 @@ class Block_LeftL {
 
     bool atBottom();
     bool sitting(vector<Tile>& others);
+    bool touchingTileSides(vector<Tile>& others);
 
     void remove(vector<Tile>& others, SDL_Plotter& g); // Removes the Tiles from this object's "supervision"
 
