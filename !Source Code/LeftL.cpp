@@ -61,10 +61,10 @@ void Block_LeftL::setLoc(point inLoc, vector<Tile> others) {
         d.setLoc(point(loc.x - (2 * SIZE), loc.y - SIZE));
     }
 
-    e.setLoc(point(a.getLoc().x, a.getLoc().y+10));
-    f.setLoc(point(b.getLoc().x, b.getLoc().y+10));
-    G.setLoc(point(c.getLoc().x, c.getLoc().y+10));
-    h.setLoc(point(d.getLoc().x, d.getLoc().y+10));
+    e.setLoc(a.getLoc());
+    f.setLoc(b.getLoc());
+    G.setLoc(c.getLoc());
+    h.setLoc(d.getLoc());
 
 }
 
