@@ -10,13 +10,13 @@
 #include "LeftL.h"
 
 Block_LeftL::Block_LeftL() {
-    loc = point((NUM_COL / 2) - (SIZE / 2), 3 * SIZE);
+    loc = point(NUM_COL/2, 0);
     block_color = BLUE;
     setColor(block_color);
     setLoc(loc);
 }
 
-Block_LeftL::Block_LeftL(point inLoc = point((NUM_COL / 2) - (SIZE / 2), 3 * SIZE), int inRot = 1, color inColor = BLUE) {
+Block_LeftL::Block_LeftL(point inLoc = point(NUM_COL / 2, 0), int inRot = 1, color inColor = BLUE) {
     loc = inLoc;
     rotation = inRot;
     block_color = inColor;
@@ -361,11 +361,11 @@ void Block_LeftL::touchingTileSides(vector<Tile>& others, bool& touchingLeft, bo
 }
 
 void Block_LeftL::remove(vector<Tile>& others, SDL_Plotter& g) {
-    others.push_back(Tile(SIZE, YELLOW, a.getLoc()));
-    others.push_back(Tile(SIZE, YELLOW, b.getLoc()));
-    others.push_back(Tile(SIZE, YELLOW, c.getLoc()));
-    others.push_back(Tile(SIZE, YELLOW, d.getLoc()));
+    others.push_back(Tile(SIZE, block_color, a.getLoc()));
+    others.push_back(Tile(SIZE, block_color, b.getLoc()));
+    others.push_back(Tile(SIZE, block_color, c.getLoc()));
+    others.push_back(Tile(SIZE, block_color, d.getLoc()));
 
-    setLoc(point(0, 900));
+    setLoc(point(0, (2*NUM_ROW)));
     draw(g);
 }

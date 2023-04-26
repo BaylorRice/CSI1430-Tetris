@@ -71,6 +71,12 @@ void Tile::draw(SDL_Plotter& inPlot) {
             if (r == 0 or c == 0 or r == drawSize - 1 or c == drawSize - 1) {
                 currentCol = BLACK;
             }
+            if ( r == drawSize - 2 or c == drawSize - 2) {
+                currentCol = BLACK;
+            }
+            if (r == drawSize - 3 or c == drawSize - 3) {
+                currentCol = BLACK;
+            }
             inPlot.plotPixel(drawLoc.x + c, drawLoc.y + r, currentCol);
         }
     }
@@ -87,7 +93,7 @@ void Tile::moveDown(vector<Tile>& others) {
 }
 
 void Tile::moveDownLine(vector<Tile>& others) {
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < SIZE; i++) {
         point p = getLoc();
         prevLoc.push_back(getLoc());
         p.y++;
