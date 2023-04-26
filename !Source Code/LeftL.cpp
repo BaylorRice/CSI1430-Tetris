@@ -28,11 +28,6 @@ Block_LeftL::Block_LeftL(point inLoc = point(NUM_COL / 2, 0), int inRot = 1, col
 }
 
 void Block_LeftL::setLoc(point inLoc) {
-    vector<Tile> emptyTiles(0);
-    setLoc(inLoc, emptyTiles);
-}
-
-void Block_LeftL::setLoc(point inLoc, vector<Tile> others) {
     prevLoc.push_back(getLoc());
     loc = inLoc;
 
@@ -61,11 +56,6 @@ void Block_LeftL::setLoc(point inLoc, vector<Tile> others) {
         d.setLoc(point(loc.x - (2 * SIZE), loc.y - SIZE));
     }
 
-    e.setLoc(a.getLoc());
-    f.setLoc(b.getLoc());
-    G.setLoc(c.getLoc());
-    h.setLoc(d.getLoc());
-
 }
 
 void Block_LeftL::setColor(color inColor) {
@@ -74,11 +64,6 @@ void Block_LeftL::setColor(color inColor) {
     b.setColor(block_color);
     c.setColor(block_color);
     d.setColor(block_color);
-
-    e.setColor(GREY);
-    f.setColor(GREY);
-    G.setColor(GREY);
-    h.setColor(GREY);
 }
 
 point Block_LeftL::getLoc() const {
@@ -90,14 +75,12 @@ color Block_LeftL::getColor() const {
 }
 
 void Block_LeftL::draw(SDL_Plotter& g) {
+
     a.draw(g);
     b.draw(g);
     c.draw(g);
     d.draw(g);
-    e.draw(g);
-    f.draw(g);
-    G.draw(g);
-    h.draw(g);
+
     prevLoc.clear();
 }
 
@@ -131,7 +114,7 @@ void Block_LeftL::moveDown(vector<Tile>& others) {
     if (!atBottom() && !sitting(others)) {
         p.y += SIZE;
     }
-    setLoc(p, others);
+    setLoc(p);
 }
 
 void Block_LeftL::snapToBottom(vector<Tile>& others) {
@@ -139,7 +122,7 @@ void Block_LeftL::snapToBottom(vector<Tile>& others) {
     prevLoc.push_back(p);
     while (!atBottom() && !sitting(others)) {
         p.y++;
-        setLoc(p, others);
+        setLoc(p);
     }
 }
 
@@ -198,7 +181,7 @@ void Block_LeftL::strafeToMouse(point mouseLoc, vector<Tile>& others) {
             p.x = snapLateral(mouseLoc.x, (2 * SIZE), loc.x, SIZE);
         }
     }
-    setLoc(p, others);
+    setLoc(p);
 }
 
 bool Block_LeftL::atBottom() {

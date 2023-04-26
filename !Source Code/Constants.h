@@ -5,7 +5,7 @@
 
 const int NUM_ROW = 900; // Multiple of SIZE
 const int NUM_COL = 600; // Multiple of SIZE
-const int LEVELTIME = 100; // Multiple of 2
+const int LEVELTIME = 200; // Multiple of 2
 const int REFRESH = 10;
 
 const int SIZE = 30; // Multiple of 10

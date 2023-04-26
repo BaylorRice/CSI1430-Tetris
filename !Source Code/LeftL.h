@@ -24,11 +24,6 @@ class Block_LeftL {
     int rotation = 1;
     bool isDelete = false;
 
-    struct GhostBlock {
-        public:
-        Tile e, f, G, h;
-    };
-
     public:
     // Specific Constructors
     Block_LeftL();
@@ -52,7 +47,6 @@ class Block_LeftL {
 
     // LeftL-Specific Functions
     void setLoc(point inLoc);
-    void setLoc(point inLoc, vector<Tile> others);
 
     void strafeToMouse(point mouseLoc, vector<Tile>& others);
 
