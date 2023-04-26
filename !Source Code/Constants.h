@@ -5,8 +5,8 @@
 
 const int NUM_ROW = 800;
 const int NUM_COL = 600;
-const int LEVELTIME = 500;
-const int REFRESH = 20;
+const int LEVELTIME = 700;
+const int REFRESH = 10;
 
 const int SIZE = 50;
 

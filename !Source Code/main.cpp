@@ -28,6 +28,7 @@ int main(int argc, char** argv) {
     vector<Block_LeftL> blocks(1);
     vector<Tile> squares(0);
     bool nextBlockReady = true;
+    bool snapped = false;
     int count = 0;
     int timeCount = 0;
     point mouse;
@@ -36,7 +37,7 @@ int main(int argc, char** argv) {
 
         if (g.kbhit()) {
             switch (toupper(g.getKey())) {
-                case DOWN_ARROW: blocks.back().snapToBottom(squares);
+                case DOWN_ARROW: blocks.back().snapToBottom(squares); snapped = true;
                     break;
                 case LEFT_ARROW: blocks.back().rotateCounterClock(squares);
                     break;
@@ -48,18 +49,21 @@ int main(int argc, char** argv) {
         g.getMouseLocation(mouse.x, mouse.y);
         blocks.back().strafeToMouse(mouse, squares);
 
-        if (timeCount == LEVELTIME) {
+        if (timeCount == LEVELTIME/2) {
             blocks.back().moveDown(squares);
         }
 
-        if (blocks.back().atBottom() || blocks.back().sitting(squares)) {
-            blocks.back().remove(squares, g);
-            blocks.back().draw(g);
-            blocks.emplace_back();
-            lineClear(squares, g);
-            for (size_t i = 0; i < squares.size(); i++) {
-                squares.at(i).draw(g);
+        if ((timeCount == LEVELTIME) || snapped) {
+            if (blocks.back().atBottom() || blocks.back().sitting(squares)) {
+                blocks.back().remove(squares, g);
+                blocks.back().draw(g);
+                blocks.emplace_back();
+                lineClear(squares, g);
+                for (size_t i = 0; i < squares.size(); i++) {
+                    squares.at(i).draw(g);
+                }
             }
+            snapped = false;
         }
         blocks.back().draw(g);
 
