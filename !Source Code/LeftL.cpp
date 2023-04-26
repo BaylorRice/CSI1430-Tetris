@@ -10,8 +10,6 @@
 #include "LeftL.h"
 #include <vector>
 
-vector<Tile> emptyTiles;
-
 Block_LeftL::Block_LeftL() {
     loc = point(NUM_COL/2, 0);
     block_color = BLUE;
