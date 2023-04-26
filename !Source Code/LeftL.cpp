@@ -101,7 +101,7 @@ void Block_LeftL::moveDown(vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(p);
     if (!atBottom() && !sitting(others)) {
-        p.y++;
+        p.y += SIZE;
     }
     setLoc(p);
 }
@@ -131,8 +131,11 @@ int Block_LeftL::snapLateral(int in, int min, int max, int interval) {
 void Block_LeftL::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(p);
-    if (!atBottom() && !sitting(others)) {
-        // Check for Side to Side Collision
+    bool touchingLeft = false;
+    bool touchingRight = false;
+    touchingTileSides(others, touchingLeft, touchingRight);
+    if (!touchingLeft && !touchingRight) {
+        // MOVE FREELY
         if ((rotation == 1) || (rotation == 3)) {
             p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
         }
@@ -141,6 +144,30 @@ void Block_LeftL::strafeToMouse(point mouseLoc, vector<Tile>& others) {
         }
         else if (rotation == 4) {
             p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - SIZE, SIZE);
+        }
+    }
+    else if (touchingLeft && !touchingRight) {
+        // MOVE RIGHT ONLY
+        if ((rotation == 1) || (rotation == 3)) {
+            p.x = snapLateral(mouseLoc.x, loc.x - SIZE, NUM_COL - SIZE, SIZE);
+        }
+        else if (rotation == 2) {
+            p.x = snapLateral(mouseLoc.x, loc.x - SIZE, NUM_COL - (2 * SIZE), SIZE);
+        }
+        else if (rotation == 4) {
+            p.x = snapLateral(mouseLoc.x, loc.x - (2 * SIZE), NUM_COL - SIZE, SIZE);
+        }
+    }
+    else {
+        // MOVE LEFT ONLY
+        if ((rotation == 1) || (rotation == 3)) {
+            p.x = snapLateral(mouseLoc.x, SIZE, loc.x + SIZE, SIZE);
+        }
+        else if (rotation == 2) {
+            p.x = snapLateral(mouseLoc.x, SIZE, loc.x + (2 * SIZE), SIZE);
+        }
+        else if (rotation == 4) {
+            p.x = snapLateral(mouseLoc.x, (2 * SIZE), loc.x + SIZE, SIZE);
         }
     }
     setLoc(p);
@@ -222,109 +249,109 @@ bool Block_LeftL::sitting(vector<Tile>& others) {
     return sit;
 }
 
-bool Block_LeftL::touchingTileSides(vector<Tile>& others) {
-    bool isTouching = false;
+void Block_LeftL::touchingTileSides(vector<Tile>& others, bool& touchingLeft, bool& touchingRight) {
+    touchingLeft = false;
+    touchingRight = false;
     if (rotation == 1) {
-        for (int i = 0; i < others.size() && !isTouching; i++) {
+        for (int i = 0; i < others.size(); i++) {
             if (loc.x - SIZE == others.at(i).getLoc().x) {
                 if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // LEFT TOP
-                    isTouching = true;
+                    touchingLeft = true;
                 }
                 else if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT MIDDLE
-                    isTouching = true;
+                    touchingLeft = true;
                 }
             }
             else if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
                 if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
-                    isTouching = true;
+                    touchingLeft = true;
                 }
             }
             else if (loc.x + SIZE == others.at(i).getLoc().x) {
                 if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // RIGHT TOP
-                    isTouching = true;
+                    touchingRight = true;
                 }
                 else if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT MIDDLE
-                    isTouching = true;
+                    touchingRight = true;
                 }
                 else if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
-                    isTouching = true;
+                    touchingRight = true;
                 }
             }
         }
     }
     else if (rotation == 2) {
-        for (int i = 0; i < others.size() && !isTouching; i++) {
+        for (int i = 0; i < others.size(); i++) {
             if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
-                    isTouching = true;
+                    touchingLeft = true;
                 }
                 else if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
-                    isTouching = true;
+                    touchingLeft = true;
                 }
             }
             else if (loc.x == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT TOP
-                    isTouching = true;
+                    touchingRight = true;
                 }
             }
             else if (loc.x + (2 * SIZE) == others.at(i).getLoc().x) {
                 if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
-                    isTouching = true;
+                    touchingRight = true;
                 }
             }
         }
     }
     else if (rotation == 3) {
-        for (int i = 0; i < others.size() && !isTouching; i++) {
+        for (int i = 0; i < others.size(); i++) {
             if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
-                    isTouching = true;
+                    touchingLeft = true;
                 }
                 else if (loc.y == others.at(i).getLoc().y) { // LEFT MIDDLE
-                    isTouching = true;
+                    touchingLeft = true;
                 }
                 else if (loc.y + SIZE == others.at(i).getLoc().y) { // LEFT BOTTOM
-                    isTouching = true;
+                    touchingLeft = true;
                 }
             }
             else if (loc.x + SIZE == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT TOP
-                    isTouching = true;
+                    touchingRight = true;
                 }
             }
             else if (loc.x == others.at(i).getLoc().x) {
                 if (loc.y == others.at(i).getLoc().y) { // RIGHT MIDDLE
-                    isTouching = true;
+                    touchingRight = true;
                 }
                 else if (loc.y + SIZE == others.at(i).getLoc().y) { // RIGHT BOTTOM
-                    isTouching = true;
+                    touchingRight = true;
                 }
             }
         }
     }
     else if (rotation == 4) {
-        for (int i = 0; i < others.size() && !isTouching; i++) {
+        for (int i = 0; i < others.size(); i++) {
             if (loc.x - (3 * SIZE) == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
-                    isTouching = true;
+                    touchingLeft = true;
                 }
             }
             else if (loc.x - SIZE == others.at(i).getLoc().x) {
                 if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
-                    isTouching = true;
+                    touchingLeft = true;
                 }
             }
             else if (loc.x + SIZE == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT TOP
-                    isTouching = true;
+                    touchingRight = true;
                 }
                 else if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
-                    isTouching = true;
+                    touchingRight = true;
                 }
             }
         }
     }
-    return isTouching;
 }
 
 void Block_LeftL::remove(vector<Tile>& others, SDL_Plotter& g) {

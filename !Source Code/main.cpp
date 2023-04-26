@@ -29,6 +29,7 @@ int main(int argc, char** argv) {
     vector<Tile> squares(0);
     bool nextBlockReady = true;
     int count = 0;
+    int timeCount = 0;
     point mouse;
 
     while (!g.getQuit()) { // ESC
@@ -46,7 +47,11 @@ int main(int argc, char** argv) {
 
         g.getMouseLocation(mouse.x, mouse.y);
         blocks.back().strafeToMouse(mouse, squares);
-        blocks.back().moveDown(squares);
+
+        if (timeCount == LEVELTIME) {
+            blocks.back().moveDown(squares);
+        }
+
         if (blocks.back().atBottom() || blocks.back().sitting(squares)) {
             blocks.back().remove(squares, g);
             blocks.back().draw(g);
@@ -59,7 +64,11 @@ int main(int argc, char** argv) {
         blocks.back().draw(g);
 
         g.update();
-        g.Sleep(20);
+        g.Sleep(REFRESH);
+        timeCount += REFRESH;
+        if (timeCount > LEVELTIME + 1) {
+            timeCount = 0;
+        }
 
     }
 

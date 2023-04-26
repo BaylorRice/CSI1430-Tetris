@@ -1,4 +1,7 @@
 ﻿  LeftL.cpp
 C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\LeftL.cpp(119,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\LeftL.cpp(120,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  main.cpp
+C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\main.cpp(27,10): warning C4101: 'key': unreferenced local variable
+  Generating Code...
   Tetris_VS.vcxproj -> C:\Users\reese\Documents\CSI1430-Tetris\Visual Studio\Tetris_VS\x64\Debug\Tetris_VS.exe
