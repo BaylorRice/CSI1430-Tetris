@@ -225,7 +225,7 @@ bool Block_LeftL::sitting(vector<Tile>& others) {
 bool Block_LeftL::touchingTileSides(vector<Tile>& others) {
     bool isTouching = false;
     if (rotation == 1) {
-        for (int i = 0; i < others.size(); i++) {
+        for (int i = 0; i < others.size() && !isTouching; i++) {
             if (loc.x - SIZE == others.at(i).getLoc().x) {
                 if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // LEFT TOP
                     isTouching = true;
@@ -253,7 +253,7 @@ bool Block_LeftL::touchingTileSides(vector<Tile>& others) {
         }
     }
     else if (rotation == 2) {
-        for (int i = 0; i < others.size(); i++) {
+        for (int i = 0; i < others.size() && !isTouching; i++) {
             if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
                     isTouching = true;
@@ -275,7 +275,7 @@ bool Block_LeftL::touchingTileSides(vector<Tile>& others) {
         }
     }
     else if (rotation == 3) {
-        for (int i = 0; i < others.size(); i++) {
+        for (int i = 0; i < others.size() && !isTouching; i++) {
             if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
                     isTouching = true;
@@ -303,7 +303,7 @@ bool Block_LeftL::touchingTileSides(vector<Tile>& others) {
         }
     }
     else if (rotation == 4) {
-        for (int i = 0; i < others.size(); i++) {
+        for (int i = 0; i < others.size() && !isTouching; i++) {
             if (loc.x - (3 * SIZE) == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
                     isTouching = true;
