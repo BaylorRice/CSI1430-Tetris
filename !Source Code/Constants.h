@@ -1,3 +1,12 @@
+/*
+* Authors: Reese Ford, ...
+* Assignment Title: Group Project - Tetris
+* Assignment Description: INSERT DESCRIPTION
+* Due Date: INSERT DUE DATE
+* Date Created: ...
+* Date Last Modified: 04/25/2023
+*/
+
 #ifndef CONSTANT_H_
 #define CONSTANT_H_
 
