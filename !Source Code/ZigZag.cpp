@@ -9,7 +9,7 @@
 
 #include "ZigZag.h"
 #include <vector>
-
+//CHANGE
 Block_ZigZag::Block_ZigZag() {
     loc = point(NUM_COL/2, 0);
     block_color = BLUE;
@@ -24,7 +24,7 @@ Block_ZigZag::Block_ZigZag(point inLoc, int inRot = 1, color inColor = BLUE) {
     setColor(block_color);
     setLoc(loc);
 }
-
+//
 void Block_ZigZag::setLoc(point inLoc) {
     prevLoc.push_back(getLoc());
     loc = inLoc;
