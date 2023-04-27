@@ -12,6 +12,9 @@
     <Filter Include="SDL Files">
       <UniqueIdentifier>{72574af8-eb51-49e0-bc23-4aa1eb891852}</UniqueIdentifier>
     </Filter>
+    <Filter Include="font">
+      <UniqueIdentifier>{1b02a3ad-8914-4d05-a712-5f5e6d181a51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\!Source Code\main.cpp" />
@@ -22,9 +25,6 @@
       <Filter>CPP Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\!Source Code\LeftL.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\!Source Code\ZigZag.cpp">
       <Filter>CPP Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,8 +41,10 @@
     <ClInclude Include="..\..\!Source Code\LeftL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\!Source Code\ZigZag.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\!Source Code\font\EXAMPLE.txt">
+      <Filter>font</Filter>
+    </Text>
   </ItemGroup>
 </Project>
