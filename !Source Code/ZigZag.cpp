@@ -17,7 +17,7 @@ Block_ZigZag::Block_ZigZag() {
     setLoc(loc);
 }
 
-Block_ZigZag::Block_ZigZag(point inLoc = point(NUM_COL / 2, 0), int inRot = 1, color inColor = BLUE) {
+Block_ZigZag::Block_ZigZag(point inLoc, int inRot = 1, color inColor = BLUE) {
     loc = inLoc;
     rotation = inRot;
     block_color = inColor;

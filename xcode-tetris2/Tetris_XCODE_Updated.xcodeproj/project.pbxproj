@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F876A3729FAF6C1001D2194 /* otherMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F876A3629FAF6C1001D2194 /* otherMain.cpp */; };
+		1F876A3E29FAF6E4001D2194 /* SDL_Plotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F876A3D29FAF6E4001D2194 /* SDL_Plotter.cpp */; };
+		1F876A4229FAF75A001D2194 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F876A4129FAF75A001D2194 /* libSDL2-2.0.0.dylib */; };
+		1F876A4429FAF76F001D2194 /* libSDL2_mixer-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F876A4329FAF76F001D2194 /* libSDL2_mixer-2.0.0.dylib */; };
+		1FF7221129FAFA6000765690 /* ZigZag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7220A29FAFA6000765690 /* ZigZag.cpp */; };
+		1FF7221229FAFA6000765690 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7220B29FAFA6000765690 /* main.cpp */; };
+		1FF7221329FAFA6000765690 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7220C29FAFA6000765690 /* Tile.cpp */; };
+		1FF7221429FAFA6000765690 /* LeftL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7220D29FAFA6000765690 /* LeftL.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1F876A3129FAF6C1001D2194 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1F876A3329FAF6C1001D2194 /* Tetris_XCODE_Updated */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Tetris_XCODE_Updated; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F876A3629FAF6C1001D2194 /* otherMain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = otherMain.cpp; sourceTree = "<group>"; };
+		1F876A3D29FAF6E4001D2194 /* SDL_Plotter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SDL_Plotter.cpp; sourceTree = "<group>"; };
+		1F876A3F29FAF6F2001D2194 /* SDL_Plotter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDL_Plotter.h; sourceTree = "<group>"; };
+		1F876A4129FAF75A001D2194 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../opt/homebrew/Cellar/sdl2/2.26.5/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		1F876A4329FAF76F001D2194 /* libSDL2_mixer-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_mixer-2.0.0.dylib"; path = "../../../../opt/homebrew/Cellar/sdl2_mixer/2.6.3_1/lib/libSDL2_mixer-2.0.0.dylib"; sourceTree = "<group>"; };
+		1FF7220929FAFA6000765690 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tile.h; path = "../!Source Code/Tile.h"; sourceTree = "<group>"; };
+		1FF7220A29FAFA6000765690 /* ZigZag.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZigZag.cpp; path = "../!Source Code/ZigZag.cpp"; sourceTree = "<group>"; };
+		1FF7220B29FAFA6000765690 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = "../!Source Code/main.cpp"; sourceTree = "<group>"; };
+		1FF7220C29FAFA6000765690 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tile.cpp; path = "../!Source Code/Tile.cpp"; sourceTree = "<group>"; };
+		1FF7220D29FAFA6000765690 /* LeftL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LeftL.cpp; path = "../!Source Code/LeftL.cpp"; sourceTree = "<group>"; };
+		1FF7220E29FAFA6000765690 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = "../!Source Code/Constants.h"; sourceTree = "<group>"; };
+		1FF7220F29FAFA6000765690 /* LeftL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftL.h; path = "../!Source Code/LeftL.h"; sourceTree = "<group>"; };
+		1FF7221029FAFA6000765690 /* ZigZag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZigZag.h; path = "../!Source Code/ZigZag.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F876A3029FAF6C1001D2194 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F876A4429FAF76F001D2194 /* libSDL2_mixer-2.0.0.dylib in Frameworks */,
+				1F876A4229FAF75A001D2194 /* libSDL2-2.0.0.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F876A2A29FAF6C0001D2194 = {
+			isa = PBXGroup;
+			children = (
+				1FF7221629FAFA8200765690 /* Header Files */,
+				1FF7221529FAFA6400765690 /* CPP Files */,
+				1FF7220B29FAFA6000765690 /* main.cpp */,
+				1F876A4529FAF956001D2194 /* No touch */,
+			);
+			sourceTree = "<group>";
+		};
+		1F876A3429FAF6C1001D2194 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F876A3329FAF6C1001D2194 /* Tetris_XCODE_Updated */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F876A3529FAF6C1001D2194 /* xcode-tetris2 */ = {
+			isa = PBXGroup;
+			children = (
+				1F876A3629FAF6C1001D2194 /* otherMain.cpp */,
+				1F876A3D29FAF6E4001D2194 /* SDL_Plotter.cpp */,
+				1F876A3F29FAF6F2001D2194 /* SDL_Plotter.h */,
+			);
+			path = "xcode-tetris2";
+			sourceTree = "<group>";
+		};
+		1F876A4029FAF75A001D2194 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F876A4329FAF76F001D2194 /* libSDL2_mixer-2.0.0.dylib */,
+				1F876A4129FAF75A001D2194 /* libSDL2-2.0.0.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F876A4529FAF956001D2194 /* No touch */ = {
+			isa = PBXGroup;
+			children = (
+				1F876A3529FAF6C1001D2194 /* xcode-tetris2 */,
+				1F876A3429FAF6C1001D2194 /* Products */,
+				1F876A4029FAF75A001D2194 /* Frameworks */,
+			);
+			name = "No touch";
+			sourceTree = "<group>";
+		};
+		1FF7221529FAFA6400765690 /* CPP Files */ = {
+			isa = PBXGroup;
+			children = (
+				1FF7220D29FAFA6000765690 /* LeftL.cpp */,
+				1FF7220C29FAFA6000765690 /* Tile.cpp */,
+				1FF7220A29FAFA6000765690 /* ZigZag.cpp */,
+			);
+			name = "CPP Files";
+			sourceTree = "<group>";
+		};
+		1FF7221629FAFA8200765690 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				1FF7220E29FAFA6000765690 /* Constants.h */,
+				1FF7220F29FAFA6000765690 /* LeftL.h */,
+				1FF7220929FAFA6000765690 /* Tile.h */,
+				1FF7221029FAFA6000765690 /* ZigZag.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F876A3229FAF6C1001D2194 /* Tetris_XCODE_Updated */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F876A3A29FAF6C1001D2194 /* Build configuration list for PBXNativeTarget "Tetris_XCODE_Updated" */;
+			buildPhases = (
+				1F876A2F29FAF6C1001D2194 /* Sources */,
+				1F876A3029FAF6C1001D2194 /* Frameworks */,
+				1F876A3129FAF6C1001D2194 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tetris_XCODE_Updated;
+			productName = "xcode-tetris2";
+			productReference = 1F876A3329FAF6C1001D2194 /* Tetris_XCODE_Updated */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F876A2B29FAF6C0001D2194 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1F876A3229FAF6C1001D2194 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = 1F876A2E29FAF6C0001D2194 /* Build configuration list for PBXProject "Tetris_XCODE_Updated" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F876A2A29FAF6C0001D2194;
+			productRefGroup = 1F876A3429FAF6C1001D2194 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F876A3229FAF6C1001D2194 /* Tetris_XCODE_Updated */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F876A2F29FAF6C1001D2194 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F876A3E29FAF6E4001D2194 /* SDL_Plotter.cpp in Sources */,
+				1F876A3729FAF6C1001D2194 /* otherMain.cpp in Sources */,
+				1FF7221229FAFA6000765690 /* main.cpp in Sources */,
+				1FF7221429FAFA6000765690 /* LeftL.cpp in Sources */,
+				1FF7221129FAFA6000765690 /* ZigZag.cpp in Sources */,
+				1FF7221329FAFA6000765690 /* Tile.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1F876A3829FAF6C1001D2194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1F876A3929FAF6C1001D2194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1F876A3B29FAF6C1001D2194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "/opt/homebrew/include/**";
+				"HEADER_SEARCH_PATHS[arch=*]" = /opt/homebrew/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/sdl2/2.26.5/lib,
+					/opt/homebrew/Cellar/sdl2_mixer/2.6.3_1/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1F876A3C29FAF6C1001D2194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "/opt/homebrew/include/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/sdl2/2.26.5/lib,
+					/opt/homebrew/Cellar/sdl2_mixer/2.6.3_1/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F876A2E29FAF6C0001D2194 /* Build configuration list for PBXProject "Tetris_XCODE_Updated" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F876A3829FAF6C1001D2194 /* Debug */,
+				1F876A3929FAF6C1001D2194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F876A3A29FAF6C1001D2194 /* Build configuration list for PBXNativeTarget "Tetris_XCODE_Updated" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F876A3B29FAF6C1001D2194 /* Debug */,
+				1F876A3C29FAF6C1001D2194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F876A2B29FAF6C0001D2194 /* Project object */;
+}
