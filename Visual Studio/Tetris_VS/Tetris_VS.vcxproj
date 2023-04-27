@@ -135,6 +135,7 @@
     <ClCompile Include="..\..\!Source Code\LeftL.cpp" />
     <ClCompile Include="..\..\!Source Code\main.cpp" />
     <ClCompile Include="..\..\!Source Code\SDL_Plotter.cpp" />
+    <ClCompile Include="..\..\!Source Code\Square.cpp" />
     <ClCompile Include="..\..\!Source Code\Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +145,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="..\..\!Source Code\SDL_Plotter.h" />
+    <ClInclude Include="..\..\!Source Code\Square.h" />
     <ClInclude Include="..\..\!Source Code\Tile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
