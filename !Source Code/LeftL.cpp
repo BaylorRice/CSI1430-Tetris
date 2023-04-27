@@ -10,8 +10,6 @@
 #include "LeftL.h"
 #include <vector>
 
-vector<Tile> emptyTiles;
-
 Block_LeftL::Block_LeftL() {
     loc = point(NUM_COL/2, 0);
     block_color = BLUE;
@@ -19,7 +17,7 @@ Block_LeftL::Block_LeftL() {
     setLoc(loc);
 }
 
-Block_LeftL::Block_LeftL(point inLoc = point(NUM_COL / 2, 0), int inRot = 1, color inColor = BLUE) {
+Block_LeftL::Block_LeftL(point inLoc, int inRot = 1, color inColor = BLUE) {
     loc = inLoc;
     rotation = inRot;
     block_color = inColor;

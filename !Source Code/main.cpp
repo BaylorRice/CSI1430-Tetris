@@ -1,10 +1,10 @@
 /*
-* Authors: Reese Ford, ...
+* Authors: Reese Ford, Josie D'Acquisto, ...
 * Assignment Title: Group Project - Tetris
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: ...
-* Date Last Modified: 04/25/2023
+* Date Last Modified: 04/26/2023
 */
 
 #include <iostream>
@@ -15,6 +15,7 @@
 
 #include "Tile.h"
 #include "LeftL.h"
+#include "ZigZag.h"
 
 using namespace std;
 
@@ -25,11 +26,9 @@ int main(int argc, char** argv) {
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     //char key;
-    vector<Block_LeftL> blocks(1);
+    vector<Block_ZigZag> blocks(1);
     vector<Tile> squares(0);
-    //bool nextBlockReady = true;
     bool snapped = false;
-    //int count = 0;
     int timeCount = LEVELTIME/2;
     point mouse;
     bool gameOver = false;
@@ -127,29 +126,3 @@ void lineClear(vector<Tile>& others, SDL_Plotter& g) {
         }
     } 
 }
-
-//    // Fully delete removed tiles
-//    for (size_t i = 0; i < others.size(); i++) {
-//        if (others.at(i).isDeleted() == true) {
-//            others.erase(others.begin() + i);
-//            i--;
-//        }
-//    }  
-//}
-//removedLinesCount++;
-//            for (size_t i = 0; i < others.size(); i++) {
-//                for (int l = 0; l < removedLinesCount; l++) {
-//                    others.at(i).moveDownLine(others);
-//                }
-//            }
-//            
-//            // Determining how many tiles are in each line
-//    for (size_t i = 0; i < others.size(); i++) {
-//        int currentY = others.at(i).getLoc().y;
-//        if (currentY > 0) {
-//            int index = currentY / SIZE;
-//            if (index < lineCounts.size()) {
-//                lineCounts.at(index)++;
-//            }
-//        }
-//    }

@@ -15,7 +15,7 @@ Tile::Tile() {
     loc = point((NUM_COL / 2) - (SIZE / 2), SIZE);
 }
 
-Tile::Tile(int inSize = SIZE, color inColor = YELLOW, point inLoc = point(0,0)) {
+Tile::Tile(int inSize, color inColor = YELLOW, point inLoc = point(0,0)) {
     size = inSize;
     tile_color = inColor;
     loc = inLoc;
