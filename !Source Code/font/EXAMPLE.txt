@@ -1,0 +1,3 @@
+ROW
+COL
+MATRIX (1 being a filled in pixel, 0 being empty)
