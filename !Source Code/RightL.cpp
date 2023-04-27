@@ -12,12 +12,12 @@
 
 Block_RightL::Block_RightL() {
     loc = point(NUM_COL/2, 0);
-    block_color = BLUE;
+    block_color = ORANGE;
     setColor(block_color);
     setLoc(loc);
 }
 
-Block_RightL::Block_RightL(point inLoc, int inRot = 1, color inColor = BLUE) {
+Block_RightL::Block_RightL(point inLoc, int inRot = 1, color inColor = ORANGE) {
     loc = inLoc;
     rotation = inRot;
     block_color = inColor;
@@ -30,28 +30,28 @@ void Block_RightL::setLoc(point inLoc) {
     loc = inLoc;
 
     if (rotation == 1) {
-        a.setLoc(loc);
-        b.setLoc(point(loc.x - SIZE, loc.y));
-        c.setLoc(point(loc.x, loc.y - SIZE));
-        d.setLoc(point(loc.x, loc.y - (2 * SIZE)));
-    }
-    else if (rotation == 2) {
         a.setLoc(point(loc.x - SIZE, loc.y));
-        b.setLoc(point(loc.x - SIZE, loc.y - SIZE));
-        c.setLoc(loc);
-        d.setLoc(point(loc.x + SIZE, loc.y));
-    }
-    else if (rotation == 3) {
-        a.setLoc(point(loc.x - SIZE, loc.y - SIZE));
-        b.setLoc(point(loc.x, loc.y - SIZE));
-        c.setLoc(point(loc.x - SIZE, loc.y));
-        d.setLoc(point(loc.x - SIZE, loc.y + SIZE));
-    }
-    else if (rotation == 4) {
-        a.setLoc(point(loc.x, loc.y - SIZE));
         b.setLoc(loc);
         c.setLoc(point(loc.x - SIZE, loc.y - SIZE));
-        d.setLoc(point(loc.x - (2 * SIZE), loc.y - SIZE));
+        d.setLoc(point(loc.x - SIZE, loc.y - (2 * SIZE)));
+    }
+    else if (rotation == 2) {
+        a.setLoc(point(loc.x - SIZE, loc.y - SIZE));
+        b.setLoc(point(loc.x - SIZE, loc.y));
+        c.setLoc(point(loc.x, loc.y - SIZE));
+        d.setLoc(point(loc.x + SIZE, loc.y - SIZE));
+    }
+    else if (rotation == 3) {
+        a.setLoc(point(loc.x, loc.y - SIZE));
+        b.setLoc(point(loc.x - SIZE, loc.y - SIZE));
+        c.setLoc(loc);
+        d.setLoc(point(loc.x, loc.y + SIZE));
+    }
+    else if (rotation == 4) {
+        a.setLoc(loc);
+        b.setLoc(point(loc.x, loc.y - SIZE));
+        c.setLoc(point(loc.x - SIZE, loc.y));
+        d.setLoc(point(loc.x - (2 * SIZE), loc.y));
     }
 
 }
