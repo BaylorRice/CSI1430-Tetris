@@ -1,10 +1,10 @@
 /*
-* Authors: Reese Ford, ...
+* Authors: Reese Ford, MJ Ruhman
 * Assignment Title: Group Project - Tetris
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
-* Date Created: ...
-* Date Last Modified: 04/25/2023
+* Date Created: 04/27/2023
+* Date Last Modified: 04/27/2023
 */
 
 #include <iostream>
