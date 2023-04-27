@@ -1,5 +1,5 @@
 /*
-* Authors: Reese Ford, Josie D'Acquisto, ...
+* Authors: Reese Ford, MJ Ruhman
 * Assignment Title: Group Project - Tetris
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
@@ -12,10 +12,10 @@
 #include "SDL_Plotter.h"
 using namespace std;
 
-#ifndef ZIGZAG_H_INCLUDED
-#define ZIGZAG_H_INCLUDED
+#ifndef SQUARE_H_INCLUDED
+#define SQUARE_H_INCLUDED
 
-class Block_ZigZag {
+class Block_Square {
     private:
     point loc;
     vector<point> prevLoc;
@@ -26,10 +26,9 @@ class Block_ZigZag {
 
     public:
     // Specific Constructors
-    //CHANGE
-    Block_ZigZag();
-    Block_ZigZag(point inLoc, int inRot, color inColor);
-//
+    Block_Square();
+    Block_Square(point inLoc, int inRot, color inColor);
+
     // Block-Universal Functions
     void setColor(color inColor);
 
@@ -37,17 +36,16 @@ class Block_ZigZag {
     color getColor() const;
 
     void draw(SDL_Plotter& g);
-// CHANGE
+
     void rotateClock(vector<Tile>& others);
     void rotateCounterClock(vector<Tile>& others);
-//
+
     void moveDown(vector<Tile>& others);
     void snapToBottom(vector<Tile>& others);
 
     int snapLateral(int in, int min, int max, int interval);
 
-    // Block-Specific Functions
-    //CHANGE
+    // LeftL-Specific Functions
     void setLoc(point inLoc);
 
     void strafeToMouse(point mouseLoc, vector<Tile>& others);
@@ -57,7 +55,7 @@ class Block_ZigZag {
     void touchingTileSides(vector<Tile>& others, bool& touchingLeft, bool& touchingRight);
 
     void remove(vector<Tile>& others, SDL_Plotter& g); // Removes the Tiles from this object's "supervision"
-//
+
 };
 
-#endif // ZIGZAG_H_INCLUDED
+#endif // SQUARE_H_INCLUDED
