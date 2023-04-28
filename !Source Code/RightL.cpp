@@ -229,7 +229,7 @@ bool Block_RightL::sitting(vector<Tile>& others) {
             }
             if ((loc.x == others.at(i).getLoc().x) ||
                 ((loc.x + SIZE) == others.at(i).getLoc().x)) {
-                if (loc.y == others.at(i).getLoc().x) {
+                if (loc.y == others.at(i).getLoc().y) {
                     sit = true;
                 }
             }
