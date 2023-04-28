@@ -212,7 +212,8 @@ bool Block_RightL::sitting(vector<Tile>& others) {
     point loc = getLoc();
     if (rotation == 1) {
         for (int i = 0; i < others.size(); i++) {
-            if ((loc.x == others.at(i).getLoc().x) || ((loc.x - SIZE) == others.at(i).getLoc().x)) {
+            if ((loc.x == others.at(i).getLoc().x) ||
+                ((loc.x - SIZE) == others.at(i).getLoc().x)) {
                 if (loc.y + SIZE == others.at(i).getLoc().y) {
                     sit = true;
                 }
@@ -221,10 +222,14 @@ bool Block_RightL::sitting(vector<Tile>& others) {
     }
     else if (rotation == 2) {
         for (int i = 0; i < others.size(); i++) {
-            if ((loc.x == others.at(i).getLoc().x) || 
-                ((loc.x - SIZE) == others.at(i).getLoc().x) || 
+            if ((loc.x - SIZE) == others.at(i).getLoc().x) {
+                if ((loc.y + SIZE) == others.at(i).getLoc().y) {
+                    sit = true;
+                }
+            }
+            if ((loc.x == others.at(i).getLoc().x) ||
                 ((loc.x + SIZE) == others.at(i).getLoc().x)) {
-                if (loc.y + SIZE == others.at(i).getLoc().y) {
+                if (loc.y == others.at(i).getLoc().x) {
                     sit = true;
                 }
             }
@@ -232,12 +237,12 @@ bool Block_RightL::sitting(vector<Tile>& others) {
     }
     else if (rotation == 3) {
         for (int i = 0; i < others.size(); i++) {
-            if (loc.x - SIZE == others.at(i).getLoc().x) {
+            if (loc.x == others.at(i).getLoc().x) {
                 if (loc.y + (2 * SIZE) == others.at(i).getLoc().y) {
                     sit = true;
                 }
             }
-            if (loc.x == others.at(i).getLoc().x) {
+            if ((loc.x - SIZE) == others.at(i).getLoc().x) {
                 if (loc.y == others.at(i).getLoc().y) {
                     sit = true;
                 }
@@ -246,18 +251,10 @@ bool Block_RightL::sitting(vector<Tile>& others) {
     }
     else if (rotation == 4) {
         for (int i = 0; i < others.size(); i++) {
-            if (loc.x == others.at(i).getLoc().x) {
-                if (loc.y + SIZE == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-            if (loc.x - SIZE == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-            if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) {
+            if (((loc.x - SIZE) == others.at(i).getLoc().x) ||
+                (loc.x == others.at(i).getLoc().x) ||
+                ((loc.x + SIZE) == others.at(i).getLoc().x)) {
+                if ((loc.y + SIZE) == others.at(i).getLoc().y) {
                     sit = true;
                 }
             }
