@@ -297,7 +297,7 @@ void Block_RightL::touchingTileSides(vector<Tile>& others, bool& touchingLeft, b
     }
     else if (rotation == 2) {
         for (int i = 0; i < others.size(); i++) {
-            if ((loc.x - SIZE) == others.at(i).getLoc().x) {
+            if ((loc.x - (2 * SIZE)) == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
                     touchingLeft = true;
                 }
