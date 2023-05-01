@@ -160,11 +160,14 @@ void Block_Tee::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     }
     else if (touchingLeft && !touchingRight) {
         // MOVE RIGHT ONLY
-        if ((rotation == 1) || (rotation == 3)) {
-            p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
+        if (rotation == 1) {
+            p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - (2 * SIZE), SIZE);
         }
         else if (rotation == 2) {
-            p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - (2 * SIZE), SIZE);
+            p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
+        }
+        else if (rotation == 3) {
+            p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
         }
         else if (rotation == 4) {
             p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
@@ -172,15 +175,26 @@ void Block_Tee::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     }
     else {
         // MOVE LEFT ONLY
-        if ((rotation == 1) || (rotation == 3)) {
-            p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
+        if (rotation == 1) {
+            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - (2 * SIZE), loc.x);
         }
         else if (rotation == 2) {
-            p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
+            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, loc.x);
+        }
+        else if (rotation == 3) {
+            p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - SIZE, loc.x);
         }
         else if (rotation == 4) {
-            p.x = snapLateral(mouseLoc.x, (2 * SIZE), loc.x, SIZE);
+            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, loc.x);
         }
+    }
+
+    // Speed Limiter (Forces the block to only move SIZE pixels a cycle)
+    if (p.x < loc.x) {
+        p.x = loc.x - SIZE;
+    }
+    else if (p.x > loc.x) {
+        p.x = loc.x + SIZE;
     }
     setLoc(p);
 }
