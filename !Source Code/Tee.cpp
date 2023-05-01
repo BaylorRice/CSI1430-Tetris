@@ -145,14 +145,17 @@ void Block_Tee::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     touchingTileSides(others, touchingLeft, touchingRight);
     if (!touchingLeft && !touchingRight) {
         // MOVE FREELY
-        if ((rotation == 1) || (rotation == 3)) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
-        }
-        else if (rotation == 2) {
+        if (rotation == 1) {
             p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - (2 * SIZE), SIZE);
         }
-        else if (rotation == 4) {
+        else if (rotation == 2) {
+            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
+        }
+        else if (rotation == 3) {
             p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - SIZE, SIZE);
+        }
+        else if (rotation == 4) {
+            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
         }
     }
     else if (touchingLeft && !touchingRight) {
