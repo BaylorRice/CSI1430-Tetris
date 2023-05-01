@@ -1,4 +1,7 @@
 ﻿  Tee.cpp
 C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\Tee.cpp(128,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\Tee.cpp(129,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  main.cpp
+C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\main.cpp(94,5): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
   Tetris_VS.vcxproj -> C:\Users\reese\Documents\CSI1430-Tetris\Visual Studio\Tetris_VS\x64\Debug\Tetris_VS.exe
