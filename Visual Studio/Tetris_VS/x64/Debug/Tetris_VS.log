@@ -1,4 +1,4 @@
 ﻿  Tee.cpp
 C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\Tee.cpp(128,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\Tee.cpp(129,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\Tee.cpp(249,9): error C2059: syntax error: '}'
+  Tetris_VS.vcxproj -> C:\Users\reese\Documents\CSI1430-Tetris\Visual Studio\Tetris_VS\x64\Debug\Tetris_VS.exe
