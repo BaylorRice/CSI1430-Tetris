@@ -135,8 +135,8 @@
     <ClCompile Include="..\..\!Source Code\LeftL.cpp" />
     <ClCompile Include="..\..\!Source Code\main.cpp" />
     <ClCompile Include="..\..\!Source Code\SDL_Plotter.cpp" />
+    <ClCompile Include="..\..\!Source Code\Tee.cpp" />
     <ClCompile Include="..\..\!Source Code\Tile.cpp" />
-    <ClCompile Include="..\..\!Source Code\ZigZag.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\!Source Code\Constants.h" />
@@ -145,8 +145,8 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="..\..\!Source Code\SDL_Plotter.h" />
+    <ClInclude Include="..\..\!Source Code\Tee.h" />
     <ClInclude Include="..\..\!Source Code\Tile.h" />
-    <ClInclude Include="..\..\!Source Code\ZigZag.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
