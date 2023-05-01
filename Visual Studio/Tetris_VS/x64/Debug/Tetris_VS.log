@@ -1,9 +1,4 @@
-﻿  LeftL.cpp
-C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\LeftL.cpp(128,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\LeftL.cpp(129,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  ZigZag.cpp
-C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\ZigZag.cpp(128,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\ZigZag.cpp(129,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  Generating Code...
-MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+﻿  Tee.cpp
+C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\Tee.cpp(128,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\Tee.cpp(129,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   Tetris_VS.vcxproj -> C:\Users\reese\Documents\CSI1430-Tetris\Visual Studio\Tetris_VS\x64\Debug\Tetris_VS.exe
