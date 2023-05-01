@@ -231,10 +231,13 @@ bool Block_Tee::sitting(vector<Tile>& others) {
     }
     else if (rotation == 2) {
         for (int i = 0; i < others.size(); i++) {
-            if ((loc.x == others.at(i).getLoc().x) || 
-                ((loc.x - SIZE) == others.at(i).getLoc().x) || 
-                ((loc.x + SIZE) == others.at(i).getLoc().x)) {
-                if (loc.y + SIZE == others.at(i).getLoc().y) {
+            if ((loc.x - SIZE) == others.at(i).getLoc().x) {
+                if ((loc.y + (2 * SIZE)) == others.at(i).getLoc().y) {
+                    sit = true;
+                }
+            }
+            else if (loc.x == others.at(i).getLoc().x) {
+                if ((loc.y + SIZE) == others.at(i).getLoc().y) {
                     sit = true;
                 }
             }
