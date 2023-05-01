@@ -236,7 +236,7 @@ bool Block_Tee::sitting(vector<Tile>& others) {
                     sit = true;
                 }
             }
-            else if (loc.x == others.at(i).getLoc().x) {
+            if (loc.x == others.at(i).getLoc().x) {
                 if ((loc.y + SIZE) == others.at(i).getLoc().y) {
                     sit = true;
                 }
@@ -251,7 +251,7 @@ bool Block_Tee::sitting(vector<Tile>& others) {
                     sit = true;
                 }
             }
-            else if ((loc.x - SIZE) == others.at(i).getLoc().x) {
+            if ((loc.x - SIZE) == others.at(i).getLoc().x) {
                 if ((loc.y + SIZE) == others.at(i).getLoc().y) {
                     sit = true;
                 }
