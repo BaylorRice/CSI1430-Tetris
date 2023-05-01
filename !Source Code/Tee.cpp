@@ -359,21 +359,29 @@ void Block_Tee::touchingTileSides(vector<Tile>& others, bool& touchingLeft, bool
     }
     else if (rotation == 4) {
         for (int i = 0; i < others.size(); i++) {
-            if (loc.x - (3 * SIZE) == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
+            if (loc.x - SIZE == others.at(i).getLoc().x) {
+                if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // LEFT TOP
                     touchingLeft = true;
                 }
             }
-            else if (loc.x - SIZE == others.at(i).getLoc().x) {
+            if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
+                if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT MIDDLE
+                    touchingLeft = true;
+                }
+            }
+            if (loc.x - SIZE == others.at(i).getLoc().x) {
                 if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
                     touchingLeft = true;
                 }
             }
-            else if (loc.x + SIZE == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT TOP
+            if (loc.x + SIZE == others.at(i).getLoc().x) {
+                if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // RIGHT TOP
                     touchingRight = true;
                 }
-                else if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
+                if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT MIDDLE
+                    touchingRight = true;
+                }
+                if (loc.y == others.at(i).getLoc().y) {
                     touchingRight = true;
                 }
             }
