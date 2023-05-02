@@ -25,6 +25,8 @@
       <Filter>CPP Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\!Source Code\Line.cpp">
+	  <Filter>CPP Files</Filter>
+	</ClCompile>
     <ClCompile Include="..\..\!Source Code\RightL.cpp">
       <Filter>CPP Files</Filter>
     </ClCompile>
@@ -43,6 +45,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\!Source Code\Line.h">
+	  <Filter>Header Files</Filter>
+	</ClInclude>  
     <ClInclude Include="..\..\!Source Code\RightL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
