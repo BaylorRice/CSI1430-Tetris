@@ -134,13 +134,10 @@ void Block_SigZag::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     if (!touchingLeft && !touchingRight) {
         // MOVE FREELY
         if ((rotation == 1) || (rotation == 3)) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
-        }
-        if (rotation == 2) {
             p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - (2 * SIZE), SIZE);
         }
-        if (rotation == 4) {
-            p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - SIZE, SIZE);
+        if (rotation == 2 || rotation == 4) {
+            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
         }
     }
     else if (touchingLeft && !touchingRight) {
