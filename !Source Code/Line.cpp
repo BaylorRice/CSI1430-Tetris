@@ -244,16 +244,16 @@ void Block_Line::touchingTileSides(vector<Tile>& others, bool& touchingLeft, boo
             }
             if (loc.x + SIZE == others.at(i).getLoc().x) {
                 if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // RIGHT TOP
-                    touchingLeft = true;
+                    touchingRight = true;
                 }
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT UPPER MIDDLE
-                    touchingLeft = true;
+                    touchingRight = true;
                 }
                 if (loc.y == others.at(i).getLoc().y) { // RIGHT LOWER MIDDLE
-                    touchingLeft = true;
+                    touchingRight = true;
                 }
                 if (loc.y + SIZE == others.at(i).getLoc().y) { // RIGHT BOTTOM
-                    touchingLeft = true;
+                    touchingRight = true;
                 }
             }
         }
