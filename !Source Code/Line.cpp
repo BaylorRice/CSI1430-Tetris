@@ -30,28 +30,16 @@ void Block_Line::setLoc(point inLoc) {
     loc = inLoc;
 
     if (rotation == 1) {
-        a.setLoc(loc);
-        b.setLoc(point(loc.x - SIZE, loc.y));
-        c.setLoc(point(loc.x, loc.y - SIZE));
-        d.setLoc(point(loc.x, loc.y - (2 * SIZE)));
+        a.setLoc(point(loc.x + SIZE, loc.y));
+        b.setLoc(loc);
+        c.setLoc(point(loc.x - SIZE, loc.y));
+        d.setLoc(point(loc.x - (2 * SIZE), loc.y));
     }
     else if (rotation == 2) {
-        a.setLoc(point(loc.x - SIZE, loc.y));
-        b.setLoc(point(loc.x - SIZE, loc.y - SIZE));
-        c.setLoc(loc);
-        d.setLoc(point(loc.x + SIZE, loc.y));
-    }
-    else if (rotation == 3) {
-        a.setLoc(point(loc.x - SIZE, loc.y - SIZE));
+        a.setLoc(point(loc.x, loc.y - (2 * SIZE)));
         b.setLoc(point(loc.x, loc.y - SIZE));
-        c.setLoc(point(loc.x - SIZE, loc.y));
-        d.setLoc(point(loc.x - SIZE, loc.y + SIZE));
-    }
-    else if (rotation == 4) {
-        a.setLoc(point(loc.x, loc.y - SIZE));
-        b.setLoc(loc);
-        c.setLoc(point(loc.x - SIZE, loc.y - SIZE));
-        d.setLoc(point(loc.x - (2 * SIZE), loc.y - SIZE));
+        c.setLoc(loc);
+        d.setLoc(point(loc.x, loc.y + SIZE));
     }
 
 }
