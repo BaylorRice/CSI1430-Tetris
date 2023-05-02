@@ -137,38 +137,29 @@ void Block_Line::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     touchingTileSides(others, touchingLeft, touchingRight);
     if (!touchingLeft && !touchingRight) {
         // MOVE FREELY
-        if ((rotation == 1) || (rotation == 3)) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
+        if (rotation == 1) {
+            p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - (2 * SIZE), SIZE);
         }
         else if (rotation == 2) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - (2 * SIZE), SIZE);
-        }
-        else if (rotation == 4) {
-            p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - SIZE, SIZE);
+            p.x = snapLateral(mouseLoc.x, 0, NUM_COL - SIZE, SIZE);
         }
     }
     else if (touchingLeft && !touchingRight) {
         // MOVE RIGHT ONLY
-        if ((rotation == 1) || (rotation == 3)) {
-            p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
-        }
-        else if (rotation == 2) {
+        if (rotation == 1) {
             p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - (2 * SIZE), SIZE);
         }
-        else if (rotation == 4) {
+        else if (rotation == 2) {
             p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
         }
     }
     else {
         // MOVE LEFT ONLY
-        if ((rotation == 1) || (rotation == 3)) {
-            p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
+        if (rotation == 1) {
+            p.x = snapLateral(mouseLoc.x, (2 * SIZE), loc.x, SIZE);
         }
         else if (rotation == 2) {
-            p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
-        }
-        else if (rotation == 4) {
-            p.x = snapLateral(mouseLoc.x, (2 * SIZE), loc.x, SIZE);
+            p.x = snapLateral(mouseLoc.x, 0, loc.x, SIZE);
         }
     }
     setLoc(p);
