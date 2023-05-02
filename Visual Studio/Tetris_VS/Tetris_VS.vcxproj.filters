@@ -24,9 +24,6 @@
     <ClCompile Include="..\..\!Source Code\LeftL.cpp">
       <Filter>CPP Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\!Source Code\ZigZag.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\!Source Code\Line.cpp">
       <Filter>CPP Files</Filter>
     </ClCompile>
@@ -42,9 +39,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\!Source Code\LeftL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\ZigZag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\!Source Code\Line.h">
