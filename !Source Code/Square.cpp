@@ -12,12 +12,12 @@
 
 Block_Square::Block_Square() {
     loc = point(NUM_COL/2, 0);
-    block_color = BLUE;
+    block_color = YELLOW;
     setColor(block_color);
     setLoc(loc);
 }
 
-Block_Square::Block_Square(point inLoc, int inRot = 1, color inColor = BLUE) {
+Block_Square::Block_Square(point inLoc, int inRot = 1, color inColor = YELLOW) {
     loc = inLoc;
     rotation = inRot;
     block_color = inColor;
@@ -83,27 +83,11 @@ void Block_Square::draw(SDL_Plotter& g) {
 }
 
 void Block_Square::rotateClock(vector<Tile>& others) {
-    bool touchingLeft = false;
-    bool touchingRight = false;
-    touchingTileSides(others, touchingLeft, touchingRight);
-    if (!atBottom() && !sitting(others) && !touchingLeft && !touchingRight) {
-        rotation++;
-        if (rotation > 4) {
-            rotation = 1;
-        }
-    }
+    rotation = 1;
 }
 
 void Block_Square::rotateCounterClock(vector<Tile>& others) {
-    bool touchingLeft = false;
-    bool touchingRight = false;
-    touchingTileSides(others, touchingLeft, touchingRight);
-    if (!atBottom() && !sitting(others) && !touchingLeft && !touchingRight) {
-        rotation--;
-        if (rotation < 1) {
-            rotation = 4;
-        }
-    }
+    rotation = 1;
 }
 
 void Block_Square::moveDown(vector<Tile>& others) {
