@@ -15,6 +15,7 @@
 
 #include "Tile.h"
 #include "LeftL.h"
+#include "Tee.h"
 #include "Line.h"
 #include "RightL.h"
 
@@ -27,7 +28,7 @@ int main(int argc, char** argv) {
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     //char key;
-    vector<Block_Line> blocks(1);
+    vector<Block_Tee> blocks(1);
     vector<Tile> squares(0);
     bool snapped = false;
     int timeCount = LEVELTIME/2;

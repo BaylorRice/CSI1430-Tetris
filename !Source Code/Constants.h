@@ -25,6 +25,7 @@ const int SIZE = 30; // Multiple of 10
 const color YELLOW = color(220, 220, 20);
 const color RED = color(220, 20, 20);
 const color BLUE = color(10, 10, 220);
+const color PURPLE = color(150, 23, 179);
 const color LIGHT_BLUE = color(66, 135, 245);
 const color ORANGE = color(255, 108, 19);
 const color BLACK = color(0, 0, 0);
