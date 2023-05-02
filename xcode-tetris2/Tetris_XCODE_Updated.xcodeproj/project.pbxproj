@@ -11,6 +11,7 @@
 		1F876A3E29FAF6E4001D2194 /* SDL_Plotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F876A3D29FAF6E4001D2194 /* SDL_Plotter.cpp */; };
 		1F876A4229FAF75A001D2194 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F876A4129FAF75A001D2194 /* libSDL2-2.0.0.dylib */; };
 		1F876A4429FAF76F001D2194 /* libSDL2_mixer-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F876A4329FAF76F001D2194 /* libSDL2_mixer-2.0.0.dylib */; };
+		1F8A3C4C2A014E5A0043B734 /* SigZag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F8A3C4B2A014E5A0043B734 /* SigZag.cpp */; };
 		1FF7221129FAFA6000765690 /* ZigZag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7220A29FAFA6000765690 /* ZigZag.cpp */; };
 		1FF7221229FAFA6000765690 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7220B29FAFA6000765690 /* main.cpp */; };
 		1FF7221329FAFA6000765690 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7220C29FAFA6000765690 /* Tile.cpp */; };
@@ -36,6 +37,8 @@
 		1F876A3F29FAF6F2001D2194 /* SDL_Plotter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDL_Plotter.h; sourceTree = "<group>"; };
 		1F876A4129FAF75A001D2194 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../opt/homebrew/Cellar/sdl2/2.26.5/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 		1F876A4329FAF76F001D2194 /* libSDL2_mixer-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_mixer-2.0.0.dylib"; path = "../../../../opt/homebrew/Cellar/sdl2_mixer/2.6.3_1/lib/libSDL2_mixer-2.0.0.dylib"; sourceTree = "<group>"; };
+		1F8A3C4A2A014E5A0043B734 /* SigZag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SigZag.h; path = "../!Source Code/SigZag.h"; sourceTree = "<group>"; };
+		1F8A3C4B2A014E5A0043B734 /* SigZag.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SigZag.cpp; path = "../!Source Code/SigZag.cpp"; sourceTree = "<group>"; };
 		1FF7220929FAFA6000765690 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tile.h; path = "../!Source Code/Tile.h"; sourceTree = "<group>"; };
 		1FF7220A29FAFA6000765690 /* ZigZag.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZigZag.cpp; path = "../!Source Code/ZigZag.cpp"; sourceTree = "<group>"; };
 		1FF7220B29FAFA6000765690 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = "../!Source Code/main.cpp"; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		1FF7221529FAFA6400765690 /* CPP Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F8A3C4B2A014E5A0043B734 /* SigZag.cpp */,
 				1FF7220D29FAFA6000765690 /* LeftL.cpp */,
 				1FF7220C29FAFA6000765690 /* Tile.cpp */,
 				1FF7220A29FAFA6000765690 /* ZigZag.cpp */,
@@ -119,6 +123,7 @@
 		1FF7221629FAFA8200765690 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F8A3C4A2A014E5A0043B734 /* SigZag.h */,
 				1FF7220E29FAFA6000765690 /* Constants.h */,
 				1FF7220F29FAFA6000765690 /* LeftL.h */,
 				1FF7220929FAFA6000765690 /* Tile.h */,
@@ -190,6 +195,7 @@
 				1FF7221429FAFA6000765690 /* LeftL.cpp in Sources */,
 				1FF7221129FAFA6000765690 /* ZigZag.cpp in Sources */,
 				1FF7221329FAFA6000765690 /* Tile.cpp in Sources */,
+				1F8A3C4C2A014E5A0043B734 /* SigZag.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

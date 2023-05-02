@@ -10,14 +10,14 @@
 #include "SigZag.h"
 #include <vector>
 //CHANGE
-Block_ZigZag::Block_ZigZag() {
+Block_SigZag::Block_SigZag() {
     loc = point(NUM_COL/2, 0);
     block_color = YELLOW;
     setColor(block_color);
     setLoc(loc);
 }
 
-Block_ZigZag::Block_ZigZag(point inLoc, int inRot = 1, color inColor = YELLOW) {
+Block_SigZag::Block_SigZag(point inLoc, int inRot = 1, color inColor = YELLOW) {
     loc = inLoc;
     rotation = inRot;
     block_color = inColor;
@@ -25,7 +25,7 @@ Block_ZigZag::Block_ZigZag(point inLoc, int inRot = 1, color inColor = YELLOW) {
     setLoc(loc);
 }
 //
-void Block_ZigZag::setLoc(point inLoc) {
+void Block_SigZag::setLoc(point inLoc) {
     prevLoc.push_back(getLoc());
     loc = inLoc;
 
@@ -44,7 +44,7 @@ void Block_ZigZag::setLoc(point inLoc) {
 
 }
 
-void Block_ZigZag::setColor(color inColor) {
+void Block_SigZag::setColor(color inColor) {
     block_color = inColor;
     a.setColor(block_color);
     b.setColor(block_color);
@@ -52,15 +52,15 @@ void Block_ZigZag::setColor(color inColor) {
     d.setColor(block_color);
 }
 
-point Block_ZigZag::getLoc() const {
+point Block_SigZag::getLoc() const {
     return loc;
 }
 
-color Block_ZigZag::getColor() const {
+color Block_SigZag::getColor() const {
     return block_color;
 }
 
-void Block_ZigZag::draw(SDL_Plotter& g) {
+void Block_SigZag::draw(SDL_Plotter& g) {
 
     a.draw(g);
     b.draw(g);
@@ -70,7 +70,7 @@ void Block_ZigZag::draw(SDL_Plotter& g) {
     prevLoc.clear();
 }
 
-void Block_ZigZag::rotateClock(vector<Tile>& others) {
+void Block_SigZag::rotateClock(vector<Tile>& others) {
     bool touchingLeft = false;
     bool touchingRight = false;
     touchingTileSides(others, touchingLeft, touchingRight);
@@ -82,7 +82,7 @@ void Block_ZigZag::rotateClock(vector<Tile>& others) {
     }
 }
 
-void Block_ZigZag::rotateCounterClock(vector<Tile>& others) {
+void Block_SigZag::rotateCounterClock(vector<Tile>& others) {
     bool touchingLeft = false;
     bool touchingRight = false;
     touchingTileSides(others, touchingLeft, touchingRight);
@@ -94,7 +94,7 @@ void Block_ZigZag::rotateCounterClock(vector<Tile>& others) {
     }
 }
 
-void Block_ZigZag::moveDown(vector<Tile>& others) {
+void Block_SigZag::moveDown(vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(p);
     if (!atBottom() && !sitting(others)) {
@@ -103,7 +103,7 @@ void Block_ZigZag::moveDown(vector<Tile>& others) {
     setLoc(p);
 }
 
-void Block_ZigZag::snapToBottom(vector<Tile>& others) {
+void Block_SigZag::snapToBottom(vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(p);
     while (!atBottom() && !sitting(others)) {
@@ -112,7 +112,7 @@ void Block_ZigZag::snapToBottom(vector<Tile>& others) {
     }
 }
 
-int Block_ZigZag::snapLateral(int in, int min, int max, int interval) {
+int Block_SigZag::snapLateral(int in, int min, int max, int interval) {
     int numIntervals = round((max - min) / interval);
     int snappedValue = round((in - min) / interval) * interval + min;
 
@@ -125,7 +125,7 @@ int Block_ZigZag::snapLateral(int in, int min, int max, int interval) {
     return snappedValue;
 }
 
-void Block_ZigZag::strafeToMouse(point mouseLoc, vector<Tile>& others) {
+void Block_SigZag::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     point p = getLoc();
     prevLoc.push_back(p);
     bool touchingLeft = false;
@@ -164,7 +164,7 @@ void Block_ZigZag::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     setLoc(p);
 }
 
-bool Block_ZigZag::atBottom() {
+bool Block_SigZag::atBottom() {
     bool atBottom = false;
     if (rotation == 1 || rotation == 3) {
         if (getLoc().y >= NUM_ROW - SIZE) {
@@ -180,7 +180,7 @@ bool Block_ZigZag::atBottom() {
     return atBottom;
 }
 
-bool Block_ZigZag::sitting(vector<Tile>& others) {
+bool Block_SigZag::sitting(vector<Tile>& others) {
     bool sit = false;
     point loc = getLoc();
     if (rotation == 1 || rotation == 3) {
@@ -214,7 +214,7 @@ bool Block_ZigZag::sitting(vector<Tile>& others) {
     return sit;
 }
 
-void Block_ZigZag::touchingTileSides(vector<Tile>& others, bool& touchingLeft, bool& touchingRight) {
+void Block_SigZag::touchingTileSides(vector<Tile>& others, bool& touchingLeft, bool& touchingRight) {
     touchingLeft = false;
     touchingRight = false;
     if (rotation == 1 || rotation == 3) {
@@ -273,7 +273,7 @@ void Block_ZigZag::touchingTileSides(vector<Tile>& others, bool& touchingLeft, b
     }
 }
 
-void Block_ZigZag::remove(vector<Tile>& others, SDL_Plotter& g) {
+void Block_SigZag::remove(vector<Tile>& others, SDL_Plotter& g) {
     others.push_back(Tile(SIZE, block_color, a.getLoc()));
     others.push_back(Tile(SIZE, block_color, b.getLoc()));
     others.push_back(Tile(SIZE, block_color, c.getLoc()));

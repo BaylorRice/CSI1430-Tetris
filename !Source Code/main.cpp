@@ -16,6 +16,7 @@
 #include "Tile.h"
 #include "LeftL.h"
 #include "ZigZag.h"
+#include "SigZag.h"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ int main(int argc, char** argv) {
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     //char key;
-    vector<Block_ZigZag> blocks(1);
+    vector<Block_SigZag> blocks(1);
     vector<Tile> squares(0);
     bool snapped = false;
     int timeCount = LEVELTIME/2;

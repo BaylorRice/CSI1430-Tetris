@@ -12,10 +12,10 @@
 #include "SDL_Plotter.h"
 using namespace std;
 
-#ifndef ZIGZAG_H_INCLUDED
-#define ZIGZAG_H_INCLUDED
+#ifndef SIGZAG_H_INCLUDED
+#define SIGZAG_H_INCLUDED
 
-class Block_ZigZag {
+class Block_SigZag {
     private:
     point loc;
     vector<point> prevLoc;
@@ -27,8 +27,8 @@ class Block_ZigZag {
     public:
     // Specific Constructors
     //CHANGE
-    Block_ZigZag();
-    Block_ZigZag(point inLoc, int inRot, color inColor);
+    Block_SigZag();
+    Block_SigZag(point inLoc, int inRot, color inColor);
 //
     // Block-Universal Functions
     void setColor(color inColor);
@@ -60,4 +60,4 @@ class Block_ZigZag {
 //
 };
 
-#endif // ZIGZAG_H_INCLUDED
+#endif // SIGZAG_H_INCLUDED
