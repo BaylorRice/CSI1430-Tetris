@@ -16,6 +16,7 @@
 #include "Tile.h"
 #include "LeftL.h"
 #include "Line.h"
+#include "RightL.h"
 
 using namespace std;
 
@@ -60,7 +61,6 @@ int main(int argc, char** argv) {
                 for (size_t i = 0; i < squares.size(); i++) {
                     squares.at(i).draw(g);
                 }
-
                 lineClear(squares, g);
                 for (size_t i = 0; i < squares.size(); i++) {
                     squares.at(i).draw(g);
