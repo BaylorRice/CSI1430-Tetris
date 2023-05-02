@@ -4,7 +4,7 @@
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: ...
-* Date Last Modified: 04/27/2023
+* Date Last Modified: 05/02/2023
 */
 
 #include "Line.h"
@@ -12,12 +12,12 @@
 
 Block_Line::Block_Line() {
     loc = point(NUM_COL/2, 0);
-    block_color = BLUE;
+    block_color = LIGHT_BLUE;
     setColor(block_color);
     setLoc(loc);
 }
 
-Block_Line::Block_Line(point inLoc, int inRot = 1, color inColor = BLUE) {
+Block_Line::Block_Line(point inLoc, int inRot = 1, color inColor = LIGHT_BLUE) {
     loc = inLoc;
     rotation = inRot;
     block_color = inColor;
@@ -87,8 +87,10 @@ void Block_Line::rotateClock(vector<Tile>& others) {
     bool touchingRight = false;
     touchingTileSides(others, touchingLeft, touchingRight);
     if (!atBottom() && !sitting(others) && !touchingLeft && !touchingRight) {
-        rotation++;
-        if (rotation > 4) {
+        if (rotation == 1) {
+            rotation = 2;
+        }
+        else {
             rotation = 1;
         }
     }
@@ -99,9 +101,11 @@ void Block_Line::rotateCounterClock(vector<Tile>& others) {
     bool touchingRight = false;
     touchingTileSides(others, touchingLeft, touchingRight);
     if (!atBottom() && !sitting(others) && !touchingLeft && !touchingRight) {
-        rotation--;
-        if (rotation < 1) {
-            rotation = 4;
+        if (rotation == 2) {
+            rotation = 1;
+        }
+        else {
+            rotation = 2;
         }
     }
 }
