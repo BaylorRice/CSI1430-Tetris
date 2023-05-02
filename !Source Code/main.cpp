@@ -4,7 +4,7 @@
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: ...
-* Date Last Modified: 04/27/2023
+* Date Last Modified: 05/02/2023
 */
 
 #include <iostream>
@@ -15,7 +15,6 @@
 
 #include "Tile.h"
 #include "LeftL.h"
-#include "ZigZag.h"
 #include "Line.h"
 
 using namespace std;
