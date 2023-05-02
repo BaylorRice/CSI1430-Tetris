@@ -176,16 +176,16 @@ void Block_Tee::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     else {
         // MOVE LEFT ONLY
         if (rotation == 1) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - (2 * SIZE), loc.x);
+            p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
         }
         else if (rotation == 2) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, loc.x);
+            p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
         }
         else if (rotation == 3) {
-            p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - SIZE, loc.x);
+            p.x = snapLateral(mouseLoc.x, (2 * SIZE), loc.x, SIZE);
         }
         else if (rotation == 4) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, loc.x);
+            p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
         }
     }
 
@@ -266,7 +266,7 @@ bool Block_Tee::sitting(vector<Tile>& others) {
                 }
             }
             if (loc.x == others.at(i).getLoc().x) {
-                if ((loc.y - SIZE) == others.at(i).getLoc().y) {
+                if ((loc.y + SIZE) == others.at(i).getLoc().y) {
                     sit = true;
                 }
             }
