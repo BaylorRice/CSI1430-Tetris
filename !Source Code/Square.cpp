@@ -4,7 +4,7 @@
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: 04/26/2023
-* Date Last Modified: 04/27/2023
+* Date Last Modified: 05/02/2023
 */
 
 #include "Square.h"
@@ -212,8 +212,8 @@ bool Block_Square::sitting(vector<Tile>& others) {
     }
     else if (rotation == 2) {
         for (int i = 0; i < others.size(); i++) {
-            if ((loc.x == others.at(i).getLoc().x) || 
-                ((loc.x - SIZE) == others.at(i).getLoc().x) || 
+            if ((loc.x == others.at(i).getLoc().x) ||
+                ((loc.x - SIZE) == others.at(i).getLoc().x) ||
                 ((loc.x + SIZE) == others.at(i).getLoc().x)) {
                 if (loc.y + SIZE == others.at(i).getLoc().y) {
                     sit = true;
