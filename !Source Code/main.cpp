@@ -1,10 +1,10 @@
 /*
-* Authors: Reese Ford, Josie D'Acquisto, ...
+* Authors: Reese Ford, Josie D'Acquisto, Blaine Daniels
 * Assignment Title: Group Project - Tetris
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: ...
-* Date Last Modified: 05/01/2023
+* Date Last Modified: 05/02/2023
 */
 
 #include <iostream>
@@ -16,6 +16,8 @@
 #include "Tile.h"
 #include "LeftL.h"
 #include "Tee.h"
+#include "Line.h"
+#include "RightL.h"
 
 using namespace std;
 
@@ -60,7 +62,6 @@ int main(int argc, char** argv) {
                 for (size_t i = 0; i < squares.size(); i++) {
                     squares.at(i).draw(g);
                 }
-
                 lineClear(squares, g);
                 for (size_t i = 0; i < squares.size(); i++) {
                     squares.at(i).draw(g);
