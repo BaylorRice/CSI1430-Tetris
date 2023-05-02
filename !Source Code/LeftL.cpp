@@ -179,7 +179,6 @@ void Block_LeftL::strafeToMouse(point mouseLoc, vector<Tile>& others) {
             p.x = snapLateral(mouseLoc.x, (2 * SIZE), loc.x, SIZE);
         }
     }
-
     // Speed Limiter (Forces the block to only move SIZE pixels a cycle)
     if (p.x < loc.x) {
         p.x = loc.x - SIZE;

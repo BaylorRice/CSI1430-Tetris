@@ -1,10 +1,10 @@
 /*
-* Authors: Reese Ford, Josie D'Acquisto, ...
+* Authors: Reese Ford, Josie D'Acquisto, Blaine Daniels
 * Assignment Title: Group Project - Tetris
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: ...
-* Date Last Modified: 04/27/2023
+* Date Last Modified: 05/02/2023
 */
 
 #include <iostream>
@@ -15,6 +15,7 @@
 
 #include "Tile.h"
 #include "LeftL.h"
+#include "Line.h"
 #include "RightL.h"
 
 using namespace std;
@@ -26,7 +27,7 @@ int main(int argc, char** argv) {
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     //char key;
-    vector<Block_RightL> blocks(1);
+    vector<Block_Line> blocks(1);
     vector<Tile> squares(0);
     bool snapped = false;
     int timeCount = LEVELTIME/2;
