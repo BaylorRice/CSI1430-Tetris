@@ -12,12 +12,12 @@
 //CHANGE
 Block_SigZag::Block_SigZag() {
     loc = point(NUM_COL/2, 0);
-    block_color = YELLOW;
+    block_color = RED;
     setColor(block_color);
     setLoc(loc);
 }
 
-Block_SigZag::Block_SigZag(point inLoc, int inRot = 1, color inColor = YELLOW) {
+Block_SigZag::Block_SigZag(point inLoc, int inRot = 1, color inColor = RED) {
     loc = inLoc;
     rotation = inRot;
     block_color = inColor;
