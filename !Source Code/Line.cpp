@@ -167,12 +167,12 @@ void Block_Line::strafeToMouse(point mouseLoc, vector<Tile>& others) {
 
 bool Block_Line::atBottom() {
     bool atBottom = false;
-    if (rotation != 3) {
+    if (rotation == 1) {
         if (getLoc().y >= NUM_ROW - SIZE) {
             atBottom = true;
         }
     }
-    else if (rotation == 3) {
+    else if (rotation == 2) {
         if (getLoc().y >= NUM_ROW - (2 * SIZE)) {
             atBottom = true;
         }
