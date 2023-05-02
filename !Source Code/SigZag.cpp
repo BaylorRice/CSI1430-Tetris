@@ -24,7 +24,7 @@ Block_SigZag::Block_SigZag(point inLoc, int inRot = 1, color inColor = YELLOW) {
     setColor(block_color);
     setLoc(loc);
 }
-//
+
 void Block_SigZag::setLoc(point inLoc) {
     prevLoc.push_back(getLoc());
     loc = inLoc;
@@ -136,10 +136,10 @@ void Block_SigZag::strafeToMouse(point mouseLoc, vector<Tile>& others) {
         if ((rotation == 1) || (rotation == 3)) {
             p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
         }
-        else if (rotation == 2) {
+        if (rotation == 2) {
             p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - (2 * SIZE), SIZE);
         }
-        else if (rotation == 4) {
+        if (rotation == 4) {
             p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - SIZE, SIZE);
         }
     }
@@ -148,7 +148,7 @@ void Block_SigZag::strafeToMouse(point mouseLoc, vector<Tile>& others) {
         if ((rotation == 1) || (rotation == 3)) {
             p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - (2 * SIZE), SIZE);
         }
-        else if (rotation == 2 || rotation == 4) {
+        if (rotation == 2 || rotation == 4) {
             p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
         }
     }
@@ -157,7 +157,7 @@ void Block_SigZag::strafeToMouse(point mouseLoc, vector<Tile>& others) {
         if ((rotation == 1) || (rotation == 3)) {
             p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
         }
-        else if (rotation == 2 || rotation == 4) {
+        if (rotation == 2 || rotation == 4) {
             p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
         }
     }
@@ -190,7 +190,7 @@ bool Block_SigZag::sitting(vector<Tile>& others) {
                     sit = true;
                 }
             }
-            else if ((loc.x - SIZE) == others.at(i).getLoc().x) {
+            if ((loc.x - SIZE) == others.at(i).getLoc().x) {
                 if (loc.y == others.at(i).getLoc().y) {
                     sit = true;
                 }
@@ -204,7 +204,7 @@ bool Block_SigZag::sitting(vector<Tile>& others) {
                     sit = true;
                 }
             }
-            else if (loc.x - SIZE == others.at(i).getLoc().x){
+            if (loc.x - SIZE == others.at(i).getLoc().x){
                 if (loc.y + (2 * SIZE) == others.at(i).getLoc().y) {
                     sit = true;
                 }
@@ -224,17 +224,17 @@ void Block_SigZag::touchingTileSides(vector<Tile>& others, bool& touchingLeft, b
                     touchingLeft = true;
                 }
             }
-            else if (loc.x - SIZE == others.at(i).getLoc().x) {
+            if (loc.x - SIZE == others.at(i).getLoc().x) {
                 if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
                     touchingLeft = true;
                 }
             }
-            else if (loc.x + (2 * SIZE) == others.at(i).getLoc().x) {
+            if (loc.x + (2 * SIZE) == others.at(i).getLoc().x) {
                 if (loc.y == others.at(i).getLoc().y) { // RIGHT TOP
                     touchingRight = true;
                 }
             }
-            else if (loc.x + SIZE == others.at(i).getLoc().x){
+            if (loc.x + SIZE == others.at(i).getLoc().x){
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT BOTTOM
                     touchingRight = true;
                 }
@@ -247,7 +247,7 @@ void Block_SigZag::touchingTileSides(vector<Tile>& others, bool& touchingLeft, b
                 if (loc.y + SIZE == others.at(i).getLoc().y) { // LEFT TOP
                     touchingLeft = true;
                 }
-                else if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
+                if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
                     touchingLeft = true;
                 }
             }
@@ -265,7 +265,7 @@ void Block_SigZag::touchingTileSides(vector<Tile>& others, bool& touchingLeft, b
                 if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
                     touchingRight = true;
                 }
-                else if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT BOTTOM
+                if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT BOTTOM
                     touchingRight = true;
                 }
             }
