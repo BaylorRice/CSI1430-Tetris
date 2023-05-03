@@ -137,6 +137,7 @@
     <ClCompile Include="..\..\!Source Code\main.cpp" />
     <ClCompile Include="..\..\!Source Code\RightL.cpp" />
     <ClCompile Include="..\..\!Source Code\SDL_Plotter.cpp" />
+    <ClCompile Include="..\..\!Source Code\Square.cpp" />
     <ClCompile Include="..\..\!Source Code\Tee.cpp" />
     <ClCompile Include="..\..\!Source Code\Tile.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="..\..\!Source Code\Line.h" />
     <ClInclude Include="..\..\!Source Code\RightL.h" />
     <ClInclude Include="..\..\!Source Code\SDL_Plotter.h" />
+    <ClInclude Include="..\..\!Source Code\Square.h" />
     <ClInclude Include="..\..\!Source Code\Tee.h" />
     <ClInclude Include="..\..\!Source Code\Tile.h" />
   </ItemGroup>

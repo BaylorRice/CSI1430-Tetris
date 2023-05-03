@@ -24,6 +24,9 @@
     <ClCompile Include="..\..\!Source Code\LeftL.cpp">
       <Filter>CPP Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\!Source Code\Square.cpp">
+	  <Filter>CPP Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\!Source Code\Tee.cpp">
 	  <Filter>CPP Files</Filter>
 	</ClCompile>
@@ -46,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="..\..\!Source Code\LeftL.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\!Source Code\Square.h">
+	  <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\!Source Code\Tee.h">
 	  <Filter>Header Files</Filter>

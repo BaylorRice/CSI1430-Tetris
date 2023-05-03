@@ -15,6 +15,7 @@
 
 #include "Tile.h"
 #include "LeftL.h"
+#include "Square.h"
 #include "Tee.h"
 #include "Line.h"
 #include "RightL.h"
