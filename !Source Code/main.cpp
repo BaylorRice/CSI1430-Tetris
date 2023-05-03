@@ -1,5 +1,5 @@
 /*
-* Authors: Reese Ford, Josie D'Acquisto, Blaine Daniels
+* Authors: Reese Ford, Josie D'Acquisto, Blaine Daniels, MJ Ruhman
 * Assignment Title: Group Project - Tetris
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
