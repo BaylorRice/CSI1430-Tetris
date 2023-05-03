@@ -32,6 +32,8 @@ class Current_Block {
     Block_Line line; // Block 2
     Block_Tee tee; // Block 3
     Block_Square square; // Block 4
+    Block_ZigZag zigzag; // Block 5
+    Block_SigZag sigzag; // Block 6
     int block = -1;
 
     public:
@@ -55,6 +57,12 @@ class Current_Block {
         else if (block == 4) {
             square.draw(g);
         }
+        else if (block == 5) {
+            zigzag.draw(g);
+        }
+        else if (block == 6) {
+            sigzag.draw(g);
+        }
     }
 
     void rotateClock(vector<Tile>& others) {
@@ -73,6 +81,12 @@ class Current_Block {
         else if (block == 4) {
             square.rotateClock(others);
         }
+        else if (block == 5) {
+            zigzag.rotateClock(others);
+        }
+        else if (block == 6) {
+            sigzag.rotateClock(others);
+        }
     }
     void rotateCounterClock(vector<Tile>& others) {
         if (block == 0) {
@@ -89,6 +103,12 @@ class Current_Block {
         }
         else if (block == 4) {
             square.rotateCounterClock(others);
+        }
+        else if (block == 5) {
+            zigzag.rotateCounterClock(others);
+        }
+        else if (block == 6) {
+            sigzag.rotateCounterClock(others);
         }
     }
 
@@ -108,6 +128,12 @@ class Current_Block {
         else if (block == 4) {
             square.moveDown(others);
         }
+        else if (block == 5) {
+            zigzag.moveDown(others);
+        }
+        else if (block == 6) {
+            sigzag.moveDown(others);
+        }
     }
     void snapToBottom(vector<Tile>& others) {
         if (block == 0) {
@@ -124,6 +150,12 @@ class Current_Block {
         }
         else if (block == 4) {
             square.snapToBottom(others);
+        }
+        else if (block == 5) {
+            zigzag.snapToBottom(others);
+        }
+        else if (block == 6) {
+            sigzag.snapToBottom(others);
         }
     }
 
@@ -142,6 +174,12 @@ class Current_Block {
         }
         else if (block == 4) {
             square.strafeToMouse(mouseLoc, others);
+        }
+        else if (block == 5) {
+            zigzag.strafeToMouse(mouseLoc, others);
+        }
+        else if (block == 6) {
+            sigzag.strafeToMouse(mouseLoc, others);
         }
     }
 
@@ -162,6 +200,12 @@ class Current_Block {
         else if (block == 4) {
             atBot = square.atBottom();
         }
+        else if (block == 5) {
+            atBot = zigzag.atBottom();
+        }
+        else if (block == 6) {
+            atBot = sigzag.atBottom();
+        }
         return atBot;
     }
     bool sitting(vector<Tile>& others) {
@@ -180,6 +224,12 @@ class Current_Block {
         }
         else if (block == 4) {
             sit = square.sitting(others);
+        }
+        else if (block == 5) {
+            sit = zigzag.sitting(others);
+        }
+        else if (block == 6) {
+            sit = sigzag.sitting(others);
         }
         return sit;
     }
@@ -200,6 +250,12 @@ class Current_Block {
         else if (block == 4) {
             square.remove(others, g);
         }
+        else if (block == 5) {
+            zigzag.remove(others, g);
+        }
+        else if (block == 6) {
+            sigzag.remove(others, g);
+        }
     }
     void moveOff() {
         if (block == 0) {
@@ -217,6 +273,12 @@ class Current_Block {
         else if (block == 4) {
             square.setLoc(point(0, (2 * NUM_ROW)));
         }
+        else if (block == 5) {
+            zigzag.setLoc(point(0, (2 * NUM_ROW)));
+        }
+        else if (block == 6) {
+            sigzag.setLoc(point(0, (2 * NUM_ROW)));
+        }
     }
 
     void newBlock(SDL_Plotter& g) {
@@ -226,6 +288,8 @@ class Current_Block {
         line.setLoc(point(-100, 0));
         tee.setLoc(point(-100, 0));
         square.setLoc(point(-100, 0));
+        zigzag.setLoc(point(-100, 0));
+        sigzag.setLoc(point(-100, 0));
         if (block == 0) {
             leftL.setLoc(point(NUM_COL / 2, 2 * SIZE));
         }
@@ -241,11 +305,19 @@ class Current_Block {
         else if (block == 4) {
             square.setLoc(point(NUM_COL / 2, 2 * SIZE));
         }
+        else if (block == 5) {
+            zigzag.setLoc(point(NUM_COL / 2, 2 * SIZE));
+        }
+        else if (block == 6) {
+            sigzag.setLoc(point(NUM_COL / 2, 2 * SIZE));
+        }
         leftL.draw(g);
         rightL.draw(g);
         line.draw(g);
         tee.draw(g);
         square.draw(g);
+        zigzag.draw(g);
+        sigzag.draw(g);
     }
 
 };
