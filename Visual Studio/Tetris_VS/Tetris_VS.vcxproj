@@ -141,6 +141,7 @@
     <ClCompile Include="..\..\!Source Code\Square.cpp" />
     <ClCompile Include="..\..\!Source Code\Tee.cpp" />
     <ClCompile Include="..\..\!Source Code\Tile.cpp" />
+    <ClCompile Include="..\..\!Source Code\ZigZag.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\!Source Code\Constants.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="..\..\!Source Code\Square.h" />
     <ClInclude Include="..\..\!Source Code\Tee.h" />
     <ClInclude Include="..\..\!Source Code\Tile.h" />
+    <ClInclude Include="..\..\!Source Code\ZigZag.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
