@@ -4,7 +4,7 @@
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: ...
-* Date Last Modified: 05/02/2023
+* Date Last Modified: 05/03/2023
 */
 
 #include <iostream>
@@ -170,8 +170,22 @@ class Current_Block {
             tee.remove(others, g);
         }
     }
+    void moveOff() {
+        if (block == 0) {
+            leftL.setLoc(point(0, (2*NUM_ROW)));
+        }
+        else if (block == 1) {
+            rightL.setLoc(point(0, (2*NUM_ROW)));
+        }
+        else if (block == 2) {
+            line.setLoc(point(0, (2*NUM_ROW)));
+        }
+        else if (block == 3) {
+            tee.setLoc(point(0, (2*NUM_ROW)));
+        }
+    }
 
-    void reset(SDL_Plotter& g) {
+    void newBlock(SDL_Plotter& g) {
         block = rand() % 4;
         leftL.setLoc(point(-100, 0));
         rightL.setLoc(point(-100, 0));
@@ -211,7 +225,7 @@ int main(int argc, char** argv) {
 
     // Creates the Current_Block object and resets it (instead of a defualt constructor)
     Current_Block block;
-    block.reset(g);
+    block.newBlock(g);
 
     // Game loop
     while (!g.getQuit() && !gameOver) { // ESC
@@ -238,23 +252,30 @@ int main(int argc, char** argv) {
         }
 
         if ((timeCount == LEVELTIME) || snapped) {
-            // If at the bottom or sitting on another tile, disassociate the tiles from the block, 
-            // create a new block, draw every tile, 
-            // line clear the tiles, draw every tile again, reset the time count.
+            // If at the bottom or sitting on other Tiles
             if (block.atBottom() || block.sitting(squares)) {
+                // Dissociate the Tiles from the Current Block, place them in squares, and move the block below the screen
                 block.remove(squares, g);
-                block.reset(g);
-                g.update();
-                for (size_t i = 0; i < squares.size(); i++) {
-                    squares.at(i).draw(g);
-                }
+
+                // Clear any lines and redraw the squares
                 lineClear(squares, g);
                 for (size_t i = 0; i < squares.size(); i++) {
                     squares.at(i).draw(g);
                 }
+
+                // "Regenerate" the current block
+                block.newBlock(g);
                 timeCount = LEVELTIME / 2;
             }
             snapped = false;
+        }
+
+        // Check for Game Over
+        for (size_t i = 0; i < squares.size(); i++) {
+            if (squares.at(i).getLoc().y < (2 * SIZE)) {
+                gameOver = true;
+                block.moveOff();
+            }
         }
 
         // Draw the block
@@ -270,8 +291,18 @@ int main(int argc, char** argv) {
 
     }
 
-    // When Game Loop ends...
-    cout << endl << "Game Over" << endl;
+    // Upon Game Over
+    if (gameOver) {
+        for (size_t i = 0; i < squares.size(); i++) {
+            squares.at(i).setColor(RED);
+            squares.at(i).draw(g);
+        }
+        g.update();
+        cout << endl << "Game Over" << endl;
+
+        // Wait for Plotter Quit to end program
+        while (!g.getQuit()) {;}
+    }
     return 0;
 }
 
