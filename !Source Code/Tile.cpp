@@ -93,12 +93,10 @@ void Tile::moveDown(vector<Tile>& others) {
 }
 
 void Tile::moveDownLine(vector<Tile>& others) {
-    for (int i = 0; i < SIZE; i++) {
-        point p = getLoc();
-        prevLoc.push_back(getLoc());
-        p.y++;
-        setLoc(p);
-    }
+    point p = getLoc();
+    prevLoc.push_back(p);
+    p.y += SIZE;
+    setLoc(p);
 }
 
 void Tile::snapToBottom(vector<Tile>& others) {
