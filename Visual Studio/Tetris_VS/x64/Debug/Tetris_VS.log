@@ -1,9 +1,13 @@
 ﻿  LeftL.cpp
 C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\LeftL.cpp(128,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\LeftL.cpp(129,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  ZigZag.cpp
-C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\ZigZag.cpp(128,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\ZigZag.cpp(129,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  main.cpp
+C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\main.cpp(94,5): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Square.cpp
+C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\Square.cpp(93,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\reese\Documents\CSI1430-Tetris\!Source Code\Square.cpp(94,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Tile.cpp
   Generating Code...
+  LINK : C:\Users\reese\Documents\CSI1430-Tetris\Visual Studio\Tetris_VS\x64\Debug\Tetris_VS.exe not found or not built by the last incremental link; performing full link
 MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
   Tetris_VS.vcxproj -> C:\Users\reese\Documents\CSI1430-Tetris\Visual Studio\Tetris_VS\x64\Debug\Tetris_VS.exe
