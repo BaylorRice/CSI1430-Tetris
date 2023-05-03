@@ -1,21 +1,21 @@
 /*
-* Authors: Reese Ford, MJ Ruhman
+* Authors: Reese Ford, Josie D'Acquisto, ...
 * Assignment Title: Group Project - Tetris
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: 04/26/2023
-* Date Last Modified: 05/02/2023
+* Date Last Modified: 04/27/2023
 */
-
-#ifndef LINE_H_INCLUDED
-#define LINE_H_INCLUDED
 
 #include <iostream>
 #include "Tile.h"
 #include "SDL_Plotter.h"
 using namespace std;
 
-class Block_Line {
+#ifndef SIGZAG_H_INCLUDED
+#define SIGZAG_H_INCLUDED
+
+class Block_SigZag {
     private:
     point loc;
     vector<point> prevLoc;
@@ -26,26 +26,28 @@ class Block_Line {
 
     public:
     // Specific Constructors
-    Block_Line();
-    Block_Line(point inLoc, int inRot, color inColor);
-
-    // Block-Universal Functions
+    //CHANGE
+    Block_SigZag();
+    Block_SigZag(point inLoc, int inRot, color inColor);
+    //
+        // Block-Universal Functions
     void setColor(color inColor);
 
     point getLoc() const;
     color getColor() const;
 
     void draw(SDL_Plotter& g);
-
+    // CHANGE
     void rotateClock(vector<Tile>& others);
     void rotateCounterClock(vector<Tile>& others);
-
+    //
     void moveDown(vector<Tile>& others);
     void snapToBottom(vector<Tile>& others);
 
     int snapLateral(int in, int min, int max, int interval);
 
-    // LeftL-Specific Functions
+    // Block-Specific Functions
+    //CHANGE
     void setLoc(point inLoc);
 
     void strafeToMouse(point mouseLoc, vector<Tile>& others);
@@ -55,7 +57,7 @@ class Block_Line {
     void touchingTileSides(vector<Tile>& others, bool& touchingLeft, bool& touchingRight);
 
     void remove(vector<Tile>& others, SDL_Plotter& g); // Removes the Tiles from this object's "supervision"
-
+    //
 };
 
-#endif // LINE_H_INCLUDED
+#endif // SIGZAG_H_INCLUDED

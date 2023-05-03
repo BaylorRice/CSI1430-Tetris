@@ -7,15 +7,15 @@
 * Date Last Modified: 05/02/2023
 */
 
-#ifndef LINE_H_INCLUDED
-#define LINE_H_INCLUDED
-
 #include <iostream>
 #include "Tile.h"
 #include "SDL_Plotter.h"
 using namespace std;
 
-class Block_Line {
+#ifndef SQUARE_H_INCLUDED
+#define SQUARE_H_INCLUDED
+
+class Block_Square {
     private:
     point loc;
     vector<point> prevLoc;
@@ -26,8 +26,8 @@ class Block_Line {
 
     public:
     // Specific Constructors
-    Block_Line();
-    Block_Line(point inLoc, int inRot, color inColor);
+    Block_Square();
+    Block_Square(point inLoc, int inRot, color inColor);
 
     // Block-Universal Functions
     void setColor(color inColor);
@@ -58,4 +58,4 @@ class Block_Line {
 
 };
 
-#endif // LINE_H_INCLUDED
+#endif // SQUARE_H_INCLUDED
