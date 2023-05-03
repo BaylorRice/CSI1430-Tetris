@@ -27,7 +27,6 @@ int main(int argc, char** argv) {
 
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
-    //char key;
     vector<Block_Tee> blocks(1);
     vector<Tile> squares(0);
     bool snapped = false;
@@ -37,6 +36,7 @@ int main(int argc, char** argv) {
 
     while (!g.getQuit() && !gameOver) { // ESC
 
+        // Rotate or Snap to Bottom
         if (g.kbhit()) {
             switch (toupper(g.getKey())) {
                 case DOWN_ARROW: blocks.back().snapToBottom(squares); snapped = true;
@@ -48,14 +48,19 @@ int main(int argc, char** argv) {
             }
         }
 
+        // Strafe one SIZE towards the mouse cursor
         g.getMouseLocation(mouse.x, mouse.y);
         blocks.back().strafeToMouse(mouse, squares);
 
+        // Move down one SIZE
         if (timeCount == LEVELTIME/2) {
             blocks.back().moveDown(squares);
         }
 
         if ((timeCount == LEVELTIME) || snapped) {
+            // If at the bottom or sitting on another tile, disassociate the tiles from the block, 
+            // create a new block, draw every tile, 
+            // line clear the tiles, draw every tile again, reset the time count.
             if (blocks.back().atBottom() || blocks.back().sitting(squares)) {
                 blocks.back().remove(squares, g);
                 blocks.emplace_back();
@@ -70,17 +75,17 @@ int main(int argc, char** argv) {
             }
             snapped = false;
         }
+
+        // Draw the block
         blocks.back().draw(g);
 
+        // Update the screen and timeCount
         g.update();
         g.Sleep(REFRESH);
         timeCount += REFRESH;
         if (timeCount > LEVELTIME + 1) {
             timeCount = 0;
         }
-        /*if (blocks.back().getLoc().y <= 0) {
-            gameOver = true;
-        }*/
 
     }
 
