@@ -199,18 +199,21 @@ class Current_Block {
 
 int main(int argc, char** argv) {
 
+    // The window of power (and extreme frustration)
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
-    //vector<Block_Tee> blocks(1);
+    // Data Abstraction
     vector<Tile> squares(0);
     bool snapped = false;
     int timeCount = LEVELTIME/2;
     point mouse;
     bool gameOver = false;
 
+    // Creates the Current_Block object and resets it (instead of a defualt constructor)
     Current_Block block;
     block.reset(g);
 
+    // Game loop
     while (!g.getQuit() && !gameOver) { // ESC
 
         // Rotate or Snap to Bottom
@@ -267,6 +270,7 @@ int main(int argc, char** argv) {
 
     }
 
+    // When Game Loop ends...
     cout << endl << "Game Over" << endl;
     return 0;
 }
