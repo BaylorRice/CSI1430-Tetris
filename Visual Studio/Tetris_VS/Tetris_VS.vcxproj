@@ -133,11 +133,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\!Source Code\LeftL.cpp" />
+    <ClCompile Include="..\..\!Source Code\Line.cpp" />
     <ClCompile Include="..\..\!Source Code\main.cpp" />
+    <ClCompile Include="..\..\!Source Code\RightL.cpp" />
     <ClCompile Include="..\..\!Source Code\SDL_Plotter.cpp" />
     <ClCompile Include="..\..\!Source Code\SigZag.cpp" />
+    <ClCompile Include="..\..\!Source Code\Square.cpp" />
+    <ClCompile Include="..\..\!Source Code\Tee.cpp" />
     <ClCompile Include="..\..\!Source Code\Tile.cpp" />
-    <ClCompile Include="..\..\!Source Code\ZigZag.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\!Source Code\Constants.h" />
@@ -145,10 +148,13 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="..\..\!Source Code\Line.h" />
+    <ClInclude Include="..\..\!Source Code\RightL.h" />
     <ClInclude Include="..\..\!Source Code\SDL_Plotter.h" />
     <ClInclude Include="..\..\!Source Code\SigZag.h" />
+    <ClInclude Include="..\..\!Source Code\Square.h" />
+    <ClInclude Include="..\..\!Source Code\Tee.h" />
     <ClInclude Include="..\..\!Source Code\Tile.h" />
-    <ClInclude Include="..\..\!Source Code\ZigZag.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
