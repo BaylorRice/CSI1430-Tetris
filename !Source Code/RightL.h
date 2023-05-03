@@ -12,17 +12,10 @@
 #include "SDL_Plotter.h"
 using namespace std;
 
-<<<<<<<< HEAD:!Source Code/SigZag.h
-#ifndef SIGZAG_H_INCLUDED
-#define SIGZAG_H_INCLUDED
-
-class Block_SigZag {
-========
 #ifndef RIGHTL_H_INCLUDED
 #define RIGHTL_H_INCLUDED
 
 class Block_RightL {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.h
     private:
     point loc;
     vector<point> prevLoc;
@@ -33,16 +26,9 @@ class Block_RightL {
 
     public:
     // Specific Constructors
-<<<<<<<< HEAD:!Source Code/SigZag.h
-    //CHANGE
-    Block_SigZag();
-    Block_SigZag(point inLoc, int inRot, color inColor);
-//
-========
     Block_RightL();
     Block_RightL(point inLoc, int inRot, color inColor);
 
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.h
     // Block-Universal Functions
     void setColor(color inColor);
 
@@ -72,8 +58,4 @@ class Block_RightL {
 
 };
 
-<<<<<<<< HEAD:!Source Code/SigZag.h
-#endif // SIGZAG_H_INCLUDED
-========
 #endif // RIGHTL_H_INCLUDED
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.h

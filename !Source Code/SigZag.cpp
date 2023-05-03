@@ -1,36 +1,23 @@
 /*
-* Authors: Reese Ford, ...
+* Authors: Reese Ford, Josie D'Acquisto, ...
 * Assignment Title: Group Project - Tetris
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
-* Date Created: 04/27/2023
+* Date Created: 04/26/2023
 * Date Last Modified: 04/27/2023
 */
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 #include "SigZag.h"
 #include <vector>
 //CHANGE
 Block_SigZag::Block_SigZag() {
-    loc = point(NUM_COL/2, 0);
+    loc = point(NUM_COL / 2, 0);
     block_color = RED;
-========
-#include "RightL.h"
-#include <vector>
-
-Block_RightL::Block_RightL() {
-    loc = point(NUM_COL/2, 0);
-    block_color = ORANGE;
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     setColor(block_color);
     setLoc(loc);
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 Block_SigZag::Block_SigZag(point inLoc, int inRot = 1, color inColor = RED) {
-========
-Block_RightL::Block_RightL(point inLoc, int inRot = 1, color inColor = ORANGE) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     loc = inLoc;
     rotation = inRot;
     block_color = inColor;
@@ -38,7 +25,6 @@ Block_RightL::Block_RightL(point inLoc, int inRot = 1, color inColor = ORANGE) {
     setLoc(loc);
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 void Block_SigZag::setLoc(point inLoc) {
     prevLoc.push_back(getLoc());
     loc = inLoc;
@@ -54,44 +40,11 @@ void Block_SigZag::setLoc(point inLoc) {
         b.setLoc(point(loc.x - SIZE, loc.y + SIZE));
         c.setLoc(loc);
         d.setLoc(point(loc.x, loc.y - SIZE));
-========
-void Block_RightL::setLoc(point inLoc) {
-    prevLoc.push_back(getLoc());
-    loc = inLoc;
-
-    if (rotation == 1) {
-        a.setLoc(point(loc.x - SIZE, loc.y));
-        b.setLoc(loc);
-        c.setLoc(point(loc.x - SIZE, loc.y - SIZE));
-        d.setLoc(point(loc.x - SIZE, loc.y - (2 * SIZE)));
-    }
-    else if (rotation == 2) {
-        a.setLoc(point(loc.x - SIZE, loc.y - SIZE));
-        b.setLoc(point(loc.x - SIZE, loc.y));
-        c.setLoc(point(loc.x, loc.y - SIZE));
-        d.setLoc(point(loc.x + SIZE, loc.y - SIZE));
-    }
-    else if (rotation == 3) {
-        a.setLoc(point(loc.x, loc.y - SIZE));
-        b.setLoc(point(loc.x - SIZE, loc.y - SIZE));
-        c.setLoc(loc);
-        d.setLoc(point(loc.x, loc.y + SIZE));
-    }
-    else if (rotation == 4) {
-        a.setLoc(loc);
-        b.setLoc(point(loc.x, loc.y - SIZE));
-        c.setLoc(point(loc.x - SIZE, loc.y));
-        d.setLoc(point(loc.x - (2 * SIZE), loc.y));
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     }
 
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 void Block_SigZag::setColor(color inColor) {
-========
-void Block_RightL::setColor(color inColor) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     block_color = inColor;
     a.setColor(block_color);
     b.setColor(block_color);
@@ -99,7 +52,6 @@ void Block_RightL::setColor(color inColor) {
     d.setColor(block_color);
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 point Block_SigZag::getLoc() const {
     return loc;
 }
@@ -109,17 +61,6 @@ color Block_SigZag::getColor() const {
 }
 
 void Block_SigZag::draw(SDL_Plotter& g) {
-========
-point Block_RightL::getLoc() const {
-    return loc;
-}
-
-color Block_RightL::getColor() const {
-    return block_color;
-}
-
-void Block_RightL::draw(SDL_Plotter& g) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
 
     a.draw(g);
     b.draw(g);
@@ -129,11 +70,7 @@ void Block_RightL::draw(SDL_Plotter& g) {
     prevLoc.clear();
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 void Block_SigZag::rotateClock(vector<Tile>& others) {
-========
-void Block_RightL::rotateClock(vector<Tile>& others) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     bool touchingLeft = false;
     bool touchingRight = false;
     touchingTileSides(others, touchingLeft, touchingRight);
@@ -145,11 +82,7 @@ void Block_RightL::rotateClock(vector<Tile>& others) {
     }
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 void Block_SigZag::rotateCounterClock(vector<Tile>& others) {
-========
-void Block_RightL::rotateCounterClock(vector<Tile>& others) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     bool touchingLeft = false;
     bool touchingRight = false;
     touchingTileSides(others, touchingLeft, touchingRight);
@@ -161,11 +94,7 @@ void Block_RightL::rotateCounterClock(vector<Tile>& others) {
     }
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 void Block_SigZag::moveDown(vector<Tile>& others) {
-========
-void Block_RightL::moveDown(vector<Tile>& others) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     point p = getLoc();
     prevLoc.push_back(p);
     if (!atBottom() && !sitting(others)) {
@@ -174,11 +103,7 @@ void Block_RightL::moveDown(vector<Tile>& others) {
     setLoc(p);
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 void Block_SigZag::snapToBottom(vector<Tile>& others) {
-========
-void Block_RightL::snapToBottom(vector<Tile>& others) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     point p = getLoc();
     prevLoc.push_back(p);
     while (!atBottom() && !sitting(others)) {
@@ -187,11 +112,7 @@ void Block_RightL::snapToBottom(vector<Tile>& others) {
     }
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 int Block_SigZag::snapLateral(int in, int min, int max, int interval) {
-========
-int Block_RightL::snapLateral(int in, int min, int max, int interval) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     int numIntervals = round((max - min) / interval);
     int snappedValue = round((in - min) / interval) * interval + min;
 
@@ -204,11 +125,7 @@ int Block_RightL::snapLateral(int in, int min, int max, int interval) {
     return snappedValue;
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 void Block_SigZag::strafeToMouse(point mouseLoc, vector<Tile>& others) {
-========
-void Block_RightL::strafeToMouse(point mouseLoc, vector<Tile>& others) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     point p = getLoc();
     prevLoc.push_back(p);
     bool touchingLeft = false;
@@ -216,83 +133,35 @@ void Block_RightL::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     touchingTileSides(others, touchingLeft, touchingRight);
     if (!touchingLeft && !touchingRight) {
         // MOVE FREELY
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
         if ((rotation == 1) || (rotation == 3)) {
             p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - (2 * SIZE), SIZE);
         }
         if (rotation == 2 || rotation == 4) {
             p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
-========
-        if (rotation == 1) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
-        }
-        else if (rotation == 2) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - (2 * SIZE), SIZE);
-        }
-        else if (rotation == 3) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
-        }
-        else if (rotation == 4) {
-            p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - SIZE, SIZE);
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
         }
     }
     else if (touchingLeft && !touchingRight) {
         // MOVE RIGHT ONLY
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
         if ((rotation == 1) || (rotation == 3)) {
             p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - (2 * SIZE), SIZE);
         }
         if (rotation == 2 || rotation == 4) {
-========
-        if (rotation == 1) {
-            p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
-        }
-        else if (rotation == 2) {
-            p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - (2 * SIZE), SIZE);
-        }
-        else if (rotation == 3) {
-            p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
-        }
-        else if (rotation == 4) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
             p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
         }
     }
     else {
         // MOVE LEFT ONLY
-        if (rotation == 1) {
+        if ((rotation == 1) || (rotation == 3)) {
             p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
         }
         if (rotation == 2 || rotation == 4) {
             p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
         }
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
-========
-        else if (rotation == 3) {
-            p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
-        }
-        else if (rotation == 4) {
-            p.x = snapLateral(mouseLoc.x, (2 * SIZE), loc.x, SIZE);
-        }
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
-    }
-
-    // Speed Limiter (Forces the block to only move SIZE pixels a cycle)
-    if (p.x < loc.x) {
-        p.x = loc.x - SIZE;
-    }
-    else if (p.x > loc.x) {
-        p.x = loc.x + SIZE;
     }
     setLoc(p);
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 bool Block_SigZag::atBottom() {
-========
-bool Block_RightL::atBottom() {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     bool atBottom = false;
     if (rotation == 1 || rotation == 3) {
         if (getLoc().y >= NUM_ROW - SIZE) {
@@ -308,21 +177,12 @@ bool Block_RightL::atBottom() {
     return atBottom;
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 bool Block_SigZag::sitting(vector<Tile>& others) {
-========
-bool Block_RightL::sitting(vector<Tile>& others) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     bool sit = false;
     point loc = getLoc();
     if (rotation == 1 || rotation == 3) {
         for (int i = 0; i < others.size(); i++) {
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
             if ((loc.x == others.at(i).getLoc().x) || ((loc.x + SIZE) == others.at(i).getLoc().x)) {
-========
-            if ((loc.x == others.at(i).getLoc().x) ||
-                ((loc.x - SIZE) == others.at(i).getLoc().x)) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
                 if (loc.y + SIZE == others.at(i).getLoc().y) {
                     sit = true;
                 }
@@ -336,73 +196,27 @@ bool Block_RightL::sitting(vector<Tile>& others) {
     }
     else if (rotation == 2 || rotation == 4) {
         for (int i = 0; i < others.size(); i++) {
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
             if (loc.x == others.at(i).getLoc().x) {
                 if (loc.y + SIZE == others.at(i).getLoc().y) {
                     sit = true;
                 }
             }
-            if (loc.x - SIZE == others.at(i).getLoc().x){
-========
-            if ((loc.x - SIZE) == others.at(i).getLoc().x) {
-                if ((loc.y + SIZE) == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-            if ((loc.x == others.at(i).getLoc().x) ||
-                ((loc.x + SIZE) == others.at(i).getLoc().x)) {
-                if (loc.y == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-        }
-    }
-    else if (rotation == 3) {
-        for (int i = 0; i < others.size(); i++) {
-            if (loc.x == others.at(i).getLoc().x) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
+            if (loc.x - SIZE == others.at(i).getLoc().x) {
                 if (loc.y + (2 * SIZE) == others.at(i).getLoc().y) {
                     sit = true;
                 }
             }
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
         }
     }
     return sit;
 }
 
 void Block_SigZag::touchingTileSides(vector<Tile>& others, bool& touchingLeft, bool& touchingRight) {
-========
-            if ((loc.x - SIZE) == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-        }
-    }
-    else if (rotation == 4) {
-        for (int i = 0; i < others.size(); i++) {
-            if (((loc.x - (2 * SIZE)) == others.at(i).getLoc().x) ||
-                ((loc.x - SIZE) == others.at(i).getLoc().x) ||
-                (loc.x == others.at(i).getLoc().x)) {
-                if ((loc.y + SIZE) == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-        }
-    }
-
-    return sit;
-}
-
-void Block_RightL::touchingTileSides(vector<Tile>& others, bool& touchingLeft, bool& touchingRight) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     touchingLeft = false;
     touchingRight = false;
     if (rotation == 1 || rotation == 3) {
         for (int i = 0; i < others.size(); i++) {
             if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
                     touchingLeft = true;
                 }
@@ -417,36 +231,13 @@ void Block_RightL::touchingTileSides(vector<Tile>& others, bool& touchingLeft, b
                     touchingRight = true;
                 }
             }
-            if (loc.x + SIZE == others.at(i).getLoc().x){
+            if (loc.x + SIZE == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT BOTTOM
-========
-                if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // LEFT TOP
-                    touchingLeft = true;
-                }
-                else if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT MIDDLE
-                    touchingLeft = true;
-                }
-                else if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
-                    touchingLeft = true;
-                }
-            }
-            else if (loc.x == others.at(i).getLoc().x) {
-                if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // RIGHT TOP
-                    touchingRight = true;
-                }
-                else if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT MIDDLE
-                    touchingRight = true;
-                }
-            }
-            else if ((loc.x + SIZE) == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
                     touchingRight = true;
                 }
             }
         }
     }
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
     else if (rotation == 2 || rotation == 4) {
         for (int i = 0; i < others.size(); i++) {
             if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
@@ -459,67 +250,6 @@ void Block_RightL::touchingTileSides(vector<Tile>& others, bool& touchingLeft, b
             }
             else if (loc.x - SIZE == others.at(i).getLoc().x) {
                 if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
-========
-    else if (rotation == 2) {
-        for (int i = 0; i < others.size(); i++) {
-            if ((loc.x - (2 * SIZE)) == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
-                    touchingLeft = true;
-                }
-                else if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
-                    touchingLeft = true;
-                }
-            }
-            else if ((loc.x + (2 * SIZE)) == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT TOP
-                    touchingRight = true;
-                }
-            }
-            else if (loc.x == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
-                    touchingRight = true;
-                }
-            }
-        }
-    }
-    else if (rotation == 3) {
-        for (int i = 0; i < others.size(); i++) {
-            if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
-                    touchingLeft = true;
-                }
-            }
-            else if (loc.x - SIZE == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) { // LEFT MIDDLE
-                    touchingLeft = true;
-                }
-                else if (loc.y + SIZE == others.at(i).getLoc().y) { // LEFT BOTTOM
-                    touchingLeft = true;
-                }
-            }
-            else if (loc.x + SIZE == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT TOP
-                    touchingRight = true;
-                }
-                else if (loc.y == others.at(i).getLoc().y) { // RIGHT MIDDLE
-                    touchingRight = true;
-                }
-                else if (loc.y + SIZE == others.at(i).getLoc().y) { // RIGHT BOTTOM
-                    touchingRight = true;
-                }
-            }
-        }
-    }
-    else if (rotation == 4) {
-        for (int i = 0; i < others.size(); i++) {
-            if (loc.x - SIZE == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
-                    touchingLeft = true;
-                }
-            }
-            else if (loc.x - (3 * SIZE) == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
                     touchingLeft = true;
                 }
             }
@@ -540,16 +270,12 @@ void Block_RightL::touchingTileSides(vector<Tile>& others, bool& touchingLeft, b
     }
 }
 
-<<<<<<<< HEAD:!Source Code/SigZag.cpp
 void Block_SigZag::remove(vector<Tile>& others, SDL_Plotter& g) {
-========
-void Block_RightL::remove(vector<Tile>& others, SDL_Plotter& g) {
->>>>>>>> 7149dc6337986b4aa0a0022c706815e6808f531a:!Source Code/RightL.cpp
     others.push_back(Tile(SIZE, block_color, a.getLoc()));
     others.push_back(Tile(SIZE, block_color, b.getLoc()));
     others.push_back(Tile(SIZE, block_color, c.getLoc()));
     others.push_back(Tile(SIZE, block_color, d.getLoc()));
 
-    setLoc(point(0, (2*NUM_ROW)));
+    setLoc(point(0, (2 * NUM_ROW)));
     draw(g);
 }
