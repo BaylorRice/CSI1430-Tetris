@@ -31,5 +31,6 @@ const color ORANGE = color(255, 108, 19);
 const color BLACK = color(0, 0, 0);
 const color GREY = color(135, 135, 135);
 const color BACKGROUND = color(255, 255, 255);
+const color GREEN = color(6,143,6);
 
 #endif // CONSTANT_H_

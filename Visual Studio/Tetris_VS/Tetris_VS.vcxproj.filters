@@ -36,6 +36,9 @@
     <ClCompile Include="..\..\!Source Code\RightL.cpp">
       <Filter>CPP Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\!Source Code\SigZag.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\!Source Code\SDL_Plotter.h">
@@ -60,6 +63,9 @@
 	  <Filter>Header Files</Filter>
 	</ClInclude>  
     <ClInclude Include="..\..\!Source Code\RightL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\!Source Code\SigZag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

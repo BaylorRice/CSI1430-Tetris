@@ -15,6 +15,8 @@
 
 #include "Tile.h"
 #include "LeftL.h"
+#include "ZigZag.h"
+#include "SigZag.h"
 #include "Square.h"
 #include "Tee.h"
 #include "Line.h"
