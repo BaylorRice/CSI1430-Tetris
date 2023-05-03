@@ -32,19 +32,7 @@ class Current_Block {
 
     public:
     Current_Block() {
-        block = rand() % 4;
-        if (block == 0) {
-            leftL.setLoc(point(NUM_COL / 2, 2 * SIZE));
-        }
-        else if (block == 1) {
-            rightL.setLoc(point(NUM_COL / 2, 2 * SIZE));
-        }
-        else if (block == 2) {
-            line.setLoc(point(NUM_COL / 2, 2 * SIZE));
-        }
-        else if (block == 3) {
-            tee.setLoc(point(NUM_COL / 2, 2 * SIZE));
-        }
+        ;
     }
 
     void draw(SDL_Plotter& g) {
@@ -54,10 +42,10 @@ class Current_Block {
         else if (block == 1) {
             rightL.draw(g);
         }
-        else if (block == 1) {
+        else if (block == 2) {
             line.draw(g);
         }
-        else if (block == 1) {
+        else if (block == 3) {
             tee.draw(g);
         }
     }
@@ -183,6 +171,30 @@ class Current_Block {
         }
     }
 
+    void reset(SDL_Plotter& g) {
+        block = rand() % 4;
+        leftL.setLoc(point(-100, 0));
+        rightL.setLoc(point(-100, 0));
+        line.setLoc(point(-100, 0));
+        tee.setLoc(point(-100, 0));
+        if (block == 0) {
+            leftL.setLoc(point(NUM_COL / 2, 2 * SIZE));
+        }
+        else if (block == 1) {
+            rightL.setLoc(point(NUM_COL / 2, 2 * SIZE));
+        }
+        else if (block == 2) {
+            line.setLoc(point(NUM_COL / 2, 2 * SIZE));
+        }
+        else if (block == 3) {
+            tee.setLoc(point(NUM_COL / 2, 2 * SIZE));
+        }
+        leftL.draw(g);
+        rightL.draw(g);
+        line.draw(g);
+        tee.draw(g);
+    }
+
 };
 
 int main(int argc, char** argv) {
@@ -197,6 +209,7 @@ int main(int argc, char** argv) {
     bool gameOver = false;
 
     Current_Block block;
+    block.reset(g);
 
     while (!g.getQuit() && !gameOver) { // ESC
 
@@ -227,7 +240,8 @@ int main(int argc, char** argv) {
             // line clear the tiles, draw every tile again, reset the time count.
             if (block.atBottom() || block.sitting(squares)) {
                 block.remove(squares, g);
-                Current_Block block;
+                block.reset(g);
+                g.update();
                 for (size_t i = 0; i < squares.size(); i++) {
                     squares.at(i).draw(g);
                 }
