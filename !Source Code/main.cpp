@@ -29,6 +29,7 @@ class Current_Block {
     Block_RightL rightL; // Block 1
     Block_Line line; // Block 2
     Block_Tee tee; // Block 3
+    Block_Square square; // Block 4
     int block = -1;
 
     public:
@@ -49,6 +50,9 @@ class Current_Block {
         else if (block == 3) {
             tee.draw(g);
         }
+        else if (block == 4) {
+            square.draw(g);
+        }
     }
 
     void rotateClock(vector<Tile>& others) {
@@ -64,6 +68,9 @@ class Current_Block {
         else if (block == 3) {
             tee.rotateClock(others);
         }
+        else if (block == 4) {
+            square.rotateClock(others);
+        }
     }
     void rotateCounterClock(vector<Tile>& others) {
         if (block == 0) {
@@ -77,6 +84,9 @@ class Current_Block {
         }
         else if (block == 3) {
             tee.rotateCounterClock(others);
+        }
+        else if (block == 4) {
+            square.rotateCounterClock(others);
         }
     }
 
@@ -93,6 +103,9 @@ class Current_Block {
         else if (block == 3) {
             tee.moveDown(others);
         }
+        else if (block == 4) {
+            square.moveDown(others);
+        }
     }
     void snapToBottom(vector<Tile>& others) {
         if (block == 0) {
@@ -106,6 +119,9 @@ class Current_Block {
         }
         else if (block == 3) {
             tee.snapToBottom(others);
+        }
+        else if (block == 4) {
+            square.snapToBottom(others);
         }
     }
 
@@ -121,6 +137,9 @@ class Current_Block {
         }
         else if (block == 3) {
             tee.strafeToMouse(mouseLoc, others);
+        }
+        else if (block == 4) {
+            square.strafeToMouse(mouseLoc, others);
         }
     }
 
@@ -138,6 +157,9 @@ class Current_Block {
         else if (block == 3) {
             atBot = tee.atBottom();
         }
+        else if (block == 4) {
+            atBot = square.atBottom();
+        }
         return atBot;
     }
     bool sitting(vector<Tile>& others) {
@@ -153,6 +175,9 @@ class Current_Block {
         }
         else if (block == 3) {
             sit = tee.sitting(others);
+        }
+        else if (block == 4) {
+            sit = square.sitting(others);
         }
         return sit;
     }
@@ -170,6 +195,9 @@ class Current_Block {
         else if (block == 3) {
             tee.remove(others, g);
         }
+        else if (block == 4) {
+            square.remove(others, g);
+        }
     }
     void moveOff() {
         if (block == 0) {
@@ -184,14 +212,18 @@ class Current_Block {
         else if (block == 3) {
             tee.setLoc(point(0, (2*NUM_ROW)));
         }
+        else if (block == 4) {
+            square.setLoc(point(0, (2 * NUM_ROW)));
+        }
     }
 
     void newBlock(SDL_Plotter& g) {
-        block = rand() % 4;
+        block = rand() % 5;
         leftL.setLoc(point(-100, 0));
         rightL.setLoc(point(-100, 0));
         line.setLoc(point(-100, 0));
         tee.setLoc(point(-100, 0));
+        square.setLoc(point(-100, 0));
         if (block == 0) {
             leftL.setLoc(point(NUM_COL / 2, 2 * SIZE));
         }
@@ -204,10 +236,14 @@ class Current_Block {
         else if (block == 3) {
             tee.setLoc(point(NUM_COL / 2, 2 * SIZE));
         }
+        else if (block == 4) {
+            square.setLoc(point(NUM_COL / 2, 2 * SIZE));
+        }
         leftL.draw(g);
         rightL.draw(g);
         line.draw(g);
         tee.draw(g);
+        square.draw(g);
     }
 
 };
