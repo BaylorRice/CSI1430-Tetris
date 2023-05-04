@@ -154,6 +154,7 @@
     <ClInclude Include="..\..\!Source Code\SDL_Plotter.h" />
     <ClInclude Include="..\..\!Source Code\SigZag.h" />
     <ClInclude Include="..\..\!Source Code\Square.h" />
+    <ClInclude Include="..\..\!Source Code\startScreen.h" />
     <ClInclude Include="..\..\!Source Code\Tee.h" />
     <ClInclude Include="..\..\!Source Code\Tile.h" />
     <ClInclude Include="..\..\!Source Code\ZigZag.h" />

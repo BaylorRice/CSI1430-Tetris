@@ -329,6 +329,10 @@ int main(int argc, char** argv) {
     // The window of power (and extreme frustration)
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
+    // Start Screen
+    drawStart(g);
+    g.Sleep(20);
+
     // Data Abstraction
     vector<Tile> squares(0);
     bool snapped = false;
