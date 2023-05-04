@@ -70,3 +70,10 @@ void Letter::draw(SDL_Plotter& g) {
         }
     }
 }
+
+void Letter::erase(SDL_Plotter& g) {
+    color temp = text_color;
+    text_color = BACKGROUND;
+    draw(g);
+    text_color = temp;
+}
