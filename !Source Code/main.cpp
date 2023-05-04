@@ -340,6 +340,12 @@ int main(int argc, char** argv) {
     button1.setWord("SLOW");
     button1.draw(g);
 
+    Word button2(point(200, 610), 3, BLACK);
+    button2.setWord("NORMAL");
+    button2.draw(g);
+    g.update();
+    g.Sleep(20);
+
     // Data Abstraction
     vector<Tile> squares(0);
     bool snapped = false;
