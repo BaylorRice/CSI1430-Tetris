@@ -328,13 +328,6 @@ int main(int argc, char** argv) {
     // The window of power (and extreme frustration)
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
-    // Word Testing
-    Word word(point(10, 10), 4, BLUE);
-    word.setWord("-_   :");
-    word.draw(g);
-    g.update();
-    g.Sleep(100);
-
     // Data Abstraction
     vector<Tile> squares(0);
     bool snapped = false;
