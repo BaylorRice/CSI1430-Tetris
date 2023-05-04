@@ -343,6 +343,10 @@ int main(int argc, char** argv) {
     Word button2(point(200, 610), 3, BLACK);
     button2.setWord("NORMAL");
     button2.draw(g);
+
+    Word button3(point(209, 755), 4, BLACK);
+    button3.setWord("FAST");
+    button3.draw(g);
     g.update();
     g.Sleep(20);
 
