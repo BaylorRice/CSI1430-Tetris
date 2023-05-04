@@ -4,13 +4,33 @@
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: 05/03/2023
-* Date Last Modified: 05/03/2023
+* Date Last Modified: 05/04/2023
 */
 
 #ifndef STARTSCREEN_H_INCLUDED
 #define STARTSCREEN_H_INCLUDED
 
 #include <iostream>
+
+void drawButton(SDL_Plotter& g, point inLoc, color inColor) {
+    point start(inLoc);
+    for (int i = 0; i <= 240; i++) {
+        for (int j = 0; j <= 120; j++) {
+            if ((i == 0) || (j == 0) || (i == 240) || (j == 120)) {
+                g.plotPixel(point(i + start.x, j + start.y), BLACK);
+            }
+            else if ((i == 239) || (j == 119)) {
+                g.plotPixel(point(i + start.x, j + start.y), BLACK);
+            }
+            else if ((i == 238) || (j == 118)) {
+                g.plotPixel(point(i + start.x, j + start.y), BLACK);
+            }
+            else {
+                g.plotPixel(point(i + start.x, j + start.y), inColor);
+            }
+        }
+    }
+}
 
 void drawStart(SDL_Plotter& g) {
     Block_RightL B1, B3, C1, S1;
@@ -98,63 +118,9 @@ void drawStart(SDL_Plotter& g) {
     }
 
     // Draw Buttons
-    point start(180, 420); // Green Button
-    for (int i = start.x; i <= start.x + 240; i++) {
-        for (int j = start.y; j <= start.y + 120; j++) {
-            if ((i == start.x) || (i == start.y) || (j == start.x + 240) || (j == start.y + 120)) {
-                g.plotPixel(point(i, j), BLACK);
-            }
-            else if ((i == start.x + 239) || (j == start.y + 119)) {
-                g.plotPixel(point(i, j), BLACK);
-            }
-            else if ((i == start.x + 238) || (j == start.y + 118)) {
-                g.plotPixel(point(i, j), BLACK);
-            }
-            else {
-                g.plotPixel(point(i, j), GREEN);
-            }
-        }
-    }
-    g.update();
-
-    start = point(180, 570); // Yellow Button
-    for (int i = start.x; i <= start.x + 240; i++) {
-        for (int j = start.y; j <= start.y + 120; j++) {
-            if ((i == start.x) || (i == start.y) || (j == start.x + 240) || (j == start.y + 120)) {
-                g.plotPixel(point(i, j), BLACK);
-            }
-            else if ((i == start.x + 239) || (j == start.y + 119)) {
-                g.plotPixel(point(i, j), BLACK);
-            }
-            else if ((i == start.x + 238) || (j == start.y + 118)) {
-                g.plotPixel(point(i, j), BLACK);
-            }
-            else {
-                g.plotPixel(point(i, j), YELLOW);
-            }
-        }
-    }
-    g.update();
-
-    start = point(180, 720); // Red Button
-    for (int i = start.x; i <= start.x + 240; i++) {
-        for (int j = start.y; j <= start.y + 120; j++) {
-            if ((i == start.x) || (i == start.y) || (j == start.x + 240) || (j == start.y + 120)) {
-                g.plotPixel(point(i, j), BLACK);
-            }
-            else if ((i == start.x + 239) || (j == start.y + 119)) {
-                g.plotPixel(point(i, j), BLACK);
-            }
-            else if ((i == start.x + 238) || (j == start.y + 118)) {
-                g.plotPixel(point(i, j), BLACK);
-            }
-            else {
-                g.plotPixel(point(i, j), RED);
-            }
-        }
-    }
-
-    g.update();
+    drawButton(g, point(180, 420), GREEN);
+    drawButton(g, point(180, 570), YELLOW);
+    drawButton(g, point(180, 720), RED);
 }
 
 #endif //STARTSCREEN_H_INCLUDED

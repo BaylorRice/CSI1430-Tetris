@@ -331,6 +331,7 @@ int main(int argc, char** argv) {
 
     // Start Screen
     drawStart(g);
+    g.update();
     g.Sleep(20);
 
     // Data Abstraction
