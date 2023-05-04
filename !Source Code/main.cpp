@@ -4,7 +4,7 @@
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: ...
-* Date Last Modified: 05/03/2023
+* Date Last Modified: 05/04/2023
 */
 
 #include <iostream>
@@ -12,6 +12,7 @@
 #include <vector>
 #include "Constants.h"
 #include "SDL_Plotter.h"
+#include "Text.h"
 
 #include "Tile.h"
 #include "LeftL.h"
@@ -26,7 +27,7 @@
 
 using namespace std;
 
-void lineClear(vector<Tile>& others, SDL_Plotter& g);
+int lineClear(vector<Tile>& others, SDL_Plotter& g);
 class Current_Block {
     private:
     Block_LeftL leftL; // Block 0
@@ -337,6 +338,10 @@ int main(int argc, char** argv) {
     // Data Abstraction
     vector<Tile> squares(0);
     bool snapped = false;
+    int timeCount = LEVELTIME/2;
+    int numLinesCleared = 0;
+    bool tetrisCombo = false;
+    int score = 0;
     int levelTime = 400;
     int timeCount = levelTime/2;
     point mouse;
@@ -366,8 +371,12 @@ int main(int argc, char** argv) {
         block.strafeToMouse(mouse, squares);
 
         // Move down one SIZE
+        if (snapped) {
+            score += 1;
+        }
         if (timeCount == levelTime/2) {
             block.moveDown(squares);
+            score += 1;
         }
 
         if ((timeCount == levelTime) || snapped) {
@@ -376,8 +385,25 @@ int main(int argc, char** argv) {
                 // Dissociate the Tiles from the Current Block, place them in squares, and move the block below the screen
                 block.remove(squares, g);
 
-                // Clear any lines and redraw the squares
-                lineClear(squares, g);
+                // Clear any lines, apply scoring, and redraw the squares
+                numLinesCleared = lineClear(squares, g);
+                if (numLinesCleared == 0) {
+                    tetrisCombo = false;
+                }
+                else if (numLinesCleared == 1) {
+                    score += 100;
+                    tetrisCombo = false;
+                }
+                else if (numLinesCleared == 4) {
+                    if (tetrisCombo) {
+                        score += 1200;
+                    }
+                    else {
+                        score += 800;
+                        tetrisCombo = true;
+                    }
+                }
+                numLinesCleared = 0;
                 for (size_t i = 0; i < squares.size(); i++) {
                     squares.at(i).draw(g);
                 }
@@ -410,6 +436,7 @@ int main(int argc, char** argv) {
         if (timeCount > levelTime + 1) {
             timeCount = 0;
         }
+        cout << "Current Score: " << score << endl;
 
     }
 
@@ -428,9 +455,10 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-void lineClear(vector<Tile>& others, SDL_Plotter& g) {
+int lineClear(vector<Tile>& others, SDL_Plotter& g) {
     vector<int> lineCounts(NUM_ROW / SIZE, 0);
     int currentY = NUM_ROW;
+    int numLinesCleared = 0;
 
     for (int c = lineCounts.size() - 1; c >= 0; c--) {
         lineCounts.assign(NUM_ROW / SIZE, 0);
@@ -443,6 +471,7 @@ void lineClear(vector<Tile>& others, SDL_Plotter& g) {
                 }
             }
         }
+
         if (lineCounts.at(c) == NUM_COL / SIZE) {
             for (size_t i = 0; i < others.size(); i++) {
                 currentY = others.at(i).getLoc().y;
@@ -457,6 +486,7 @@ void lineClear(vector<Tile>& others, SDL_Plotter& g) {
                 }
             }
             c++;
+            numLinesCleared++;
         }
     }
     //Fully delete removed tiles
@@ -465,5 +495,7 @@ void lineClear(vector<Tile>& others, SDL_Plotter& g) {
             others.erase(others.begin() + i);
             i--;
         }
-    } 
+    }
+
+    return numLinesCleared;
 }

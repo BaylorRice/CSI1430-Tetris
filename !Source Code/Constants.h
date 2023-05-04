@@ -30,4 +30,12 @@ const color GREY = color(135, 135, 135);
 const color BACKGROUND = color(255, 255, 255);
 const color GREEN = color(6,143,6);
 
+/* Scoring Guide:
+* Block moves down a SIZE: 1pt
+* Block Snapped: Additional 1pt
+* Line Cleared: 100pt
+* Tetris (4 Lines Cleared): 800pt
+* Subsequent Tetris: 1200pt (reset after less than a tetris line clear)
+*/
+
 #endif // CONSTANT_H_

@@ -12,6 +12,9 @@
     <Filter Include="SDL Files">
       <UniqueIdentifier>{72574af8-eb51-49e0-bc23-4aa1eb891852}</UniqueIdentifier>
     </Filter>
+    <Filter Include="font">
+      <UniqueIdentifier>{1b02a3ad-8914-4d05-a712-5f5e6d181a51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\!Source Code\main.cpp" />
@@ -42,6 +45,9 @@
     <ClCompile Include="..\..\!Source Code\ZigZag.cpp">
       <Filter>CPP Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\!Source Code\Text.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\!Source Code\SDL_Plotter.h">
@@ -56,6 +62,11 @@
     <ClInclude Include="..\..\!Source Code\LeftL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\!Source Code\Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="..\..\!Source Code\Square.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -77,5 +88,130 @@
     <ClInclude Include="..\..\!Source Code\startScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\!Source Code\font\-.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\_.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\0.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\1.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\2.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\3.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\4.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\5.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\6.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\8.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\7.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\9.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\A.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\B.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\C.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\COLON.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\D.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\E.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\F.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\G.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\H.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\I.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\J.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\K.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\L.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\M.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\O.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\P.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\PossibleCharacters.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\Q.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\R.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\S.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\SPACE.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\T.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\U.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\V.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\W.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\X.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\Y.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\Z.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="..\..\!Source Code\font\N.txt">
+      <Filter>font</Filter>
+    </Text>
   </ItemGroup>
 </Project>
