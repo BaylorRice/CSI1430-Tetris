@@ -31,9 +31,11 @@ class Block_Line {
 
     // Block-Universal Functions
     void setColor(color inColor);
+    void setRotation(int inRot);
 
     point getLoc() const;
     color getColor() const;
+    int getRotation() const;
 
     void draw(SDL_Plotter& g);
 

@@ -23,6 +23,8 @@
 #include "Line.h"
 #include "RightL.h"
 
+#include "startScreen.h"
+
 using namespace std;
 
 int lineClear(vector<Tile>& others, SDL_Plotter& g);
@@ -328,6 +330,11 @@ int main(int argc, char** argv) {
     // The window of power (and extreme frustration)
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
+    // Start Screen
+    drawStart(g);
+    g.update();
+    g.Sleep(20);
+
     // Data Abstraction
     vector<Tile> squares(0);
     bool snapped = false;
@@ -335,6 +342,8 @@ int main(int argc, char** argv) {
     int numLinesCleared = 0;
     bool tetrisCombo = false;
     int score = 0;
+    int levelTime = 400;
+    int timeCount = levelTime/2;
     point mouse;
     bool gameOver = false;
 
@@ -365,12 +374,12 @@ int main(int argc, char** argv) {
         if (snapped) {
             score += 1;
         }
-        if (timeCount == LEVELTIME / 2) {
+        if (timeCount == levelTime/2) {
             block.moveDown(squares);
             score += 1;
         }
 
-        if ((timeCount == LEVELTIME) || snapped) {
+        if ((timeCount == levelTime) || snapped) {
             // If at the bottom or sitting on other Tiles
             if (block.atBottom() || block.sitting(squares)) {
                 // Dissociate the Tiles from the Current Block, place them in squares, and move the block below the screen
@@ -404,7 +413,7 @@ int main(int argc, char** argv) {
 
                 // "Regenerate" the current block
                 block.newBlock(g);
-                timeCount = LEVELTIME / 2;
+                timeCount = levelTime / 2;
             }
             snapped = false;
         }
@@ -424,7 +433,7 @@ int main(int argc, char** argv) {
         g.update();
         g.Sleep(REFRESH);
         timeCount += REFRESH;
-        if (timeCount > LEVELTIME + 1) {
+        if (timeCount > levelTime + 1) {
             timeCount = 0;
         }
         cout << "Current Score: " << score << endl;

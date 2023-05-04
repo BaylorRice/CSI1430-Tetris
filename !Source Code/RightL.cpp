@@ -64,12 +64,22 @@ void Block_RightL::setColor(color inColor) {
     d.setColor(block_color);
 }
 
+void Block_RightL::setRotation(int inRot) {
+    if ((inRot <= 4) && (inRot >= 1)) {
+        rotation = inRot;
+    }
+}
+
 point Block_RightL::getLoc() const {
     return loc;
 }
 
 color Block_RightL::getColor() const {
     return block_color;
+}
+
+int Block_RightL::getRotation() const {
+    return rotation;
 }
 
 void Block_RightL::draw(SDL_Plotter& g) {

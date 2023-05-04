@@ -52,12 +52,22 @@ void Block_Line::setColor(color inColor) {
     d.setColor(block_color);
 }
 
+void Block_Line::setRotation(int inRot) {
+    if ((inRot == 1) || (inRot == 2)) {
+        rotation = inRot;
+    }
+}
+
 point Block_Line::getLoc() const {
     return loc;
 }
 
 color Block_Line::getColor() const {
     return block_color;
+}
+
+int Block_Line::getRotation() const {
+    return rotation;
 }
 
 void Block_Line::draw(SDL_Plotter& g) {
