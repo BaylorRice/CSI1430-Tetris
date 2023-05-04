@@ -26,28 +26,29 @@ class Block_SigZag {
 
     public:
     // Specific Constructors
-    //CHANGE
     Block_SigZag();
     Block_SigZag(point inLoc, int inRot, color inColor);
-    //
-        // Block-Universal Functions
+
+    // Block-Universal Functions
     void setColor(color inColor);
+    void setRotation(int inRot);
 
     point getLoc() const;
     color getColor() const;
+    int getRotation() const;
 
     void draw(SDL_Plotter& g);
-    // CHANGE
+
     void rotateClock(vector<Tile>& others);
     void rotateCounterClock(vector<Tile>& others);
-    //
+
     void moveDown(vector<Tile>& others);
     void snapToBottom(vector<Tile>& others);
 
     int snapLateral(int in, int min, int max, int interval);
 
     // Block-Specific Functions
-    //CHANGE
+
     void setLoc(point inLoc);
 
     void strafeToMouse(point mouseLoc, vector<Tile>& others);
@@ -57,7 +58,7 @@ class Block_SigZag {
     void touchingTileSides(vector<Tile>& others, bool& touchingLeft, bool& touchingRight);
 
     void remove(vector<Tile>& others, SDL_Plotter& g); // Removes the Tiles from this object's "supervision"
-    //
+
 };
 
 #endif // SIGZAG_H_INCLUDED
