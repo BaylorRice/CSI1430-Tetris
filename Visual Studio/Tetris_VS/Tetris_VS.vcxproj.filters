@@ -27,6 +27,25 @@
     <ClCompile Include="..\..\!Source Code\LeftL.cpp">
       <Filter>CPP Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\!Source Code\Square.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\!Source Code\Tee.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\!Source Code\Line.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\!Source Code\RightL.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\!Source Code\SigZag.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\!Source Code\ZigZag.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\!Source Code\SDL_Plotter.h">
@@ -46,5 +65,23 @@
     <Text Include="..\..\!Source Code\font\EXAMPLE.txt">
       <Filter>font</Filter>
     </Text>
+    <ClInclude Include="..\..\!Source Code\Square.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\!Source Code\Tee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\!Source Code\Line.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\!Source Code\RightL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\!Source Code\SigZag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\!Source Code\ZigZag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
