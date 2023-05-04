@@ -57,6 +57,26 @@ void drawStart(SDL_Plotter& g) {
     S1.setLoc(point(510, 240));
     S2.setLoc(point(540, 300));
 
+    // Set Tile Colors
+    for (int i = 0; i < 13; i++) {
+        tiles[i].setColor(GREY);
+    }
+
+    // Set Tile Locations
+    tiles[0].setLoc(point(90, 150));
+    for (int i = 1; i < 4; i++) {
+        tiles[i].setLoc(point(150, i * 30));
+    }
+    tiles[4].setLoc(point(240, 270));
+    tiles[5].setLoc(point(360, 210));
+    tiles[6].setLoc(point(420, 210));
+    tiles[7].setLoc(point(360, 240));
+    tiles[8].setLoc(point(390, 240));
+    tiles[9].setLoc(point(420, 330));
+    for (int i = 10; i < 13; i++) {
+        tiles[i].setLoc(point(480 + (i - 10) * 30, 330));
+    }
+
     // Draw Everything
     for (int i = 0; i < 2; i++) {
         B1.draw(g);
@@ -71,8 +91,11 @@ void drawStart(SDL_Plotter& g) {
         K1.draw(g);
         S1.draw(g);
         S2.draw(g);
-    }
 
+        for (int j = 0; j < 13; j++) {
+            tiles[j].draw(g);
+        }
+    }
 
     g.update();
 
