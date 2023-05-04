@@ -50,4 +50,15 @@ void Letter::draw(SDL_Plotter& g) {
     int cols = 0;
     inFile >> rows >> cols;
 
+    string line;
+    int cCount = 0;
+    for (int r = 0; r < rows; r++) {
+        inFile >> line;
+        for (size_t c = 0; c < line.size(); c++) {
+            if (line.at(c) == '1') {
+                g.plotPixel(point(loc.y + c, loc.x + r), text_color);
+            }
+        }
+    }
+
 }
