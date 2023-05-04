@@ -15,6 +15,8 @@
 #include <fstream>
 #include "Constants.h"
 
+const int MAX_LETTERS = 10;
+
 using namespace std;
 
 class Letter {
@@ -41,6 +43,22 @@ class Letter {
     void drawPixel(int locX, int locY, SDL_Plotter& g);
     void draw(SDL_Plotter& g);
     void erase(SDL_Plotter& g);
+
+};
+
+class Word {
+    private:
+    Letter letters[MAX_LETTERS];
+    int numLetters = 0;
+    point loc = point(0, 0);
+    int sizeMult = 1;
+    color textColor = BLACK;
+
+    public:
+    Word() { ; }
+    Word(point inLoc, int inSM, color inColor);
+
+        
 
 };
 
