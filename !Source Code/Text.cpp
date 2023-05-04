@@ -3,10 +3,11 @@
 #include "Constants.h"
 #include <cassert>
 
-Letter::Letter(string inPath, point inLoc, color inColor) {
+Letter::Letter(string inPath, point inLoc, color inColor, int inSizeMult) {
     path = inPath;
     loc = inLoc;
     text_color = inColor;
+    sizeMult = inSizeMult;
 }
 
 void Letter::setPath(string inPath) {
@@ -41,6 +42,14 @@ int Letter::getSizeMult() const {
     return sizeMult;
 }
 
+void Letter::drawPixel(int locX, int locY, SDL_Plotter& g) {
+    for (int r = 0; r < sizeMult; r++) {
+        for (int c = 0; c < sizeMult; c++) {
+            g.plotPixel(point(locX + c, locY + r), text_color);
+        }
+    }
+}
+
 void Letter::draw(SDL_Plotter& g) {
     ifstream inFile;
     inFile.open(path);
@@ -52,13 +61,12 @@ void Letter::draw(SDL_Plotter& g) {
 
     string line;
     int cCount = 0;
-    for (int r = 0; r < rows; r++) {
+    for (int r = 0; r < rows * sizeMult; r += sizeMult) {
         inFile >> line;
-        for (size_t c = 0; c < line.size(); c++) {
-            if (line.at(c) == '1') {
-                g.plotPixel(point(loc.y + c, loc.x + r), text_color);
+        for (size_t c = 0; c < line.size()*sizeMult; c += sizeMult) {
+            if (line.at(c/sizeMult) == '1') {
+                drawPixel(loc.x + c, loc.y + r, g);
             }
         }
     }
-
 }

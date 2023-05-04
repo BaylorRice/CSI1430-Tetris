@@ -329,7 +329,10 @@ int main(int argc, char** argv) {
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     // Text (Just for testing)
-    Letter one("font/1.txt", point(50, 50), BLACK);
+    Letter one("font/1.txt", point(50, 50), BLACK, 10);
+    one.draw(g);
+    one.setSizeMult(1);
+    one.setColor(BLUE);
     one.draw(g);
     g.update();
     g.Sleep(100);

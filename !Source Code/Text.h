@@ -26,7 +26,7 @@ class Letter {
 
     public:
     Letter() { ; }
-    Letter(string inPath, point inLoc, color inColor);
+    Letter(string inPath, point inLoc, color inColor, int inSizeMult);
 
     void setPath(string inPath);
     void setLoc(point inLoc);
@@ -38,6 +38,7 @@ class Letter {
     color getColor() const;
     int getSizeMult() const;
 
+    void drawPixel(int locX, int locY, SDL_Plotter& g);
     void draw(SDL_Plotter& g);
     void erase(SDL_Plotter& g);
 
