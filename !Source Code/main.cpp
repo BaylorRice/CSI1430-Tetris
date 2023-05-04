@@ -328,6 +328,9 @@ int main(int argc, char** argv) {
     // The window of power (and extreme frustration)
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
+    Letter one("font/1.txt", point(50, 50), BLACK);
+    one.draw(g);
+
     // Data Abstraction
     vector<Tile> squares(0);
     bool snapped = false;
