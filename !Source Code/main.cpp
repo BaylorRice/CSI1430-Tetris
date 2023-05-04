@@ -22,6 +22,8 @@
 #include "Line.h"
 #include "RightL.h"
 
+#include "startScreen.h"
+
 using namespace std;
 
 void lineClear(vector<Tile>& others, SDL_Plotter& g);
