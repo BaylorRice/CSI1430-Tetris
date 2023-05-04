@@ -15,9 +15,6 @@
 const int NUM_ROW = 900; // Multiple of SIZE
 const int NUM_COL = 600; // Multiple of SIZE
 
-// Level 1: 400
-const int LEVELTIME = 400; // Multiple of 10, leading digit being even
-
 const int REFRESH = 10;
 
 const int SIZE = 30; // Multiple of 10
