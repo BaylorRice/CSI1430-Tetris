@@ -140,6 +140,7 @@
     <ClCompile Include="..\..\!Source Code\SigZag.cpp" />
     <ClCompile Include="..\..\!Source Code\Square.cpp" />
     <ClCompile Include="..\..\!Source Code\Tee.cpp" />
+    <ClCompile Include="..\..\!Source Code\Text.cpp" />
     <ClCompile Include="..\..\!Source Code\Tile.cpp" />
     <ClCompile Include="..\..\!Source Code\ZigZag.cpp" />
   </ItemGroup>
@@ -155,11 +156,52 @@
     <ClInclude Include="..\..\!Source Code\SigZag.h" />
     <ClInclude Include="..\..\!Source Code\Square.h" />
     <ClInclude Include="..\..\!Source Code\Tee.h" />
+    <ClInclude Include="..\..\!Source Code\Text.h" />
     <ClInclude Include="..\..\!Source Code\Tile.h" />
     <ClInclude Include="..\..\!Source Code\ZigZag.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\!Source Code\font\EXAMPLE.txt" />
+    <Text Include="..\..\!Source Code\font\-.txt" />
+    <Text Include="..\..\!Source Code\font\0.txt" />
+    <Text Include="..\..\!Source Code\font\1.txt" />
+    <Text Include="..\..\!Source Code\font\2.txt" />
+    <Text Include="..\..\!Source Code\font\3.txt" />
+    <Text Include="..\..\!Source Code\font\4.txt" />
+    <Text Include="..\..\!Source Code\font\5.txt" />
+    <Text Include="..\..\!Source Code\font\6.txt" />
+    <Text Include="..\..\!Source Code\font\7.txt" />
+    <Text Include="..\..\!Source Code\font\8.txt" />
+    <Text Include="..\..\!Source Code\font\9.txt" />
+    <Text Include="..\..\!Source Code\font\A.txt" />
+    <Text Include="..\..\!Source Code\font\B.txt" />
+    <Text Include="..\..\!Source Code\font\C.txt" />
+    <Text Include="..\..\!Source Code\font\COLON.txt" />
+    <Text Include="..\..\!Source Code\font\D.txt" />
+    <Text Include="..\..\!Source Code\font\E.txt" />
+    <Text Include="..\..\!Source Code\font\F.txt" />
+    <Text Include="..\..\!Source Code\font\G.txt" />
+    <Text Include="..\..\!Source Code\font\H.txt" />
+    <Text Include="..\..\!Source Code\font\I.txt" />
+    <Text Include="..\..\!Source Code\font\J.txt" />
+    <Text Include="..\..\!Source Code\font\K.txt" />
+    <Text Include="..\..\!Source Code\font\L.txt" />
+    <Text Include="..\..\!Source Code\font\M.txt" />
+    <Text Include="..\..\!Source Code\font\N.txt" />
+    <Text Include="..\..\!Source Code\font\O.txt" />
+    <Text Include="..\..\!Source Code\font\P.txt" />
+    <Text Include="..\..\!Source Code\font\PossibleCharacters.txt" />
+    <Text Include="..\..\!Source Code\font\Q.txt" />
+    <Text Include="..\..\!Source Code\font\R.txt" />
+    <Text Include="..\..\!Source Code\font\S.txt" />
+    <Text Include="..\..\!Source Code\font\SPACE.txt" />
+    <Text Include="..\..\!Source Code\font\T.txt" />
+    <Text Include="..\..\!Source Code\font\U.txt" />
+    <Text Include="..\..\!Source Code\font\V.txt" />
+    <Text Include="..\..\!Source Code\font\W.txt" />
+    <Text Include="..\..\!Source Code\font\X.txt" />
+    <Text Include="..\..\!Source Code\font\Y.txt" />
+    <Text Include="..\..\!Source Code\font\Z.txt" />
+    <Text Include="..\..\!Source Code\font\_.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
