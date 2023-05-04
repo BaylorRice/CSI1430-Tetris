@@ -335,10 +335,14 @@ int main(int argc, char** argv) {
     g.update();
     g.Sleep(20);
 
+    // Text on Start Screen
+    Word button1(point(208, 455), 4, BLACK);
+    button1.setWord("SLOW");
+    button1.draw(g);
+
     // Data Abstraction
     vector<Tile> squares(0);
     bool snapped = false;
-    int timeCount = LEVELTIME/2;
     int numLinesCleared = 0;
     bool tetrisCombo = false;
     int score = 0;
