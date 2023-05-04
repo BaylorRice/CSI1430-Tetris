@@ -330,7 +330,7 @@ int main(int argc, char** argv) {
 
     // Word Testing
     Word word(point(10, 10), 2, BLUE);
-    word.setWord("M");
+    word.setWord("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     word.draw(g);
     g.update();
     g.Sleep(100);
