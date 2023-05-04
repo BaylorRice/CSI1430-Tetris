@@ -58,11 +58,12 @@ class Word {
     Word() { ; }
     Word(point inLoc, int inSM, color inColor);
 
-    void setLetters(string inString);
+    void setWord(string inString);
     void setLoc(point inLoc);
     void setSizeMult(int inSM);
     void setColor(color inColor);
 
+    string getWord() const;
     point getLoc() const;
     int getSizeMult() const;
     color getColor() const;

@@ -84,8 +84,8 @@ Word::Word(point inLoc, int inSM, color inColor) {
     text_color = inColor;
 }
 
-void Word::setLetters(string inString) {
-    inString = word;
+void Word::setWord(string inString) {
+    word = inString;
     letters.clear();
     for (size_t c = 0; c < inString.size(); c++) {
         char currentLetter = inString.at(c);
@@ -107,4 +107,47 @@ void Word::setLetters(string inString) {
         letters.at(i).setLoc(point(loc.x + (i * 12) * sizeMult, loc.y));
     }
 
+}
+
+void Word::setLoc(point inLoc) {
+    loc = inLoc;
+    setWord(word);
+}
+
+void Word::setSizeMult(int inSM) {
+    sizeMult = inSM;
+    setWord(word);
+}
+
+void Word::setColor(color inColor) {
+    text_color = inColor;
+    setWord(word);
+}
+
+string Word::getWord() const {
+    return word;
+}
+
+point Word::getLoc() const {
+    return loc;
+}
+
+int Word::getSizeMult() const {
+    return sizeMult;
+}
+
+color Word::getColor() const {
+    return text_color;
+}
+
+void Word::draw(SDL_Plotter& g) {
+    for (size_t i = 0; i < letters.size(); i++) {
+        letters.at(i).draw(g);
+    }
+}
+
+void Word::erase(SDL_Plotter& g) {
+    for (size_t i = 0; i < letters.size(); i++) {
+        letters.at(i).erase(g);
+    }
 }

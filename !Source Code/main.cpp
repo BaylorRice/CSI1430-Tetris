@@ -330,7 +330,10 @@ int main(int argc, char** argv) {
 
     // Word Testing
     Word word(point(10, 10), 2, BLUE);
-    word.setLetters("HELLO");
+    word.setWord("HELLO");
+    word.draw(g);
+    g.update();
+    g.Sleep(100);
 
     // Data Abstraction
     vector<Tile> squares(0);
