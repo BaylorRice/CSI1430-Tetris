@@ -12,6 +12,7 @@
 #include <vector>
 #include "Constants.h"
 #include "SDL_Plotter.h"
+#include "Text.h"
 
 #include "Tile.h"
 #include "LeftL.h"
