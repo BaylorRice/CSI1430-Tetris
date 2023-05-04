@@ -330,8 +330,7 @@ int main(int argc, char** argv) {
     // The window of power (and extreme frustration)
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
-    // Start Screen
-    bool startGame = false;
+/// START SCREEN
     drawStart(g);
     g.update();
     g.Sleep(20);
@@ -382,6 +381,7 @@ int main(int argc, char** argv) {
     g.update();
     g.Sleep(500);
     
+/// GAME LOOP
     if (gameStart) {
         // Data Abstraction
         vector<Tile> squares(0);
@@ -485,7 +485,7 @@ int main(int argc, char** argv) {
 
         }
 
-        // Upon Game Over
+/// GAME OVER
         if (gameOver) {
             for (size_t i = 0; i < squares.size(); i++) {
                 squares.at(i).setColor(RED);
