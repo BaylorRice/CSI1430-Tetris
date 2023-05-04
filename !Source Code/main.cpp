@@ -368,19 +368,19 @@ int main(int argc, char** argv) {
 
     if ((startMouse.x >= 180) && (startMouse.x <= 420)) {
         if ((startMouse.y >= 420) && (startMouse.y <= 540)) {
-            levelTime = 200;
+            levelTime = 600;
         }
         else if ((startMouse.y >= 570) && (startMouse.y <= 690)) {
             levelTime = 400;
         }
         else if ((startMouse.y >= 720) && (startMouse.y <= 840)) {
-            levelTime = 600;
+            levelTime = 100;
         }
     }
 
     g.clear();
     g.update();
-    g.Sleep(1000);
+    g.Sleep(500);
     
     if (gameStart) {
         // Data Abstraction
