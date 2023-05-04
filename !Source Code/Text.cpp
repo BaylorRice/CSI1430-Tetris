@@ -77,3 +77,9 @@ void Letter::erase(SDL_Plotter& g) {
     draw(g);
     text_color = temp;
 }
+
+Word::Word(point inLoc, int inSM, color inColor) {
+    loc = inLoc;
+    sizeMult = inSM;
+    text_color = inColor;
+}

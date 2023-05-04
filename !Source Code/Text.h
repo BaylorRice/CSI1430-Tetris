@@ -13,9 +13,8 @@
 #include <iomanip>
 #include <string>
 #include <fstream>
+#include <vector>
 #include "Constants.h"
-
-const int MAX_LETTERS = 10;
 
 using namespace std;
 
@@ -48,7 +47,7 @@ class Letter {
 
 class Word {
     private:
-    Letter letters[MAX_LETTERS];
+    vector<Letter> letters;
     int numLetters = 0;
     point loc = point(0, 0);
     int sizeMult = 1;
@@ -58,7 +57,17 @@ class Word {
     Word() { ; }
     Word(point inLoc, int inSM, color inColor);
 
-        
+    void setLetters(string inString);
+    void setLoc(point inLoc);
+    void setSizeMult(int inSM);
+    void setColor(color inColor);
+
+    point getLoc() const;
+    int getSizeMult() const;
+    color getColor() const;
+
+    void draw(SDL_Plotter& g);
+    void erase(SDL_Plotter& g);
 
 };
 
