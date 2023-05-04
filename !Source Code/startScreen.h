@@ -17,7 +17,9 @@ void drawStart(SDL_Plotter& g) {
     Block_Tee B2, K1;
     Block_LeftL L1, O1, O3, C2, S2;
     Block_Line O2;
+    Tile tiles[13];
 
+    
 
 }
 
