@@ -63,8 +63,8 @@ void Letter::draw(SDL_Plotter& g) {
     int cCount = 0;
     for (int r = 0; r < rows * sizeMult; r += sizeMult) {
         inFile >> line;
-        for (size_t c = 0; c < line.size()*sizeMult; c += sizeMult) {
-            if (line.at(c/sizeMult) == '1') {
+        for (size_t c = 0; c < line.size() * sizeMult; c += sizeMult) {
+            if (line.at(c / sizeMult) == '1') {
                 drawPixel(loc.x + c, loc.y + r, g);
             }
         }
