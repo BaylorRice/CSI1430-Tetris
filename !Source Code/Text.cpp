@@ -83,3 +83,28 @@ Word::Word(point inLoc, int inSM, color inColor) {
     sizeMult = inSM;
     text_color = inColor;
 }
+
+void Word::setLetters(string inString) {
+    inString = word;
+    letters.clear();
+    for (size_t c = 0; c < inString.size(); c++) {
+        char currentLetter = inString.at(c);
+        string letterPath = "font/";
+        if (currentLetter == ':') {
+            letterPath += "COLON";
+        }
+        else if (currentLetter == ' ') {
+            letterPath += "SPACE";
+        }
+        else {
+            letterPath += currentLetter;
+        }
+        letterPath += ".txt";
+        letters.push_back(Letter(letterPath, loc, text_color, sizeMult));
+    }
+
+    for (size_t i = 0; i < letters.size(); i++) {
+        letters.at(i).setLoc(point(loc.x + (i * 12) * sizeMult, loc.y));
+    }
+
+}

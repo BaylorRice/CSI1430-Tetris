@@ -48,10 +48,11 @@ class Letter {
 class Word {
     private:
     vector<Letter> letters;
+    string word;
     int numLetters = 0;
     point loc = point(0, 0);
     int sizeMult = 1;
-    color textColor = BLACK;
+    color text_color = BLACK;
 
     public:
     Word() { ; }

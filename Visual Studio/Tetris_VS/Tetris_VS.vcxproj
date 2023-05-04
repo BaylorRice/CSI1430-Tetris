@@ -175,7 +175,7 @@
     <Text Include="..\..\!Source Code\font\A.txt" />
     <Text Include="..\..\!Source Code\font\B.txt" />
     <Text Include="..\..\!Source Code\font\C.txt" />
-    <Text Include="..\..\!Source Code\font\colon.txt" />
+    <Text Include="..\..\!Source Code\font\COLON.txt" />
     <Text Include="..\..\!Source Code\font\D.txt" />
     <Text Include="..\..\!Source Code\font\E.txt" />
     <Text Include="..\..\!Source Code\font\F.txt" />
@@ -188,9 +188,11 @@
     <Text Include="..\..\!Source Code\font\M.txt" />
     <Text Include="..\..\!Source Code\font\O.txt" />
     <Text Include="..\..\!Source Code\font\P.txt" />
+    <Text Include="..\..\!Source Code\font\PossibleCharacters.txt" />
     <Text Include="..\..\!Source Code\font\Q.txt" />
     <Text Include="..\..\!Source Code\font\R.txt" />
     <Text Include="..\..\!Source Code\font\S.txt" />
+    <Text Include="..\..\!Source Code\font\SPACE.txt" />
     <Text Include="..\..\!Source Code\font\T.txt" />
     <Text Include="..\..\!Source Code\font\U.txt" />
     <Text Include="..\..\!Source Code\font\V.txt" />
