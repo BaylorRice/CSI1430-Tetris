@@ -4,7 +4,7 @@
 * Assignment Description: INSERT DESCRIPTION
 * Due Date: INSERT DUE DATE
 * Date Created: ...
-* Date Last Modified: 04/27/2023
+* Date Last Modified: 05/02/2023
 */
 
 #include "Line.h"
@@ -12,12 +12,12 @@
 
 Block_Line::Block_Line() {
     loc = point(NUM_COL/2, 0);
-    block_color = BLUE;
+    block_color = LIGHT_BLUE;
     setColor(block_color);
     setLoc(loc);
 }
 
-Block_Line::Block_Line(point inLoc, int inRot = 1, color inColor = BLUE) {
+Block_Line::Block_Line(point inLoc, int inRot = 1, color inColor = LIGHT_BLUE) {
     loc = inLoc;
     rotation = inRot;
     block_color = inColor;
@@ -30,28 +30,16 @@ void Block_Line::setLoc(point inLoc) {
     loc = inLoc;
 
     if (rotation == 1) {
-        a.setLoc(loc);
-        b.setLoc(point(loc.x - SIZE, loc.y));
-        c.setLoc(point(loc.x, loc.y - SIZE));
-        d.setLoc(point(loc.x, loc.y - (2 * SIZE)));
+        a.setLoc(point(loc.x + SIZE, loc.y));
+        b.setLoc(loc);
+        c.setLoc(point(loc.x - SIZE, loc.y));
+        d.setLoc(point(loc.x - (2 * SIZE), loc.y));
     }
     else if (rotation == 2) {
-        a.setLoc(point(loc.x - SIZE, loc.y));
-        b.setLoc(point(loc.x - SIZE, loc.y - SIZE));
-        c.setLoc(loc);
-        d.setLoc(point(loc.x + SIZE, loc.y));
-    }
-    else if (rotation == 3) {
-        a.setLoc(point(loc.x - SIZE, loc.y - SIZE));
+        a.setLoc(point(loc.x, loc.y - (2 * SIZE)));
         b.setLoc(point(loc.x, loc.y - SIZE));
-        c.setLoc(point(loc.x - SIZE, loc.y));
-        d.setLoc(point(loc.x - SIZE, loc.y + SIZE));
-    }
-    else if (rotation == 4) {
-        a.setLoc(point(loc.x, loc.y - SIZE));
-        b.setLoc(loc);
-        c.setLoc(point(loc.x - SIZE, loc.y - SIZE));
-        d.setLoc(point(loc.x - (2 * SIZE), loc.y - SIZE));
+        c.setLoc(loc);
+        d.setLoc(point(loc.x, loc.y + SIZE));
     }
 
 }
@@ -87,8 +75,10 @@ void Block_Line::rotateClock(vector<Tile>& others) {
     bool touchingRight = false;
     touchingTileSides(others, touchingLeft, touchingRight);
     if (!atBottom() && !sitting(others) && !touchingLeft && !touchingRight) {
-        rotation++;
-        if (rotation > 4) {
+        if (rotation == 1) {
+            rotation = 2;
+        }
+        else {
             rotation = 1;
         }
     }
@@ -99,9 +89,11 @@ void Block_Line::rotateCounterClock(vector<Tile>& others) {
     bool touchingRight = false;
     touchingTileSides(others, touchingLeft, touchingRight);
     if (!atBottom() && !sitting(others) && !touchingLeft && !touchingRight) {
-        rotation--;
-        if (rotation < 1) {
-            rotation = 4;
+        if (rotation == 2) {
+            rotation = 1;
+        }
+        else {
+            rotation = 2;
         }
     }
 }
@@ -145,51 +137,49 @@ void Block_Line::strafeToMouse(point mouseLoc, vector<Tile>& others) {
     touchingTileSides(others, touchingLeft, touchingRight);
     if (!touchingLeft && !touchingRight) {
         // MOVE FREELY
-        if ((rotation == 1) || (rotation == 3)) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - SIZE, SIZE);
+        if (rotation == 1) {
+            p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - (2 * SIZE), SIZE);
         }
         else if (rotation == 2) {
-            p.x = snapLateral(mouseLoc.x, SIZE, NUM_COL - (2 * SIZE), SIZE);
-        }
-        else if (rotation == 4) {
-            p.x = snapLateral(mouseLoc.x, (2 * SIZE), NUM_COL - SIZE, SIZE);
+            p.x = snapLateral(mouseLoc.x, 0, NUM_COL - SIZE, SIZE);
         }
     }
     else if (touchingLeft && !touchingRight) {
         // MOVE RIGHT ONLY
-        if ((rotation == 1) || (rotation == 3)) {
-            p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
-        }
-        else if (rotation == 2) {
+        if (rotation == 1) {
             p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - (2 * SIZE), SIZE);
         }
-        else if (rotation == 4) {
+        else if (rotation == 2) {
             p.x = snapLateral(mouseLoc.x, loc.x, NUM_COL - SIZE, SIZE);
         }
     }
     else {
         // MOVE LEFT ONLY
-        if ((rotation == 1) || (rotation == 3)) {
-            p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
-        }
-        else if (rotation == 2) {
-            p.x = snapLateral(mouseLoc.x, SIZE, loc.x, SIZE);
-        }
-        else if (rotation == 4) {
+        if (rotation == 1) {
             p.x = snapLateral(mouseLoc.x, (2 * SIZE), loc.x, SIZE);
         }
+        else if (rotation == 2) {
+            p.x = snapLateral(mouseLoc.x, 0, loc.x, SIZE);
+        }
+    }
+    // Speed Limiter (Forces the block to only move SIZE pixels a cycle)
+    if (p.x < loc.x) {
+        p.x = loc.x - SIZE;
+    }
+    else if (p.x > loc.x) {
+        p.x = loc.x + SIZE;
     }
     setLoc(p);
 }
 
 bool Block_Line::atBottom() {
     bool atBottom = false;
-    if (rotation != 3) {
+    if (rotation == 1) {
         if (getLoc().y >= NUM_ROW - SIZE) {
             atBottom = true;
         }
     }
-    else if (rotation == 3) {
+    else if (rotation == 2) {
         if (getLoc().y >= NUM_ROW - (2 * SIZE)) {
             atBottom = true;
         }
@@ -203,7 +193,10 @@ bool Block_Line::sitting(vector<Tile>& others) {
     point loc = getLoc();
     if (rotation == 1) {
         for (int i = 0; i < others.size(); i++) {
-            if ((loc.x == others.at(i).getLoc().x) || ((loc.x - SIZE) == others.at(i).getLoc().x)) {
+            if ((loc.x - (2 * SIZE) == others.at(i).getLoc().x) ||
+                (loc.x - SIZE == others.at(i).getLoc().x) ||
+                (loc.x == others.at(i).getLoc().x) ||
+                (loc.x + SIZE == others.at(i).getLoc().x)) {
                 if (loc.y + SIZE == others.at(i).getLoc().y) {
                     sit = true;
                 }
@@ -212,43 +205,8 @@ bool Block_Line::sitting(vector<Tile>& others) {
     }
     else if (rotation == 2) {
         for (int i = 0; i < others.size(); i++) {
-            if ((loc.x == others.at(i).getLoc().x) || 
-                ((loc.x - SIZE) == others.at(i).getLoc().x) || 
-                ((loc.x + SIZE) == others.at(i).getLoc().x)) {
-                if (loc.y + SIZE == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-        }
-    }
-    else if (rotation == 3) {
-        for (int i = 0; i < others.size(); i++) {
-            if (loc.x - SIZE == others.at(i).getLoc().x) {
+            if (loc.x == others.at(i).getLoc().x) {
                 if (loc.y + (2 * SIZE) == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-            if (loc.x == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-        }
-    }
-    else if (rotation == 4) {
-        for (int i = 0; i < others.size(); i++) {
-            if (loc.x == others.at(i).getLoc().x) {
-                if (loc.y + SIZE == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-            if (loc.x - SIZE == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) {
-                    sit = true;
-                }
-            }
-            if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) {
                     sit = true;
                 }
             }
@@ -263,27 +221,13 @@ void Block_Line::touchingTileSides(vector<Tile>& others, bool& touchingLeft, boo
     touchingRight = false;
     if (rotation == 1) {
         for (int i = 0; i < others.size(); i++) {
-            if (loc.x - SIZE == others.at(i).getLoc().x) {
-                if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // LEFT TOP
-                    touchingLeft = true;
-                }
-                else if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT MIDDLE
+            if (loc.x - (3 * SIZE) == others.at(i).getLoc().x) {
+                if (loc.y == others.at(i).getLoc().y) { // LEFT
                     touchingLeft = true;
                 }
             }
-            else if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
-                    touchingLeft = true;
-                }
-            }
-            else if (loc.x + SIZE == others.at(i).getLoc().x) {
-                if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // RIGHT TOP
-                    touchingRight = true;
-                }
-                else if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT MIDDLE
-                    touchingRight = true;
-                }
-                else if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
+            if (loc.x + (2 * SIZE) == others.at(i).getLoc().x) {
+                if (loc.y == others.at(i).getLoc().y) { // RIGHT
                     touchingRight = true;
                 }
             }
@@ -291,71 +235,31 @@ void Block_Line::touchingTileSides(vector<Tile>& others, bool& touchingLeft, boo
     }
     else if (rotation == 2) {
         for (int i = 0; i < others.size(); i++) {
-            if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
+            if (loc.x - SIZE == others.at(i).getLoc().x) {
+                if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // LEFT TOP
                     touchingLeft = true;
                 }
-                else if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
+                if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT UPPER MIDDLE
+                    touchingLeft = true;
+                }
+                if (loc.y == others.at(i).getLoc().y) { // LEFT LOWER MIDDLE
+                    touchingLeft = true;
+                }
+                if (loc.y + SIZE == others.at(i).getLoc().y) { // LEFT BOTTOM
                     touchingLeft = true;
                 }
             }
-            else if (loc.x == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT TOP
+            if (loc.x + SIZE == others.at(i).getLoc().x) {
+                if (loc.y - (2 * SIZE) == others.at(i).getLoc().y) { // RIGHT TOP
                     touchingRight = true;
                 }
-            }
-            else if (loc.x + (2 * SIZE) == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
+                if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT UPPER MIDDLE
                     touchingRight = true;
                 }
-            }
-        }
-    }
-    else if (rotation == 3) {
-        for (int i = 0; i < others.size(); i++) {
-            if (loc.x - (2 * SIZE) == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
-                    touchingLeft = true;
-                }
-                else if (loc.y == others.at(i).getLoc().y) { // LEFT MIDDLE
-                    touchingLeft = true;
-                }
-                else if (loc.y + SIZE == others.at(i).getLoc().y) { // LEFT BOTTOM
-                    touchingLeft = true;
-                }
-            }
-            else if (loc.x + SIZE == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT TOP
+                if (loc.y == others.at(i).getLoc().y) { // RIGHT LOWER MIDDLE
                     touchingRight = true;
                 }
-            }
-            else if (loc.x == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) { // RIGHT MIDDLE
-                    touchingRight = true;
-                }
-                else if (loc.y + SIZE == others.at(i).getLoc().y) { // RIGHT BOTTOM
-                    touchingRight = true;
-                }
-            }
-        }
-    }
-    else if (rotation == 4) {
-        for (int i = 0; i < others.size(); i++) {
-            if (loc.x - (3 * SIZE) == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // LEFT TOP
-                    touchingLeft = true;
-                }
-            }
-            else if (loc.x - SIZE == others.at(i).getLoc().x) {
-                if (loc.y == others.at(i).getLoc().y) { // LEFT BOTTOM
-                    touchingLeft = true;
-                }
-            }
-            else if (loc.x + SIZE == others.at(i).getLoc().x) {
-                if (loc.y - SIZE == others.at(i).getLoc().y) { // RIGHT TOP
-                    touchingRight = true;
-                }
-                else if (loc.y == others.at(i).getLoc().y) { // RIGHT BOTTOM
+                if (loc.y + SIZE == others.at(i).getLoc().y) { // RIGHT BOTTOM
                     touchingRight = true;
                 }
             }
