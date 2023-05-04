@@ -77,7 +77,7 @@ void drawStart(SDL_Plotter& g) {
         tiles[i].setLoc(point(480 + (i - 10) * 30, 330));
     }
 
-    // Draw Everything
+    // Draw Blocks and tiles
     for (int i = 0; i < 2; i++) {
         B1.draw(g);
         B2.draw(g);
@@ -97,8 +97,64 @@ void drawStart(SDL_Plotter& g) {
         }
     }
 
+    // Draw Buttons
+    point start(180, 420); // Green Button
+    for (int i = start.x; i <= start.x + 240; i++) {
+        for (int j = start.y; j <= start.y + 120; j++) {
+            if ((i == start.x) || (i == start.y) || (j == start.x + 240) || (j == start.y + 120)) {
+                g.plotPixel(point(i, j), BLACK);
+            }
+            else if ((i == start.x + 239) || (j == start.y + 119)) {
+                g.plotPixel(point(i, j), BLACK);
+            }
+            else if ((i == start.x + 238) || (j == start.y + 118)) {
+                g.plotPixel(point(i, j), BLACK);
+            }
+            else {
+                g.plotPixel(point(i, j), GREEN);
+            }
+        }
+    }
     g.update();
 
+    start = point(180, 570); // Yellow Button
+    for (int i = start.x; i <= start.x + 240; i++) {
+        for (int j = start.y; j <= start.y + 120; j++) {
+            if ((i == start.x) || (i == start.y) || (j == start.x + 240) || (j == start.y + 120)) {
+                g.plotPixel(point(i, j), BLACK);
+            }
+            else if ((i == start.x + 239) || (j == start.y + 119)) {
+                g.plotPixel(point(i, j), BLACK);
+            }
+            else if ((i == start.x + 238) || (j == start.y + 118)) {
+                g.plotPixel(point(i, j), BLACK);
+            }
+            else {
+                g.plotPixel(point(i, j), YELLOW);
+            }
+        }
+    }
+    g.update();
+
+    start = point(180, 720); // Red Button
+    for (int i = start.x; i <= start.x + 240; i++) {
+        for (int j = start.y; j <= start.y + 120; j++) {
+            if ((i == start.x) || (i == start.y) || (j == start.x + 240) || (j == start.y + 120)) {
+                g.plotPixel(point(i, j), BLACK);
+            }
+            else if ((i == start.x + 239) || (j == start.y + 119)) {
+                g.plotPixel(point(i, j), BLACK);
+            }
+            else if ((i == start.x + 238) || (j == start.y + 118)) {
+                g.plotPixel(point(i, j), BLACK);
+            }
+            else {
+                g.plotPixel(point(i, j), RED);
+            }
+        }
+    }
+
+    g.update();
 }
 
 #endif //STARTSCREEN_H_INCLUDED
