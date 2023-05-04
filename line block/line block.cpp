@@ -18,7 +18,7 @@ Block_Line::Block_LeftL(point inLoc = point(NUM_COL / 2, 0), int inRot = 1, colo
     setLoc(loc);
 }
 
-void Block_LeftL::setLoc(point inLoc) {
+void Block_Line::setLoc(point inLoc) {
     prevLoc.push_back(getLoc());
     loc = inLoc;
 
@@ -31,8 +31,8 @@ void Block_LeftL::setLoc(point inLoc) {
     else if (rotation == 2) {
         a.setLoc(point(loc.x, loc.y));
         b.setLoc(point(loc.x + SIZE, loc.y));
-        c.setLoc(loc.x + (2 * SIZE));
-        d.setLoc(point(loc.x + (3 * SIZE, loc.y));
+        c.setLoc(loc.x + (2 * SIZE), loc.y);
+        d.setLoc(point(loc.x + (3 * SIZE), loc.y));
     }
     else if (rotation == 3) {
         a.setLoc(point(loc.x, loc.y));
@@ -49,7 +49,7 @@ void Block_LeftL::setLoc(point inLoc) {
 
 }
 
-void Block_LeftL::setColor(color inColor) {
+void Block_Line::setColor(color inColor) {
     block_color = inColor;
     a.setColor(block_color);
     b.setColor(block_color);
