@@ -85,6 +85,9 @@
     <ClInclude Include="..\..\!Source Code\ZigZag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\!Source Code\startScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\!Source Code\font\-.txt">

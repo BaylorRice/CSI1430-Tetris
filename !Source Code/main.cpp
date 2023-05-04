@@ -23,6 +23,8 @@
 #include "Line.h"
 #include "RightL.h"
 
+#include "startScreen.h"
+
 using namespace std;
 
 int lineClear(vector<Tile>& others, SDL_Plotter& g);
@@ -328,120 +330,173 @@ int main(int argc, char** argv) {
     // The window of power (and extreme frustration)
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
-    // Data Abstraction
-    vector<Tile> squares(0);
-    bool snapped = false;
-    int timeCount = LEVELTIME/2;
-    int numLinesCleared = 0;
-    bool tetrisCombo = false;
-    int score = 0;
-    point mouse;
-    bool gameOver = false;
+    // Start Screen
+    bool startGame = false;
+    drawStart(g);
+    g.update();
+    g.Sleep(20);
 
-    // Creates the Current_Block object and resets it (instead of a defualt constructor)
-    Current_Block block;
-    block.newBlock(g);
+    // Text on Start Screen
+    Word button1(point(208, 455), 4, BLACK);
+    button1.setWord("SLOW");
+    button1.draw(g);
 
-    // Game loop
-    while (!g.getQuit() && !gameOver) { // ESC
+    Word button2(point(200, 610), 3, BLACK);
+    button2.setWord("NORMAL");
+    button2.draw(g);
 
-        // Rotate or Snap to Bottom
-        if (g.kbhit()) {
-            switch (toupper(g.getKey())) {
-                case DOWN_ARROW: block.snapToBottom(squares); snapped = true;
-                    break;
-                case LEFT_ARROW: block.rotateCounterClock(squares);
-                    break;
-                case RIGHT_ARROW: block.rotateClock(squares);
-                    break;
-            }
+    Word button3(point(209, 755), 4, BLACK);
+    button3.setWord("FAST");
+    button3.draw(g);
+
+    Word mouseText(point(30, 870), 1, BLACK);
+    mouseText.setWord("USE MOUSE TO SELECT - PRESS ANY KEY TO PLAY");
+    mouseText.draw(g);
+    g.update();
+    g.Sleep(20);
+
+
+    point startMouse = point(0, 0);
+    int levelTime = 400;
+    bool gameStart = true;
+    while (!g.getQuit() && !g.kbhit()) {    
+        g.getMouseLocation(startMouse.x, startMouse.y);
+        if (g.getQuit()) {
+            gameStart = false;
         }
-
-        // Strafe one SIZE towards the mouse cursor
-        g.getMouseLocation(mouse.x, mouse.y);
-        block.strafeToMouse(mouse, squares);
-
-        // Move down one SIZE
-        if (snapped) {
-            score += 1;
-        }
-        if (timeCount == LEVELTIME / 2) {
-            block.moveDown(squares);
-            score += 1;
-        }
-
-        if ((timeCount == LEVELTIME) || snapped) {
-            // If at the bottom or sitting on other Tiles
-            if (block.atBottom() || block.sitting(squares)) {
-                // Dissociate the Tiles from the Current Block, place them in squares, and move the block below the screen
-                block.remove(squares, g);
-
-                // Clear any lines, apply scoring, and redraw the squares
-                numLinesCleared = lineClear(squares, g);
-                if (numLinesCleared == 0) {
-                    tetrisCombo = false;
-                }
-                else if (numLinesCleared == 1) {
-                    score += 100;
-                    tetrisCombo = false;
-                }
-                else if (numLinesCleared == 4) {
-                    if (tetrisCombo) {
-                        score += 1200;
-                    }
-                    else {
-                        score += 800;
-                        tetrisCombo = true;
-                    }
-                }
-                numLinesCleared = 0;
-                for (size_t i = 0; i < squares.size(); i++) {
-                    squares.at(i).draw(g);
-                }
-                for (size_t i = 0; i < squares.size(); i++) {
-                    squares.at(i).draw(g);
-                }
-
-                // "Regenerate" the current block
-                block.newBlock(g);
-                timeCount = LEVELTIME / 2;
-            }
-            snapped = false;
-        }
-
-        // Check for Game Over
-        for (size_t i = 0; i < squares.size(); i++) {
-            if (squares.at(i).getLoc().y < (2 * SIZE)) {
-                gameOver = true;
-                block.moveOff();
-            }
-        }
-
-        // Draw the block
-        block.draw(g);
-
-        // Update the screen and timeCount
-        g.update();
-        g.Sleep(REFRESH);
-        timeCount += REFRESH;
-        if (timeCount > LEVELTIME + 1) {
-            timeCount = 0;
-        }
-        cout << "Current Score: " << score << endl;
-
     }
 
-    // Upon Game Over
-    if (gameOver) {
-        for (size_t i = 0; i < squares.size(); i++) {
-            squares.at(i).setColor(RED);
-            squares.at(i).draw(g);
+    if ((startMouse.x >= 180) && (startMouse.x <= 420)) {
+        if ((startMouse.y >= 420) && (startMouse.y <= 540)) {
+            levelTime = 600;
         }
-        g.update();
-        cout << endl << "Game Over" << endl;
+        else if ((startMouse.y >= 570) && (startMouse.y <= 690)) {
+            levelTime = 400;
+        }
+        else if ((startMouse.y >= 720) && (startMouse.y <= 840)) {
+            levelTime = 100;
+        }
+    }
 
-        // Wait for Plotter Quit to end program
-        while (!g.getQuit()) {;}
+    g.clear();
+    g.update();
+    g.Sleep(500);
+    
+    if (gameStart) {
+        // Data Abstraction
+        vector<Tile> squares(0);
+        bool snapped = false;
+        int numLinesCleared = 0;
+        bool tetrisCombo = false;
+        int score = 0;
+        int timeCount = levelTime / 2;
+        point mouse;
+        bool gameOver = false;
+
+        // Creates the Current_Block object and resets it (instead of a defualt constructor)
+        Current_Block block;
+        block.newBlock(g);
+
+        // Game loop
+        while (!g.getQuit() && !gameOver) { // ESC
+
+            // Rotate or Snap to Bottom
+            if (g.kbhit()) {
+                switch (toupper(g.getKey())) {
+                    case DOWN_ARROW: block.snapToBottom(squares); snapped = true;
+                        break;
+                    case LEFT_ARROW: block.rotateCounterClock(squares);
+                        break;
+                    case RIGHT_ARROW: block.rotateClock(squares);
+                        break;
+                }
+            }
+
+            // Strafe one SIZE towards the mouse cursor
+            g.getMouseLocation(mouse.x, mouse.y);
+            block.strafeToMouse(mouse, squares);
+
+            // Move down one SIZE
+            if (snapped) {
+                score += 1;
+            }
+            if (timeCount == levelTime / 2) {
+                block.moveDown(squares);
+                score += 1;
+            }
+
+            if ((timeCount == levelTime) || snapped) {
+                // If at the bottom or sitting on other Tiles
+                if (block.atBottom() || block.sitting(squares)) {
+                    // Dissociate the Tiles from the Current Block, place them in squares, and move the block below the screen
+                    block.remove(squares, g);
+
+                    // Clear any lines, apply scoring, and redraw the squares
+                    numLinesCleared = lineClear(squares, g);
+                    if (numLinesCleared == 0) {
+                        tetrisCombo = false;
+                    }
+                    else if (numLinesCleared == 1) {
+                        score += 100;
+                        tetrisCombo = false;
+                    }
+                    else if (numLinesCleared == 4) {
+                        if (tetrisCombo) {
+                            score += 1200;
+                        }
+                        else {
+                            score += 800;
+                            tetrisCombo = true;
+                        }
+                    }
+                    numLinesCleared = 0;
+                    for (size_t i = 0; i < squares.size(); i++) {
+                        squares.at(i).draw(g);
+                    }
+                    for (size_t i = 0; i < squares.size(); i++) {
+                        squares.at(i).draw(g);
+                    }
+
+                    // "Regenerate" the current block
+                    block.newBlock(g);
+                    timeCount = levelTime / 2;
+                }
+                snapped = false;
+            }
+
+            // Check for Game Over
+            for (size_t i = 0; i < squares.size(); i++) {
+                if (squares.at(i).getLoc().y < (2 * SIZE)) {
+                    gameOver = true;
+                    block.moveOff();
+                }
+            }
+
+            // Draw the block
+            block.draw(g);
+
+            // Update the screen and timeCount
+            g.update();
+            g.Sleep(REFRESH);
+            timeCount += REFRESH;
+            if (timeCount > levelTime + 1) {
+                timeCount = 0;
+            }
+
+        }
+
+        // Upon Game Over
+        if (gameOver) {
+            for (size_t i = 0; i < squares.size(); i++) {
+                squares.at(i).setColor(RED);
+                squares.at(i).draw(g);
+            }
+            g.update();
+            cout << endl << "Game Over" << endl;
+
+            // Wait for Plotter Quit to end program
+            while (!g.getQuit()) { ; }
+        }
     }
     return 0;
 }

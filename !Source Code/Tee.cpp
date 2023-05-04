@@ -64,12 +64,22 @@ void Block_Tee::setColor(color inColor) {
     d.setColor(block_color);
 }
 
+void Block_Tee::setRotation(int inRot) {
+    if ((inRot <= 4) && (inRot >= 1)) {
+        rotation = inRot;
+    }
+}
+
 point Block_Tee::getLoc() const {
     return loc;
 }
 
 color Block_Tee::getColor() const {
     return block_color;
+}
+
+int Block_Tee::getRotation() const {
+    return rotation;
 }
 
 void Block_Tee::draw(SDL_Plotter& g) {

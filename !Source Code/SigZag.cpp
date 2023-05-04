@@ -52,12 +52,22 @@ void Block_SigZag::setColor(color inColor) {
     d.setColor(block_color);
 }
 
+void Block_SigZag::setRotation(int inRot) {
+    if ((inRot == 1) || (inRot == 2)) {
+        rotation == inRot;
+    }
+}
+
 point Block_SigZag::getLoc() const {
     return loc;
 }
 
 color Block_SigZag::getColor() const {
     return block_color;
+}
+
+int Block_SigZag::getRotation() const {
+    return rotation;
 }
 
 void Block_SigZag::draw(SDL_Plotter& g) {
