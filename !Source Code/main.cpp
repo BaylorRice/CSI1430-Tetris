@@ -534,6 +534,11 @@ int main(int argc, char** argv) {
                 scoreText.setWord("SCORE: " + to_string(score));
                 scoreText.draw(g);
             }
+
+            // ESC Instructions
+            Word endStructions(point(200, 330), 1, BLACK);
+            endStructions.setWord("PRESS ESC TO QUIT");
+            endStructions.draw(g);
             
             g.update();
             g.Sleep(10);
