@@ -511,10 +511,32 @@ int main(int argc, char** argv) {
             Word gameOver(point(90, 120), 4, BLACK);
             gameOver.setWord("GAME OVER");
             gameOver.draw(g);
+            
+            // Score
+            string scoreString = to_string(score);
+            if (scoreString.size() == 1) {
+                Word scoreText(point(150, 210), 3, BLACK);
+                scoreText.setWord("SCORE: " + to_string(score));
+                scoreText.draw(g);
+            }
+            else if (scoreString.size() == 2) {
+                Word scoreText(point(130, 210), 3, BLACK);
+                scoreText.setWord("SCORE: " + to_string(score));
+                scoreText.draw(g);
+            }
+            else if (scoreString.size() == 3) {
+                Word scoreText(point(115, 210), 3, BLACK);
+                scoreText.setWord("SCORE: " + to_string(score));
+                scoreText.draw(g);
+            }
+            else {
+                Word scoreText(point(90, 210), 3, BLACK);
+                scoreText.setWord("SCORE: " + to_string(score));
+                scoreText.draw(g);
+            }
+            
             g.update();
             g.Sleep(10);
-
-            // 
 
             // Wait for Plotter Quit to end program
             while (!g.getQuit()) { ; }
