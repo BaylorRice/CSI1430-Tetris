@@ -494,7 +494,7 @@ int main(int argc, char** argv) {
             g.update();
             cout << endl << "Game Over" << endl;
 
-            //End Screen
+            // End Screen Rectangle
             for (int r = 60; r <= 360; r++) {
                 for (int c = 30; c <= 570; c++) {
                     if ((r == 60) || (r == 359) || (r == 360) ||
@@ -506,6 +506,15 @@ int main(int argc, char** argv) {
                     }
                 }
             }
+
+            // "Game Over"
+            Word gameOver(point(90, 120), 4, BLACK);
+            gameOver.setWord("GAME OVER");
+            gameOver.draw(g);
+            g.update();
+            g.Sleep(10);
+
+            // 
 
             // Wait for Plotter Quit to end program
             while (!g.getQuit()) { ; }
