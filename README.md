@@ -5,6 +5,11 @@ https://classnotes.ecs.baylor.edu/wiki/CSI_1430_Spring_2023_Group_Project
 ## What is this?
 This Git Repo contains the blood sweat and tears of people who don't really know what they are doing creating Tetris using the SDL plotter.
 
+## What are the controls for the game?
+Start Screen: Use Mouse cursor to select a game speed, and press any key on the keyboard to play that speed
+Game: Use the mouse to move the blocks left and right. Press the down arrow to snap the block all the way down
+Game Over: Press escape to close the game
+
 ## What is Git?
 Git is a code storage "standard" that works on **branches**.
 You think think of it through this analogy:
