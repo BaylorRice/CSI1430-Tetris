@@ -329,6 +329,13 @@ int main(int argc, char** argv) {
 
     // The window of power (and extreme frustration)
     SDL_Plotter g(NUM_ROW, NUM_COL);
+    g.initSound("sounds//startGame.wav");
+    g.initSound("sounds//blockSpawn.wav");
+    g.initSound("sounds//lineClear.wav");
+    g.initSound("sounds//tetris.wav");
+    g.initSound("sounds//gameOver.wav");
+    g.initSound("sounds//rotate.wav");
+    g.initSound("sounds//drop.wav");
 
 /// START SCREEN
     drawStart(g);
@@ -376,6 +383,7 @@ int main(int argc, char** argv) {
             levelTime = 100;
         }
     }
+    g.playSound("sounds//startGame.wav");
 
     g.clear();
     g.update();
@@ -396,6 +404,7 @@ int main(int argc, char** argv) {
         // Creates the Current_Block object and resets it (instead of a defualt constructor)
         Current_Block block;
         block.newBlock(g);
+        g.playSound("sounds//blockSpawn.wav");
 
         // Game loop
         while (!g.getQuit() && !gameOver) { // ESC
@@ -404,10 +413,13 @@ int main(int argc, char** argv) {
             if (g.kbhit()) {
                 switch (toupper(g.getKey())) {
                     case DOWN_ARROW: block.snapToBottom(squares); snapped = true;
+                        g.playSound("sounds//drop.wav");
                         break;
                     case LEFT_ARROW: block.rotateCounterClock(squares);
+                        g.playSound("sounds//rotate.wav");
                         break;
                     case RIGHT_ARROW: block.rotateClock(squares);
+                        g.playSound("sounds//rotate.wav");
                         break;
                 }
             }
@@ -436,9 +448,10 @@ int main(int argc, char** argv) {
                     if (numLinesCleared == 0) {
                         tetrisCombo = false;
                     }
-                    else if (numLinesCleared == 1) {
-                        score += 100;
+                    else if ((numLinesCleared >= 1) && (numLinesCleared < 4)) {
+                        score += 100 * numLinesCleared;
                         tetrisCombo = false;
+                        g.playSound("sounds//lineClear.wav");
                     }
                     else if (numLinesCleared == 4) {
                         if (tetrisCombo) {
@@ -448,6 +461,7 @@ int main(int argc, char** argv) {
                             score += 800;
                             tetrisCombo = true;
                         }
+                        g.playSound("sounds//tetris.wav");
                     }
                     numLinesCleared = 0;
                     for (size_t i = 0; i < squares.size(); i++) {
@@ -459,6 +473,7 @@ int main(int argc, char** argv) {
 
                     // "Regenerate" the current block
                     block.newBlock(g);
+                    g.playSound("sounds//blockSpawn.wav");
                     timeCount = levelTime / 2;
                 }
                 snapped = false;
@@ -541,6 +556,7 @@ int main(int argc, char** argv) {
             endStructions.draw(g);
             
             g.update();
+            g.playSound("sounds//gameOver.wav");
             g.Sleep(10);
 
             // Wait for Plotter Quit to end program
