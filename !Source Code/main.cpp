@@ -494,6 +494,19 @@ int main(int argc, char** argv) {
             g.update();
             cout << endl << "Game Over" << endl;
 
+            //End Screen
+            for (int r = 60; r <= 360; r++) {
+                for (int c = 30; c <= 570; c++) {
+                    if ((r == 60) || (r == 359) || (r == 360) ||
+                        (c == 30) || (c == 569) || (c == 570)) {
+                        g.plotPixel(point(c, r), BLACK);
+                    }
+                    else {
+                        g.plotPixel(point(c, r), GREY);
+                    }
+                }
+            }
+
             // Wait for Plotter Quit to end program
             while (!g.getQuit()) { ; }
         }
