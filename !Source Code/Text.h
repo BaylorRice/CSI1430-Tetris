@@ -1,8 +1,8 @@
 /*
 * Authors: Reese Ford, Blaine Daniels
 * Assignment Title: Group Project - Tetris
-* Assignment Description: INSERT DESCRIPTION
-* Due Date: INSERT DUE DATE
+* Assignment Description: Tetris recreated with the SDL Plotter
+* Due Date: 05/04/2023
 * Date Created: 05/04/2023
 * Date Last Modified: 05/04/2023
 */

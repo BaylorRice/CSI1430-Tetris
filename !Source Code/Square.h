@@ -1,10 +1,10 @@
 /*
 * Authors: Reese Ford, MJ Ruhman
 * Assignment Title: Group Project - Tetris
-* Assignment Description: INSERT DESCRIPTION
-* Due Date: INSERT DUE DATE
-* Date Created: 04/26/2023
-* Date Last Modified: 05/02/2023
+* Assignment Description: Tetris recreated with the SDL Plotter
+* Due Date: 05/04/2023
+* Date Created: 04/27/2023
+* Date Last Modified: 05/03/2023
 */
 
 #include <iostream>

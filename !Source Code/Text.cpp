@@ -1,3 +1,12 @@
+/*
+* Authors: Reese Ford, Blaine Daniels
+* Assignment Title: Group Project - Tetris
+* Assignment Description: Tetris recreated with the SDL Plotter
+* Due Date: 05/04/2023
+* Date Created: 05/04/2023
+* Date Last Modified: 05/04/2023
+*/
+
 #include "Text.h"
 #include "SDL_Plotter.h"
 #include "Constants.h"
