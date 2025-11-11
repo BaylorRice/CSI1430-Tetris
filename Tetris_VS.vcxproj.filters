@@ -17,200 +17,201 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\!Source Code\main.cpp" />
-    <ClCompile Include="..\..\!Source Code\SDL_Plotter.cpp">
+    <ClCompile Include="src\LeftL.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Line.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RightL.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SigZag.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Square.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tee.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Text.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tile.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ZigZag.cpp">
+      <Filter>CPP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\SDL_Plotter.cpp">
       <Filter>SDL Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\!Source Code\Tile.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\!Source Code\LeftL.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\!Source Code\Square.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\!Source Code\Tee.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\!Source Code\Line.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\!Source Code\RightL.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\!Source Code\SigZag.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\!Source Code\ZigZag.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\!Source Code\Text.cpp">
-      <Filter>CPP Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\!Source Code\SDL_Plotter.h">
+    <ClInclude Include="src\Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LeftL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Line.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RightL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SigZag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Square.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\startScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ZigZag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SDL_Plotter.h">
       <Filter>SDL Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\!Source Code\Constants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\Tile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\LeftL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\Text.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\!Source Code\Square.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\Tee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\Line.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\RightL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\SigZag.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\ZigZag.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\startScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\..\!Source Code\font\-.txt">
+    <Text Include="src\font\-.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\_.txt">
+    <Text Include="src\font\_.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\0.txt">
+    <Text Include="src\font\0.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\1.txt">
+    <Text Include="src\font\1.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\2.txt">
+    <Text Include="src\font\2.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\3.txt">
+    <Text Include="src\font\3.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\4.txt">
+    <Text Include="src\font\4.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\5.txt">
+    <Text Include="src\font\5.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\6.txt">
+    <Text Include="src\font\6.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\8.txt">
+    <Text Include="src\font\7.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\7.txt">
+    <Text Include="src\font\8.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\9.txt">
+    <Text Include="src\font\9.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\A.txt">
+    <Text Include="src\font\A.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\B.txt">
+    <Text Include="src\font\B.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\C.txt">
+    <Text Include="src\font\C.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\COLON.txt">
+    <Text Include="src\font\colon.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\D.txt">
+    <Text Include="src\font\D.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\E.txt">
+    <Text Include="src\font\E.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\F.txt">
+    <Text Include="src\font\EXAMPLE.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\G.txt">
+    <Text Include="src\font\F.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\H.txt">
+    <Text Include="src\font\G.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\I.txt">
+    <Text Include="src\font\H.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\J.txt">
+    <Text Include="src\font\I.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\K.txt">
+    <Text Include="src\font\J.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\L.txt">
+    <Text Include="src\font\K.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\M.txt">
+    <Text Include="src\font\L.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\O.txt">
+    <Text Include="src\font\M.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\P.txt">
+    <Text Include="src\font\N.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\PossibleCharacters.txt">
+    <Text Include="src\font\O.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\Q.txt">
+    <Text Include="src\font\P.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\R.txt">
+    <Text Include="src\font\PossibleCharacters.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\S.txt">
+    <Text Include="src\font\Q.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\SPACE.txt">
+    <Text Include="src\font\R.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\T.txt">
+    <Text Include="src\font\S.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\U.txt">
+    <Text Include="src\font\SPACE.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\V.txt">
+    <Text Include="src\font\T.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\W.txt">
+    <Text Include="src\font\U.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\X.txt">
+    <Text Include="src\font\V.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\Y.txt">
+    <Text Include="src\font\W.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\Z.txt">
+    <Text Include="src\font\X.txt">
       <Filter>font</Filter>
     </Text>
-    <Text Include="..\..\!Source Code\font\N.txt">
+    <Text Include="src\font\Y.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="src\font\Z.txt">
       <Filter>font</Filter>
     </Text>
   </ItemGroup>
