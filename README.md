@@ -1,6 +1,5 @@
 # CSI1430-Tetris
 Final Project for Spring CSI1430, Tetris *plays type-a*
-https://classnotes.ecs.baylor.edu/wiki/CSI_1430_Spring_2023_Group_Project
 
 ## Build Instructions
 Requires vcpkg to install the files used by SDL Plotter.\
