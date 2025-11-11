@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -73,6 +73,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>"C:\Users\reese\Documents\VS PackMan\vcpkg\installed\x64-windows\lib";$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,7 +115,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;manual-link\SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2d.lib;manual-link\SDL2maind.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,80 +132,79 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;manual-link\SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\!Source Code\LeftL.cpp" />
-    <ClCompile Include="..\..\!Source Code\Line.cpp" />
-    <ClCompile Include="..\..\!Source Code\main.cpp" />
-    <ClCompile Include="..\..\!Source Code\RightL.cpp" />
-    <ClCompile Include="..\..\!Source Code\SDL_Plotter.cpp" />
-    <ClCompile Include="..\..\!Source Code\SigZag.cpp" />
-    <ClCompile Include="..\..\!Source Code\Square.cpp" />
-    <ClCompile Include="..\..\!Source Code\Tee.cpp" />
-    <ClCompile Include="..\..\!Source Code\Text.cpp" />
-    <ClCompile Include="..\..\!Source Code\Tile.cpp" />
-    <ClCompile Include="..\..\!Source Code\ZigZag.cpp" />
+    <ClCompile Include="src\LeftL.cpp" />
+    <ClCompile Include="src\Line.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\RightL.cpp" />
+    <ClCompile Include="src\SDL_Plotter.cpp" />
+    <ClCompile Include="src\SigZag.cpp" />
+    <ClCompile Include="src\Square.cpp" />
+    <ClCompile Include="src\Tee.cpp" />
+    <ClCompile Include="src\Text.cpp" />
+    <ClCompile Include="src\Tile.cpp" />
+    <ClCompile Include="src\ZigZag.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\!Source Code\Constants.h" />
-    <ClInclude Include="..\..\!Source Code\LeftL.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="..\..\!Source Code\Line.h" />
-    <ClInclude Include="..\..\!Source Code\RightL.h" />
-    <ClInclude Include="..\..\!Source Code\SDL_Plotter.h" />
-    <ClInclude Include="..\..\!Source Code\SigZag.h" />
-    <ClInclude Include="..\..\!Source Code\Square.h" />
-    <ClInclude Include="..\..\!Source Code\startScreen.h" />
-    <ClInclude Include="..\..\!Source Code\Tee.h" />
-    <ClInclude Include="..\..\!Source Code\Text.h" />
-    <ClInclude Include="..\..\!Source Code\Tile.h" />
-    <ClInclude Include="..\..\!Source Code\ZigZag.h" />
+    <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\LeftL.h" />
+    <ClInclude Include="src\Line.h" />
+    <ClInclude Include="src\RightL.h" />
+    <ClInclude Include="src\SDL_Plotter.h" />
+    <ClInclude Include="src\SigZag.h" />
+    <ClInclude Include="src\Square.h" />
+    <ClInclude Include="src\startScreen.h" />
+    <ClInclude Include="src\Tee.h" />
+    <ClInclude Include="src\Text.h" />
+    <ClInclude Include="src\Tile.h" />
+    <ClInclude Include="src\ZigZag.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\!Source Code\font\-.txt" />
-    <Text Include="..\..\!Source Code\font\0.txt" />
-    <Text Include="..\..\!Source Code\font\1.txt" />
-    <Text Include="..\..\!Source Code\font\2.txt" />
-    <Text Include="..\..\!Source Code\font\3.txt" />
-    <Text Include="..\..\!Source Code\font\4.txt" />
-    <Text Include="..\..\!Source Code\font\5.txt" />
-    <Text Include="..\..\!Source Code\font\6.txt" />
-    <Text Include="..\..\!Source Code\font\7.txt" />
-    <Text Include="..\..\!Source Code\font\8.txt" />
-    <Text Include="..\..\!Source Code\font\9.txt" />
-    <Text Include="..\..\!Source Code\font\A.txt" />
-    <Text Include="..\..\!Source Code\font\B.txt" />
-    <Text Include="..\..\!Source Code\font\C.txt" />
-    <Text Include="..\..\!Source Code\font\COLON.txt" />
-    <Text Include="..\..\!Source Code\font\D.txt" />
-    <Text Include="..\..\!Source Code\font\E.txt" />
-    <Text Include="..\..\!Source Code\font\F.txt" />
-    <Text Include="..\..\!Source Code\font\G.txt" />
-    <Text Include="..\..\!Source Code\font\H.txt" />
-    <Text Include="..\..\!Source Code\font\I.txt" />
-    <Text Include="..\..\!Source Code\font\J.txt" />
-    <Text Include="..\..\!Source Code\font\K.txt" />
-    <Text Include="..\..\!Source Code\font\L.txt" />
-    <Text Include="..\..\!Source Code\font\M.txt" />
-    <Text Include="..\..\!Source Code\font\N.txt" />
-    <Text Include="..\..\!Source Code\font\O.txt" />
-    <Text Include="..\..\!Source Code\font\P.txt" />
-    <Text Include="..\..\!Source Code\font\PossibleCharacters.txt" />
-    <Text Include="..\..\!Source Code\font\Q.txt" />
-    <Text Include="..\..\!Source Code\font\R.txt" />
-    <Text Include="..\..\!Source Code\font\S.txt" />
-    <Text Include="..\..\!Source Code\font\SPACE.txt" />
-    <Text Include="..\..\!Source Code\font\T.txt" />
-    <Text Include="..\..\!Source Code\font\U.txt" />
-    <Text Include="..\..\!Source Code\font\V.txt" />
-    <Text Include="..\..\!Source Code\font\W.txt" />
-    <Text Include="..\..\!Source Code\font\X.txt" />
-    <Text Include="..\..\!Source Code\font\Y.txt" />
-    <Text Include="..\..\!Source Code\font\Z.txt" />
-    <Text Include="..\..\!Source Code\font\_.txt" />
+    <Text Include="src\font\-.txt" />
+    <Text Include="src\font\0.txt" />
+    <Text Include="src\font\1.txt" />
+    <Text Include="src\font\2.txt" />
+    <Text Include="src\font\3.txt" />
+    <Text Include="src\font\4.txt" />
+    <Text Include="src\font\5.txt" />
+    <Text Include="src\font\6.txt" />
+    <Text Include="src\font\7.txt" />
+    <Text Include="src\font\8.txt" />
+    <Text Include="src\font\9.txt" />
+    <Text Include="src\font\A.txt" />
+    <Text Include="src\font\B.txt" />
+    <Text Include="src\font\C.txt" />
+    <Text Include="src\font\colon.txt" />
+    <Text Include="src\font\D.txt" />
+    <Text Include="src\font\E.txt" />
+    <Text Include="src\font\EXAMPLE.txt" />
+    <Text Include="src\font\F.txt" />
+    <Text Include="src\font\G.txt" />
+    <Text Include="src\font\H.txt" />
+    <Text Include="src\font\I.txt" />
+    <Text Include="src\font\J.txt" />
+    <Text Include="src\font\K.txt" />
+    <Text Include="src\font\L.txt" />
+    <Text Include="src\font\M.txt" />
+    <Text Include="src\font\N.txt" />
+    <Text Include="src\font\O.txt" />
+    <Text Include="src\font\P.txt" />
+    <Text Include="src\font\PossibleCharacters.txt" />
+    <Text Include="src\font\Q.txt" />
+    <Text Include="src\font\R.txt" />
+    <Text Include="src\font\S.txt" />
+    <Text Include="src\font\SPACE.txt" />
+    <Text Include="src\font\T.txt" />
+    <Text Include="src\font\U.txt" />
+    <Text Include="src\font\V.txt" />
+    <Text Include="src\font\W.txt" />
+    <Text Include="src\font\X.txt" />
+    <Text Include="src\font\Y.txt" />
+    <Text Include="src\font\Z.txt" />
+    <Text Include="src\font\_.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
